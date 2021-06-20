@@ -1,5 +1,3 @@
-![](src/main/resources/assets/harvestfestival/logo.png)
-
 Piscary is the fishing element of the Harvest Festival Collection. It adds a bunch of new fish to catch in different biomes as well as entity versions for them all! Also included are the hatchery where you can duplicate your fish and the fish trap which will catch fish for you, although it must be seeded with bait!
 
 More information about Piscary and downloads can be found on //TODO
@@ -12,15 +10,15 @@ Add to your build.gradle:
 ```gradle
 repositories {
   maven {
-    // url of the maven that hosts piscary files
-    url //TODO
+    url 'https://maven.joshiejack.uk/'
   }
 }
 
 dependencies {
-  // compile against Piscary
-  deobfCompile "uk.joshiejack.piscary:Piscary:${minecraft_version}-${piscary_version}"
+    compile fg.deobf("uk.joshiejack.penguinlib:Penguin-Lib:${minecraft_version}-${penguinlib_version}")
+    compile fg.deobf("uk.joshiejack.piscary:Piscary:${minecraft_version}-${piscary_version}")
 }
 ```
 
-`${minecraft_version}` & `${piscary_version}` can be found //TODO, check the file name of the version you want.
+`${$penguinlib_version}` can be found [here](https://maven.joshiejack.uk/uk/joshiejack/penguinlib/Penguin-Lib/)
+`${piscary_version}` can be found [here](https://maven.joshiejack.uk/uk/joshiejack/piscary/Piscary/)
