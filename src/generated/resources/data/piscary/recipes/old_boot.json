@@ -1,9 +1,0 @@
-{
-  "type": "piscary:recycler",
-  "ingredient": {
-    "item": "piscary:old_boot"
-  },
-  "result": {
-    "item": "minecraft:leather"
-  }
-}
