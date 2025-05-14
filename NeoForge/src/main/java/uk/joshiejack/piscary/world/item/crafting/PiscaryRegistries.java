@@ -1,10 +1,8 @@
 package uk.joshiejack.piscary.world.item.crafting;
 
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.MobBucketItem;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -23,16 +21,14 @@ import uk.joshiejack.piscary.mixin.PiscaryBucketAccessor;
 import javax.annotation.Nullable;
 
 @SuppressWarnings("unused")
-@Mod.EventBusSubscriber(modid = Piscary.MODID)
+@Mod.EventBusSubscriber(modid = Piscary.MOD_ID)
 public class PiscaryRegistries {
-    public static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS = DeferredRegister.create(Registries.RECIPE_SERIALIZER, Piscary.MODID);
-    public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, Piscary.MODID);
+    public static final DeferredRegister<RecipeSerializer<?>> SERIALIZERS = DeferredRegister.create(Registries.RECIPE_SERIALIZER, Piscary.MOD_ID);
+    public static final DeferredRegister<RecipeType<?>> RECIPE_TYPES = DeferredRegister.create(Registries.RECIPE_TYPE, Piscary.MOD_ID);
     public static final DeferredHolder<RecipeSerializer<?>, SimplePenguinRecipe.Serializer<RecyclerRecipe>> RECYCLER_SERIALIZER = SERIALIZERS.register("recycler", () -> new SimplePenguinRecipe.Serializer<>(RecyclerRecipe::new));
     public static final DeferredHolder<RecipeType<?>, RecipeType<RecyclerRecipe>> RECYCLER = RECIPE_TYPES.register("recycler", () -> RecipeType.simple(Piscary.id("recycler")));
-    public static final DataMapType<EntityType<?>, HatcheryEntry> HATCHERY = DataMapType.builder(new ResourceLocation(Piscary.MODID, "hatchery"), Registries.ENTITY_TYPE,
+    public static final DataMapType<EntityType<?>, HatcheryEntry> HATCHERY = DataMapType.builder(new ResourceLocation(Piscary.MOD_ID, "hatchery"), Registries.ENTITY_TYPE,
             HatcheryEntry.CODEC).synced(HatcheryEntry.CODEC, true).build();
-    public static final DataMapType<Item, EntityType<?>> BUCKET_TO_FISH = DataMapType.builder(new ResourceLocation(Piscary.MODID, "bucket_to_fish"), Registries.ITEM,
-            BuiltInRegistries.ENTITY_TYPE.byNameCodec()).synced(BuiltInRegistries.ENTITY_TYPE.byNameCodec(), true).build();
 
     //    private static final Map<EntityType<?>, HatcheryEntry> HATCHERY = new Object2ObjectOpenHashMap<>();
     //private static final Map<Item, EntityType<?>> BUCKET_TO_FISH = new Object2ObjectOpenHashMap<>();
@@ -54,8 +50,8 @@ public class PiscaryRegistries {
 //                });
     }
 
-    public static boolean containsFish(ItemStack stack) {
-        return stack.getItem() instanceof MobBucketItem || stack.getItemHolder().getData(BUCKET_TO_FISH) != null;
+    public static boolean containsFish(ItemStack itemStack) {
+        return itemStack.getItem() instanceof MobBucketItem;
     }
 
     @SuppressWarnings("deprecation")
@@ -65,10 +61,8 @@ public class PiscaryRegistries {
     }
 
     @Nullable
-    public static EntityType<?> getFishFromItem(ItemStack stack) {
-        if (stack.getItem() instanceof MobBucketItem bucket)
-            return ((PiscaryBucketAccessor)bucket).getEntityType();
-        return stack.getItemHolder().getData(BUCKET_TO_FISH);
+    public static EntityType<?> getFishFromItem(ItemStack itemStack) {
+        return itemStack.getItem() instanceof MobBucketItem item ? item.type : null;
     }
 
     @SuppressWarnings("deprecation")

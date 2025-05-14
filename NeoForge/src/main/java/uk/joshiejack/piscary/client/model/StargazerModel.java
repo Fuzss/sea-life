@@ -8,11 +8,10 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import uk.joshiejack.piscary.Piscary;
-import uk.joshiejack.piscary.client.model.AbstractFishModel;
 
 
 public class StargazerModel extends AbstractFishModel {
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(Piscary.MODID, "stargazer"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(Piscary.MOD_ID, "stargazer"), "main");
 	private final ModelPart fins;
 
 	public StargazerModel(ModelPart root) {

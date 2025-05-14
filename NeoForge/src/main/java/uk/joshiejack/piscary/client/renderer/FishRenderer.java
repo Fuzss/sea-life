@@ -16,7 +16,7 @@ public class FishRenderer extends MobRenderer<AbstractFish, EntityModel<Abstract
 
     public FishRenderer(EntityRendererProvider.Context manager, EntityModel<AbstractFish> model, String entity) {
         super(manager, model, 0.35F);
-        this.texture = new ResourceLocation(Piscary.MODID, "textures/entity/" + entity + ".png");
+        this.texture = new ResourceLocation(Piscary.MOD_ID, "textures/entity/" + entity + ".png");
     }
 
     @Override

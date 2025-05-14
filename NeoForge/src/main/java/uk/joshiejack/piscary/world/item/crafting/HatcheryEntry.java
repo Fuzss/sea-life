@@ -22,7 +22,6 @@ public class HatcheryEntry {
             BuiltInRegistries.ITEM.byNameCodec().optionalFieldOf("fish_bucket", Items.AIR).forGetter(HatcheryEntry::getFishBucket)
     ).apply(instance, HatcheryEntry::new));
     public static final HatcheryEntry DEFAULT = new HatcheryEntry(3, Items.AIR, Items.AIR);
-    private static Method getBucketItemStack = null;
     private final int cycles;
     private final Item fishBucket;
     private final Item emptyBucket;

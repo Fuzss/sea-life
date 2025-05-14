@@ -21,7 +21,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-@Mod.EventBusSubscriber(value = Dist.CLIENT, modid = Piscary.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(value = Dist.CLIENT, modid = Piscary.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class PiscaryClient {
 
     @SubscribeEvent

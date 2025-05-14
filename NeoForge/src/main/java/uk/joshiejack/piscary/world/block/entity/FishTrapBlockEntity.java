@@ -38,7 +38,7 @@ public class FishTrapBlockEntity extends InventoryBlockEntity {
     }
 
     public int getTimeUnit() {
-        long half = TimeUnitRegistry.get(Piscary.MODID + ":fish_trap");
+        long half = TimeUnitRegistry.get(Piscary.MOD_ID + ":fish_trap");
         return (int) half + (level.random.nextInt((int) half * 2) * (1 + level.random.nextInt(3)));
     }
 

@@ -1,4 +1,4 @@
-package uk.joshiejack.piscary.world.entity;
+package uk.joshiejack.piscary.world.entity.animal;
 
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.goal.FollowBoatGoal;
@@ -7,11 +7,12 @@ import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import uk.joshiejack.piscary.init.PiscaryItems;
 
-public class PiranhaEntity extends SolitaryFishEntity {
+public class Piranha extends SolitaryFish {
 
-    public PiranhaEntity(EntityType<? extends SolitaryFishEntity> entityType, Level level) {
-        super(entityType, level);
+    public Piranha(EntityType<? extends SolitaryFish> entityType, Level level) {
+        super(entityType, level, PiscaryItems.PIRANHA_BUCKET);
     }
 
     @Override

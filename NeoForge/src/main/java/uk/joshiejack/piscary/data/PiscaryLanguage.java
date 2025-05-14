@@ -11,7 +11,7 @@ import uk.joshiejack.piscary.init.PiscaryItems;
 
 public class PiscaryLanguage extends LanguageProvider {
     public PiscaryLanguage(PackOutput output) {
-        super(output, Piscary.MODID, "en_us");
+        super(output, Piscary.MOD_ID, "en_us");
     }
 
     @Override
@@ -152,13 +152,12 @@ public class PiscaryLanguage extends LanguageProvider {
         addItem(PiscaryItems.FISH_FINGERS, "Fish Fingers");
         addItem(PiscaryItems.SASHIMI, "Sashimi");
         addItem(PiscaryItems.FISH_STEW, "Fish Stew");
-        addItem(PiscaryItems.BAIT, "Bait");
         addBlock(ModBlocks.HATCHERY, "Hatchery");
         addBlock(ModBlocks.FISH_TRAP, "Fish Trap");
         addBlock(ModBlocks.RECYCLER, "Recycler");
     }
 
     public void addItemFromName(String name, String text) {
-        addItem(()-> BuiltInRegistries.ITEM.get(new ResourceLocation(Piscary.MODID, name)), text);
+        addItem(()-> BuiltInRegistries.ITEM.get(new ResourceLocation(Piscary.MOD_ID, name)), text);
     }
 }

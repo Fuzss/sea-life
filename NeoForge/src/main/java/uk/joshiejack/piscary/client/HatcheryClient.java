@@ -10,7 +10,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import uk.joshiejack.penguinlib.event.DatabaseLoadedEvent;
 import uk.joshiejack.piscary.Piscary;
 
-@Mod.EventBusSubscriber(value = Dist.CLIENT, modid = Piscary.MODID)
+@Mod.EventBusSubscriber(value = Dist.CLIENT, modid = Piscary.MOD_ID)
 public class HatcheryClient {
     private static final Object2FloatMap<EntityType<?>> HATCHERY_RENDERERS = new Object2FloatOpenHashMap<>();
 

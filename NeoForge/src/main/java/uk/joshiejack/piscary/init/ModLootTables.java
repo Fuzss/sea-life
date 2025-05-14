@@ -15,6 +15,8 @@ import java.util.Map;
 
 public class ModLootTables {
     static final Map<ResourceLocation, ResourceKey<LootTable>> LOOT_TABLE_INJECTIONS = new HashMap<>();
+    public static final ResourceKey<LootTable> TREASURE_ITEM = ModRegistry.REGISTRIES.makeResourceKey(Registries.LOOT_TABLE,
+            "gameplay/treasure_item");
     public static final ResourceKey<LootTable> FISHING_FISH_INJECTION = registerLootTableInjection(BuiltInLootTables.FISHING_FISH);
     public static final ResourceKey<LootTable> FISHING_JUNK_INJECTION = registerLootTableInjection(BuiltInLootTables.FISHING_JUNK);
     public static final ResourceKey<LootTable> FISHING_TREASURE_INJECTION = registerLootTableInjection(BuiltInLootTables.FISHING_TREASURE);

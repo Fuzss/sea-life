@@ -1,4 +1,4 @@
-package uk.joshiejack.piscary.world.entity.shoaling;
+package uk.joshiejack.piscary.world.entity.animal;
 
 import net.minecraft.core.Holder;
 import net.minecraft.sounds.SoundEvent;
@@ -23,6 +23,17 @@ public class ShoalingFish extends AbstractSchoolingFish {
         super(entityType, level);
         this.bucketItem = bucketItem;
         this.maxSchoolSize = maxSchoolSize;
+    }
+
+    public static <T extends ShoalingFish> EntityType.EntityFactory<T> create(Holder<Item> bucketItem) {
+        return (EntityType<T> entityType, Level level) -> (T) new ShoalingFish(entityType, level, bucketItem);
+    }
+
+    public static <T extends ShoalingFish> EntityType.EntityFactory<T> create(Holder<Item> bucketItem, int maxSchoolSize) {
+        return (EntityType<T> entityType, Level level) -> (T) new ShoalingFish(entityType,
+                level,
+                bucketItem,
+                OptionalInt.of(maxSchoolSize));
     }
 
     @Override

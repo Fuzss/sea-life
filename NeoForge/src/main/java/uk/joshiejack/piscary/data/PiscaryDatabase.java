@@ -6,31 +6,28 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.AbstractFish;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import uk.joshiejack.penguinlib.data.TimeUnitRegistry;
 import uk.joshiejack.penguinlib.data.database.CSVUtils;
 import uk.joshiejack.penguinlib.data.generator.AbstractDatabaseProvider;
 import uk.joshiejack.piscary.Piscary;
-import uk.joshiejack.piscary.world.block.entity.PiscaryBlockEntities;
-import uk.joshiejack.piscary.init.PiscaryItems;
 
 import java.util.function.Supplier;
 
 public class PiscaryDatabase extends AbstractDatabaseProvider {
     public PiscaryDatabase(PackOutput output) {
-        super(output, Piscary.MODID);
+        super(output, Piscary.MOD_ID);
     }
 
     @Override
     protected void addDatabaseEntries() {
-        addTimeUnitForMachine(PiscaryBlockEntities.FISH_TRAP.get(), TimeUnitRegistry.Defaults.HALF_HOUR);
-        addTimeUnitForMachine(PiscaryBlockEntities.RECYCLER.get(), TimeUnitRegistry.Defaults.HOUR);
-        addTimeUnitForMachine(PiscaryBlockEntities.HATCHERY.get(), TimeUnitRegistry.Defaults.DAY);
-        addLootTableMerge(BuiltInLootTables.FISHING_FISH);
-        addLootTableMerge(BuiltInLootTables.FISHING_JUNK);
-        addLootTableMerge(BuiltInLootTables.FISHING_TREASURE);
-        addBait(PiscaryItems.BAIT, BuiltInLootTables.FISHING_FISH, 1, 0);
-        addAquacultureBait("worm", BuiltInLootTables.FISHING_FISH, 1, 0);
+//        addTimeUnitForMachine(PiscaryBlockEntities.FISH_TRAP.get(), TimeUnitRegistry.Defaults.HALF_HOUR);
+//        addTimeUnitForMachine(PiscaryBlockEntities.RECYCLER.get(), TimeUnitRegistry.Defaults.HOUR);
+//        addTimeUnitForMachine(PiscaryBlockEntities.HATCHERY.get(), TimeUnitRegistry.Defaults.DAY);
+//        addLootTableMerge(BuiltInLootTables.FISHING_FISH);
+//        addLootTableMerge(BuiltInLootTables.FISHING_JUNK);
+//        addLootTableMerge(BuiltInLootTables.FISHING_TREASURE);
+//        addBait(PiscaryItems.BAIT, BuiltInLootTables.FISHING_FISH, 1, 0);
+//        addAquacultureBait("worm", BuiltInLootTables.FISHING_FISH, 1, 0);
         //################# FISH HATCHERY DATA ##################//
 //        addHatcheryEntryAny(() -> EntityType.COD, 3);
 //        addHatcheryEntryAny(() -> EntityType.SALMON, 3);

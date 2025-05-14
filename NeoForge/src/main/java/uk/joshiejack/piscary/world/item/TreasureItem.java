@@ -1,57 +1,56 @@
 package uk.joshiejack.piscary.world.item;
 
-import com.google.common.collect.Lists;
-import net.minecraft.resources.ResourceLocation;
+import fuzs.puzzleslib.api.item.v2.GiveItemHelper;
+import fuzs.puzzleslib.api.util.v1.InteractionResultHelper;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResultHolder;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
-import net.neoforged.neoforge.items.ItemHandlerHelper;
+import uk.joshiejack.piscary.init.ModLootTables;
+import uk.joshiejack.piscary.init.ModRegistry;
 
-import javax.annotation.Nonnull;
 import java.util.List;
 
 public class TreasureItem extends Item {
+    private final ResourceKey<LootTable> lootTable;
 
-    public TreasureItem(Item.Properties properties) {
+    public TreasureItem(Item.Properties properties, ResourceKey<LootTable> lootTable) {
         super(properties);
+        this.lootTable = lootTable;
     }
 
-    @SuppressWarnings("ConstantConditions")
     @Override
-    @Nonnull
-    public InteractionResultHolder<ItemStack> use(@Nonnull Level world, Player player, @Nonnull InteractionHand hand) {
-        ItemStack stack = player.getItemInHand(hand);
-        if (world instanceof ServerLevel level) {
-            LootParams.Builder builder = new LootParams.Builder(level)
-                    .withParameter(LootContextParams.ORIGIN, player.position())
-                    .withParameter(LootContextParams.TOOL, stack)
-                    .withParameter(LootContextParams.KILLER_ENTITY, player)
+    public InteractionResult use(Level level, Player player, InteractionHand interactionHand) {
+
+        ItemStack itemInHand = player.getItemInHand(interactionHand);
+        ItemStack originalItemInHand = itemInHand.copy();
+        // consume first, so the slot can potentially be used for received items
+        itemInHand.consume(1, player);
+
+        if (level instanceof ServerLevel serverLevel) {
+
+            LootTable lootTable = serverLevel.getServer()
+                    .reloadableRegistries()
+                    .getLootTable(this.lootTable);
+            List<ItemStack> items = lootTable.getRandomItems(new LootParams.Builder(serverLevel).withParameter(
+                            LootContextParams.ORIGIN,
+                            player.position())
+                    .withParameter(LootContextParams.TOOL, originalItemInHand)
                     .withOptionalParameter(LootContextParams.THIS_ENTITY, player)
-                    .withLuck(player.getLuck());
-
-
-            List<ItemStack> result = Lists.newArrayList();
-            while (result.isEmpty()) {
-                ResourceLocation table = BuiltInLootTables.all().stream()
-                        .skip(player.getRandom().nextInt(BuiltInLootTables.all().size()))
-                        .findFirst().orElse(BuiltInLootTables.FISHING);
-                LootTable loottable = world.getServer().getLootData().getLootTable(table);
-                result = loottable.getRandomItems(builder.create(LootContextParamSets.FISHING));
+                    .create(ModRegistry.TREASURE_ITEM_LOOT_CONTEXT_PARAM_SET));
+            for (ItemStack itemStack : items) {
+                GiveItemHelper.giveItem(itemStack, (ServerPlayer) player);
             }
-
-            result.forEach((itemstack) -> ItemHandlerHelper.giveItemToPlayer(player, itemstack));
         }
 
-        stack.shrink(1);
-        return InteractionResultHolder.success(stack);
+        return InteractionResultHelper.sidedSuccess(itemInHand, level.isClientSide);
     }
 }

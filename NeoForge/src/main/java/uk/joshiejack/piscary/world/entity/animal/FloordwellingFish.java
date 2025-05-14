@@ -1,6 +1,7 @@
-package uk.joshiejack.piscary.world.entity;
+package uk.joshiejack.piscary.world.entity.animal;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.world.entity.EntitySelector;
 import net.minecraft.world.entity.EntityType;
@@ -10,6 +11,7 @@ import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
 import net.minecraft.world.entity.ai.util.DefaultRandomPos;
 import net.minecraft.world.entity.animal.AbstractFish;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.level.pathfinder.PathType;
@@ -17,11 +19,15 @@ import net.minecraft.world.phys.Vec3;
 
 import javax.annotation.Nullable;
 
-public class FloordwellingFishEntity extends SolitaryFishEntity {
+public class FloordwellingFish extends SolitaryFish {
 
-    public FloordwellingFishEntity(EntityType<? extends FloordwellingFishEntity> entityType, Level level) {
-        super(entityType, level);
+    public FloordwellingFish(EntityType<? extends SolitaryFish> entityType, Level level, Holder<Item> bucketItem) {
+        super(entityType, level, bucketItem);
         this.setPathfindingMalus(PathType.WATER, 0.0F);
+    }
+
+    public static <T extends SolitaryFish> EntityType.EntityFactory<T> create(Holder<Item> bucketItem) {
+        return (EntityType<T> entityType, Level level) -> (T) new FloordwellingFish(entityType, level, bucketItem);
     }
 
     @Override
@@ -40,6 +46,7 @@ public class FloordwellingFishEntity extends SolitaryFishEntity {
         }
 
         @Nullable
+        @Override
         protected Vec3 getPosition() {
             Vec3 vector3d = DefaultRandomPos.getPos(this.mob, 1, 1);
             for (int i = 0; vector3d != null && !this.mob.level()

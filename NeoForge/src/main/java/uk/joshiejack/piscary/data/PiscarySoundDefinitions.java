@@ -15,7 +15,7 @@ public class PiscarySoundDefinitions extends SoundDefinitionsProvider {
      * @param helper The existing file helper provided by the event you are initializing this provider in.
      */
     public PiscarySoundDefinitions(PackOutput output, ExistingFileHelper helper) {
-        super(output, Piscary.MODID, helper);
+        super(output, Piscary.MOD_ID, helper);
     }
 
     @Override
@@ -25,6 +25,6 @@ public class PiscarySoundDefinitions extends SoundDefinitionsProvider {
     }
 
     protected static SoundDefinition.Sound sound(final String name) {
-        return sound(new ResourceLocation(Piscary.MODID, name));
+        return sound(new ResourceLocation(Piscary.MOD_ID, name));
     }
 }

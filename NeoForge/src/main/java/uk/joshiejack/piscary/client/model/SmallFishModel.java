@@ -10,7 +10,7 @@ import uk.joshiejack.piscary.Piscary;
 
 
 public class SmallFishModel extends AbstractFishModel {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(Piscary.MODID, "small_fish"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(Piscary.MOD_ID, "small_fish"), "main");
 
     public SmallFishModel(ModelPart root) {
         super(root);

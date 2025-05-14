@@ -7,10 +7,9 @@ import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
 import uk.joshiejack.piscary.Piscary;
-import uk.joshiejack.piscary.client.model.AbstractFishModel;
 
 public class AngelfishModel extends AbstractFishModel {
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(Piscary.MODID, "angelfish"), "main");
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(Piscary.MOD_ID, "angelfish"), "main");
 
 	public AngelfishModel(ModelPart root) {
 		super(root);
