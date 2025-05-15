@@ -6,8 +6,9 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import uk.joshiejack.piscary.init.ModRegistry;
-import uk.joshiejack.piscary.init.PiscaryItems;
+import uk.joshiejack.piscary.init.ModItems;
 
 public class ModItemTagProvider extends AbstractTagProvider<Item> {
 
@@ -17,42 +18,43 @@ public class ModItemTagProvider extends AbstractTagProvider<Item> {
 
     @Override
     public void addTags(HolderLookup.Provider registries) {
+        this.tag(ModRegistry.FISHES_ITEM_TAG)
+                .add(ModItems.ANCHOVY.value(),
+                        ModItems.ANGELFISH.value(),
+                        ModItems.ANGLERFISH.value(),
+                        ModItems.BASS.value(),
+                        ModItems.BLUE_TANG.value(),
+                        ModItems.BOWFIN.value(),
+                        ModItems.BUTTERFLYFISH.value(),
+                        ModItems.CARP.value(),
+                        ModItems.CATFISH.value(),
+                        ModItems.CHUB.value(),
+                        ModItems.DAMSELFISH.value(),
+                        ModItems.ELECTRIC_RAY.value(),
+                        ModItems.GOLDFISH.value(),
+                        ModItems.KOI.value(),
+                        ModItems.LAMPREY.value(),
+                        ModItems.LUNGFISH.value(),
+                        ModItems.MANTA_RAY.value(),
+                        ModItems.MINNOW.value(),
+                        ModItems.NEON_TETRA.value(),
+                        ModItems.NORTHERN_PIKE.value(),
+                        ModItems.PERCH.value(),
+                        ModItems.PICKEREL.value(),
+                        ModItems.PIRANHA.value(),
+                        ModItems.PUPFISH.value(),
+                        ModItems.SARDINE.value(),
+                        ModItems.SIAMESE_FIGHTING_FISH.value(),
+                        ModItems.WHITEMARGIN_STARGAZER.value(),
+                        ModItems.STINGRAY.value(),
+                        ModItems.SILVER_STRIPE_BLAASOP.value(),
+                        ModItems.TROUT.value(),
+                        ModItems.TUNA.value(),
+                        ModItems.WALLEYE.value());
         this.tag(ItemTags.FISHES).addTag(ModRegistry.FISHES_ITEM_TAG);
         this.tag(ItemTags.WOLF_FOOD).addTag(ModRegistry.FISHES_ITEM_TAG);
         this.tag(ModRegistry.RAW_FISH_FOODS_ITEM_TAG).addTag(ModRegistry.FISHES_ITEM_TAG);
-        this.tag(ModRegistry.FISHES_ITEM_TAG)
-                .add(PiscaryItems.ANCHOVY.value(),
-                        PiscaryItems.ANGELFISH.value(),
-                        PiscaryItems.ANGLERFISH.value(),
-                        PiscaryItems.BASS.value(),
-                        PiscaryItems.BLUE_TANG.value(),
-                        PiscaryItems.BOWFIN.value(),
-                        PiscaryItems.BUTTERFLYFISH.value(),
-                        PiscaryItems.CARP.value(),
-                        PiscaryItems.CATFISH.value(),
-                        PiscaryItems.CHUB.value(),
-                        PiscaryItems.DAMSELFISH.value(),
-                        PiscaryItems.ELECTRIC_RAY.value(),
-                        PiscaryItems.GOLDFISH.value(),
-                        PiscaryItems.KOI.value(),
-                        PiscaryItems.LAMPREY.value(),
-                        PiscaryItems.LUNGFISH.value(),
-                        PiscaryItems.MANTA_RAY.value(),
-                        PiscaryItems.MINNOW.value(),
-                        PiscaryItems.NEON_TETRA.value(),
-                        PiscaryItems.NORTHERN_PIKE.value(),
-                        PiscaryItems.PERCH.value(),
-                        PiscaryItems.PICKEREL.value(),
-                        PiscaryItems.PIRANHA.value(),
-                        PiscaryItems.PUPFISH.value(),
-                        PiscaryItems.SARDINE.value(),
-                        PiscaryItems.SIAMESE_FIGHTING_FISH.value(),
-                        PiscaryItems.WHITEMARGIN_STARGAZER.value(),
-                        PiscaryItems.STINGRAY.value(),
-                        PiscaryItems.SILVER_STRIPE_BLAASOP.value(),
-                        PiscaryItems.TROUT.value(),
-                        PiscaryItems.TUNA.value(),
-                        PiscaryItems.WALLEYE.value());
-        this.tag(ItemTags.PIGLIN_LOVED).add(PiscaryItems.GOLDFISH.value());
+        this.tag(ItemTags.PIGLIN_LOVED).add(ModItems.GOLDFISH.value());
+        this.tag(ModRegistry.FISHING_BAIT_ITEM_TAG).add(Items.ROTTEN_FLESH).addTag(ModRegistry.RAW_MEAT_FOODS_ITEM_TAG);
     }
 }

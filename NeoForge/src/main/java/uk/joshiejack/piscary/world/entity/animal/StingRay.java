@@ -7,12 +7,12 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.Level;
-import uk.joshiejack.piscary.init.PiscaryItems;
+import uk.joshiejack.piscary.init.ModItems;
 
 public class StingRay extends AbstractRay {
 
     public StingRay(EntityType<? extends StingRay> entityType, Level level) {
-        super(entityType, level, PiscaryItems.STINGRAY_BUCKET);
+        super(entityType, level, ModItems.STINGRAY_BUCKET);
     }
 
     @Override

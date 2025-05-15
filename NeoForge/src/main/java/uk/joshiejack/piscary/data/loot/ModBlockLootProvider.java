@@ -12,8 +12,7 @@ public class ModBlockLootProvider extends AbstractLootProvider.Blocks {
 
     @Override
     public void addLootTables() {
-        this.dropSelf(ModBlocks.RECYCLER.get());
-        this.dropSelf(ModBlocks.HATCHERY.get());
         this.dropSelf(ModBlocks.FISH_TRAP.get());
+        this.dropSelf(ModBlocks.HATCHERY.get());
     }
 }

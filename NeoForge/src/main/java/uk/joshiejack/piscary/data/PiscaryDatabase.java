@@ -185,8 +185,6 @@ public class PiscaryDatabase extends AbstractDatabaseProvider {
 //        addFishSpawns(PiscaryEntities.TUNA, EXCLUDE, HOT);
 //        addFishSpawns(PiscaryEntities.WALLEYE, EXCLUDE, HOT);
 //        addFishSpawns(PiscaryEntities.WALLEYE, EXCLUDE, COLD);
-        //TODO?addHatcheryRenderEntry(() -> (AbstractFish)EntityType.PUFFERFISH, -90F);
-        //addHatcheryAdvancedEntry(() -> EntityType.SKELETON, 1, Items.BONE, Items.SKELETON_SPAWN_EGG);
     }
 
     public enum SpawnType {

@@ -13,7 +13,7 @@ import net.minecraft.world.level.storage.loot.functions.SmeltItemFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import uk.joshiejack.piscary.init.ModEntityTypes;
-import uk.joshiejack.piscary.init.PiscaryItems;
+import uk.joshiejack.piscary.init.ModItems;
 
 public class ModEntityTypeLootProvider extends AbstractLootProvider.EntityTypes {
 
@@ -23,53 +23,51 @@ public class ModEntityTypeLootProvider extends AbstractLootProvider.EntityTypes 
 
     @Override
     public void addLootTables() {
-        this.addFishLootTable(ModEntityTypes.ANCHOVY, PiscaryItems.ANCHOVY);
-        this.addFishLootTable(ModEntityTypes.ANGELFISH, PiscaryItems.ANGELFISH);
+        this.addFishLootTable(ModEntityTypes.ANCHOVY, ModItems.ANCHOVY);
+        this.addFishLootTable(ModEntityTypes.ANGELFISH, ModItems.ANGELFISH);
         this.addFishLootTable(ModEntityTypes.ANGLERFISH,
-                PiscaryItems.ANGLERFISH,
+                ModItems.ANGLERFISH,
                 Items.GLOWSTONE_DUST.builtInRegistryHolder());
-        this.addFishLootTable(ModEntityTypes.BASS, PiscaryItems.BASS);
-        this.addFishLootTable(ModEntityTypes.BLUE_TANG,
-                PiscaryItems.BLUE_TANG,
-                Items.BLUE_DYE.builtInRegistryHolder());
-        this.addFishLootTable(ModEntityTypes.BOWFIN, PiscaryItems.BOWFIN);
-        this.addFishLootTable(ModEntityTypes.BUTTERFLYFISH, PiscaryItems.BUTTERFLYFISH);
-        this.addFishLootTable(ModEntityTypes.CARP, PiscaryItems.CARP);
-        this.addFishLootTable(ModEntityTypes.CATFISH, PiscaryItems.CATFISH);
-        this.addFishLootTable(ModEntityTypes.CHUB, PiscaryItems.CHUB);
-        this.addFishLootTable(ModEntityTypes.DAMSELFISH, PiscaryItems.DAMSELFISH);
+        this.addFishLootTable(ModEntityTypes.BASS, ModItems.BASS);
+        this.addFishLootTable(ModEntityTypes.BLUE_TANG, ModItems.BLUE_TANG, Items.BLUE_DYE.builtInRegistryHolder());
+        this.addFishLootTable(ModEntityTypes.BOWFIN, ModItems.BOWFIN);
+        this.addFishLootTable(ModEntityTypes.BUTTERFLYFISH, ModItems.BUTTERFLYFISH);
+        this.addFishLootTable(ModEntityTypes.CARP, ModItems.CARP);
+        this.addFishLootTable(ModEntityTypes.CATFISH, ModItems.CATFISH);
+        this.addFishLootTable(ModEntityTypes.CHUB, ModItems.CHUB);
+        this.addFishLootTable(ModEntityTypes.DAMSELFISH, ModItems.DAMSELFISH);
         this.addFishLootTable(ModEntityTypes.ELECTRIC_RAY,
-                PiscaryItems.ELECTRIC_RAY,
+                ModItems.ELECTRIC_RAY,
                 Items.REDSTONE.builtInRegistryHolder());
         this.addFishLootTable(ModEntityTypes.GOLDFISH,
-                PiscaryItems.GOLDFISH,
+                ModItems.GOLDFISH,
                 Items.GOLD_NUGGET.builtInRegistryHolder());
-        this.addFishLootTable(ModEntityTypes.KOI, PiscaryItems.KOI);
-        this.addFishLootTable(ModEntityTypes.LAMPREY, PiscaryItems.LAMPREY);
-        this.addFishLootTable(ModEntityTypes.LUNGFISH, PiscaryItems.LUNGFISH);
-        this.addFishLootTable(ModEntityTypes.MANTA_RAY, PiscaryItems.MANTA_RAY);
-        this.addFishLootTable(ModEntityTypes.MINNOW, PiscaryItems.MINNOW);
-        this.addFishLootTable(ModEntityTypes.NEON_TETRA, PiscaryItems.NEON_TETRA);
-        this.addFishLootTable(ModEntityTypes.NORTHERN_PIKE, PiscaryItems.NORTHERN_PIKE);
-        this.addFishLootTable(ModEntityTypes.PERCH, PiscaryItems.PERCH);
-        this.addFishLootTable(ModEntityTypes.PICKEREL, PiscaryItems.PICKEREL);
-        this.addFishLootTable(ModEntityTypes.PIRANHA, PiscaryItems.PIRANHA);
-        this.addFishLootTable(ModEntityTypes.PUPFISH, PiscaryItems.PUPFISH);
-        this.addFishLootTable(ModEntityTypes.SARDINE, PiscaryItems.SARDINE);
-        this.addFishLootTable(ModEntityTypes.SIAMESE_FIGHTING_FISH, PiscaryItems.SIAMESE_FIGHTING_FISH);
-        this.addFishLootTable(ModEntityTypes.WHITEMARGIN_STARGAZER, PiscaryItems.WHITEMARGIN_STARGAZER);
-        this.addFishLootTable(ModEntityTypes.STINGRAY, PiscaryItems.STINGRAY);
-        this.addFishLootTable(ModEntityTypes.SILVER_STRIPE_BLAASOP, PiscaryItems.SILVER_STRIPE_BLAASOP);
-        this.addFishLootTable(ModEntityTypes.TROUT, PiscaryItems.TROUT);
-        this.addFishLootTable(ModEntityTypes.TUNA, PiscaryItems.TUNA);
-        this.addFishLootTable(ModEntityTypes.WALLEYE, PiscaryItems.WALLEYE);
+        this.addFishLootTable(ModEntityTypes.KOI, ModItems.KOI);
+        this.addFishLootTable(ModEntityTypes.LAMPREY, ModItems.LAMPREY);
+        this.addFishLootTable(ModEntityTypes.LUNGFISH, ModItems.LUNGFISH);
+        this.addFishLootTable(ModEntityTypes.MANTA_RAY, ModItems.MANTA_RAY);
+        this.addFishLootTable(ModEntityTypes.MINNOW, ModItems.MINNOW);
+        this.addFishLootTable(ModEntityTypes.NEON_TETRA, ModItems.NEON_TETRA);
+        this.addFishLootTable(ModEntityTypes.NORTHERN_PIKE, ModItems.NORTHERN_PIKE);
+        this.addFishLootTable(ModEntityTypes.PERCH, ModItems.PERCH);
+        this.addFishLootTable(ModEntityTypes.PICKEREL, ModItems.PICKEREL);
+        this.addFishLootTable(ModEntityTypes.PIRANHA, ModItems.PIRANHA);
+        this.addFishLootTable(ModEntityTypes.PUPFISH, ModItems.PUPFISH);
+        this.addFishLootTable(ModEntityTypes.SARDINE, ModItems.SARDINE);
+        this.addFishLootTable(ModEntityTypes.SIAMESE_FIGHTING_FISH, ModItems.SIAMESE_FIGHTING_FISH);
+        this.addFishLootTable(ModEntityTypes.WHITEMARGIN_STARGAZER, ModItems.WHITEMARGIN_STARGAZER);
+        this.addFishLootTable(ModEntityTypes.STINGRAY, ModItems.STINGRAY);
+        this.addFishLootTable(ModEntityTypes.SILVER_STRIPE_BLAASOP, ModItems.SILVER_STRIPE_BLAASOP);
+        this.addFishLootTable(ModEntityTypes.TROUT, ModItems.TROUT);
+        this.addFishLootTable(ModEntityTypes.TUNA, ModItems.TUNA);
+        this.addFishLootTable(ModEntityTypes.WALLEYE, ModItems.WALLEYE);
     }
 
-    private void addFishLootTable(Holder<EntityType<?>> entityType, Holder<Item> fishItem) {
+    private void addFishLootTable(Holder<? extends EntityType<?>> entityType, Holder<Item> fishItem) {
         this.addFishLootTable(entityType, fishItem, Items.BONE_MEAL.builtInRegistryHolder());
     }
 
-    private void addFishLootTable(Holder<EntityType<?>> entityType, Holder<Item> fishItem, Holder<Item> bonusItem) {
+    private void addFishLootTable(Holder<? extends EntityType<?>> entityType, Holder<Item> fishItem, Holder<Item> bonusItem) {
         this.add(entityType.value(),
                 LootTable.lootTable()
                         .withPool(LootPool.lootPool()

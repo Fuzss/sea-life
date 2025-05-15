@@ -5,12 +5,12 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.Level;
-import uk.joshiejack.piscary.init.PiscaryItems;
+import uk.joshiejack.piscary.init.ModItems;
 
 public class ElectricRay extends AbstractRay {
 
     public ElectricRay(EntityType<? extends ElectricRay> entityType, Level level) {
-        super(entityType, level, PiscaryItems.ELECTRIC_RAY_BUCKET);
+        super(entityType, level, ModItems.ELECTRIC_RAY_BUCKET);
     }
 
     @Override

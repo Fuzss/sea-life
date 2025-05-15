@@ -13,8 +13,13 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.client.event.EntityRenderersEvent;
 import uk.joshiejack.piscary.Piscary;
 import uk.joshiejack.piscary.client.model.*;
-import uk.joshiejack.piscary.client.renderer.*;
-import uk.joshiejack.piscary.world.block.entity.PiscaryBlockEntities;
+import uk.joshiejack.piscary.client.model.geom.ModModelLayers;
+import uk.joshiejack.piscary.client.renderer.blockentity.FishTrapBlockEntityRenderer;
+import uk.joshiejack.piscary.client.renderer.blockentity.HatcheryBlockEntityRenderer;
+import uk.joshiejack.piscary.client.renderer.entity.FishRenderer;
+import uk.joshiejack.piscary.client.renderer.entity.RayRenderer;
+import uk.joshiejack.piscary.init.ModBlocks;
+import uk.joshiejack.piscary.init.PiscaryBlockEntities;
 import uk.joshiejack.piscary.init.ModEntityTypes;
 
 import java.util.HashMap;
@@ -26,15 +31,15 @@ public class PiscaryClient {
 
     @SubscribeEvent
     public static void registerBlockEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerBlockEntityRenderer(PiscaryBlockEntities.FISH_TRAP.get(), FishTrapBlockEntityRenderer::new);
-        event.registerBlockEntityRenderer(PiscaryBlockEntities.HATCHERY.get(), HatcheryBlockEntityRenderer::new);
-        event.registerBlockEntityRenderer(PiscaryBlockEntities.RECYCLER.get(), RecyclerBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(ModBlocks.FISH_TRAP_BLOCK_ENTITY_TYPE.value(), FishTrapBlockEntityRenderer::new);
+        event.registerBlockEntityRenderer(ModBlocks.HATCHERY_BLOCK_ENTITY_TYPE.value(), HatcheryBlockEntityRenderer::new);
     }
 
     @SubscribeEvent
     public static void onEntityRenderRegister(EntityRenderersEvent.RegisterLayerDefinitions event) {
-        event.registerLayerDefinition(AngelfishModel.LAYER_LOCATION, AngelfishModel::createBodyLayer);
-        event.registerLayerDefinition(AnglerfishModel.LAYER_LOCATION, AnglerfishModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.ANGELFISH, AngelfishModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.BUTTERFLYFISH, AngelfishModel::createBodyLayer);
+        event.registerLayerDefinition(ModModelLayers.ANGLERFISH, AnglerfishModel::createBodyLayer);
         event.registerLayerDefinition(ElectricRayModel.LAYER_LOCATION, ElectricRayModel::createBodyLayer);
         event.registerLayerDefinition(FatFishModel.LAYER_LOCATION, FatFishModel::createBodyLayer);
         event.registerLayerDefinition(LampreyModel.LAYER_LOCATION, LampreyModel::createBodyLayer);
@@ -53,8 +58,8 @@ public class PiscaryClient {
     @SubscribeEvent
     public static void onEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
         Map<String, Function<EntityRendererProvider.Context, ? extends EntityModel<?>>> map = new HashMap<>();
-        put(map, ctx -> new AngelfishModel(ctx.bakeLayer(AngelfishModel.LAYER_LOCATION)), "angelfish", "butterflyfish");
-        put(map, ctx -> new AnglerfishModel(ctx.bakeLayer(AnglerfishModel.LAYER_LOCATION)), "anglerfish");
+        put(map, ctx -> new AngelfishModel(ctx.bakeLayer(ModModelLayers.ANGELFISH)), "angelfish", "butterflyfish");
+        put(map, ctx -> new AnglerfishModel(ctx.bakeLayer(ModModelLayers.ANGLERFISH)), "anglerfish");
         put(map, ctx -> new ElectricRayModel(ctx.bakeLayer(ElectricRayModel.LAYER_LOCATION)), "electric_ray");
         put(map, ctx -> new FatFishModel(ctx.bakeLayer(FatFishModel.LAYER_LOCATION)), "bass", "carp", "koi", "perch", "piranha", "tuna");
         put(map, ctx -> new LampreyModel(ctx.bakeLayer(LampreyModel.LAYER_LOCATION)), "lamprey");

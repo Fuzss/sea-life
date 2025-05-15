@@ -1,4 +1,4 @@
-package uk.joshiejack.piscary.world.block.entity;
+package uk.joshiejack.piscary.world.level.block.entity;
 
 import fuzs.puzzleslib.api.block.v1.entity.TickingBlockEntity;
 import net.minecraft.core.BlockPos;
@@ -14,17 +14,20 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.Bucketable;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LevelEvent;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
-import uk.joshiejack.piscary.client.renderer.HatcheryFishRender;
-import uk.joshiejack.piscary.world.item.crafting.PiscaryRegistries;
+import uk.joshiejack.piscary.init.ModBlocks;
+import uk.joshiejack.piscary.init.ModRegistry;
 
 public class HatcheryBlockEntity extends BlockEntity implements TickingBlockEntity {
     static final int TIME_UNITS = 24_000;
+    static final int COMMON_CYCLES = 3;
+    static final int UNCOMMON_CYCLES = 5;
+    static final int RARE_CYCLES = 7;
     static final String TAG_ENTITY = "Entity";
     static final String TAG_COUNT = "Count";
     static final String TAG_TICKS_PASSED = "TicksPassed";
@@ -34,62 +37,75 @@ public class HatcheryBlockEntity extends BlockEntity implements TickingBlockEnti
     private EntityType<?> entityType;
     private int count = 0;
     private int ticksPassed = 0;
-    private int breakChance = 125;
+    private int breakChance = 128;
     @Nullable
-    private HatcheryFishRender renderer;
+    private HatcheryRenderData renderer;
 
     public HatcheryBlockEntity(BlockPos blockPos, BlockState blockState) {
-        super(PiscaryBlockEntities.HATCHERY.value(), blockPos, blockState);
+        super(ModBlocks.HATCHERY_BLOCK_ENTITY_TYPE.value(), blockPos, blockState);
     }
 
     public boolean isEmpty() {
         return this.entityType == null || this.count <= 0;
     }
 
-    public void setEntityTypeAndCount(EntityType<?> type, int count) {
-        this.entityType = type;
+    public void setEntityTypeAndCount(EntityType<?> entityType, int count) {
+        this.entityType = entityType;
         this.count = count;
         this.markUpdated();
-        if (!this.level.isClientSide) {
+        if (!this.getLevel().isClientSide) {
             this.setChanged();
         } else {
-            this.getRenderer().reloadFish(this.entityType, count, this.level.random);
+            this.getRenderData().reload(this.entityType, count, this.getLevel().random);
+        }
+    }
+
+    @Override
+    public void clientTick() {
+        if (this.getEntityType() != null) {
+            this.getRenderData().tick();
         }
     }
 
     @Override
     public void serverTick() {
-        serverTick(this.getLevel(), this.getBlockPos(), this);
-    }
-
-    public static void serverTick(Level level, BlockPos pos, HatcheryBlockEntity entity) {
-        if (entity.getEntityType() == null) return;
-        if (level.isClientSide) {
-            entity.getRenderer().updateFish();
-        }
-        if (level.getGameTime() % 100 == 0 && entity.count < 10) {
-            int ticksRequired = PiscaryRegistries.getCycles(entity.getEntityType()) * TIME_UNITS;
-            if (ticksRequired >= 1) {
-                entity.ticksPassed += 100;
-                if (entity.ticksPassed >= ticksRequired) {
-                    entity.ticksPassed = 0; //Reset
-                    entity.count++;
-                    entity.setEntityTypeAndCount(entity.entityType, entity.count);
+        if (this.getEntityType() != null) {
+            if (this.getLevel().getGameTime() % 100 == 0 && this.count < 10) {
+                int ticksRequired = getHatchingCycles(this.getEntityType()) * TIME_UNITS;
+                if (ticksRequired > 0) {
+                    this.ticksPassed += 100;
+                    if (this.ticksPassed >= ticksRequired) {
+                        this.ticksPassed = 0;
+                        this.count++;
+                        this.setEntityTypeAndCount(this.entityType, this.count);
+                    }
                 }
             }
         }
     }
 
+    public static int getHatchingCycles(EntityType<?> entityType) {
+        if (entityType.is(ModRegistry.COMMON_FISHES_ENTITY_TYPE_TAG)) {
+            return COMMON_CYCLES;
+        } else if (entityType.is(ModRegistry.UNCOMMON_FISHES_ENTITY_TYPE_TAG)) {
+            return UNCOMMON_CYCLES;
+        } else if (entityType.is(ModRegistry.RARE_FISHES_ENTITY_TYPE_TAG)) {
+            return RARE_CYCLES;
+        } else {
+            return 0;
+        }
+    }
+
     public LivingEntity extractFish(boolean adjustCount) {
-        Entity entity = this.entityType.spawn((ServerLevel) this.level,
+        Entity entity = this.entityType.spawn((ServerLevel) this.getLevel(),
                 ItemStack.EMPTY,
                 null,
                 this.worldPosition,
                 EntitySpawnReason.BUCKET,
                 true,
                 false);
-        if (entity != null) {
-            ((Bucketable) entity).setFromBucket(true);
+        if (entity instanceof Bucketable bucketable) {
+            bucketable.setFromBucket(true);
         }
 
         if (adjustCount) {
@@ -110,10 +126,11 @@ public class HatcheryBlockEntity extends BlockEntity implements TickingBlockEnti
 
     public void removeFish() {
         this.count--;
-        if (this.level.random.nextInt(100) > this.breakChance) {
-            BlockState state = this.level.getBlockState(this.worldPosition);
-            this.level.setBlock(this.worldPosition, Blocks.WATER.defaultBlockState(), 2);
-            this.level.levelEvent(null, 2001, this.worldPosition, Block.getId(state));
+        if (this.getLevel().random.nextInt(100) > this.breakChance) {
+            BlockState state = this.getLevel().getBlockState(this.worldPosition);
+            this.getLevel().setBlock(this.worldPosition, Blocks.WATER.defaultBlockState(), 2);
+            this.getLevel()
+                    .levelEvent(null, LevelEvent.PARTICLES_DESTROY_BLOCK, this.worldPosition, Block.getId(state));
             this.spawnFish(this.count);
             return;
         } else {
@@ -124,9 +141,12 @@ public class HatcheryBlockEntity extends BlockEntity implements TickingBlockEnti
         this.markUpdated();
     }
 
-    public HatcheryFishRender getRenderer() {
-        if (this.renderer == null) this.renderer = new HatcheryFishRender(this);
-        return this.renderer;
+    public HatcheryRenderData getRenderData() {
+        if (this.renderer == null) {
+            return this.renderer = new HatcheryRenderData(this);
+        } else {
+            return this.renderer;
+        }
     }
 
     @Nullable
@@ -145,8 +165,8 @@ public class HatcheryBlockEntity extends BlockEntity implements TickingBlockEnti
         this.count = tag.getByteOr(TAG_COUNT, (byte) 0);
         this.ticksPassed = tag.getIntOr(TAG_TICKS_PASSED, 0);
         this.breakChance = tag.getByteOr(TAG_TIMES_PULLED, (byte) 0);
-        if (this.level.isClientSide) {
-            this.getRenderer().reloadFish(this.entityType, this.count, this.level.random);
+        if (this.getLevel().isClientSide) {
+            this.getRenderData().reload(this.entityType, this.count, this.getLevel().random);
         }
     }
 
@@ -172,5 +192,12 @@ public class HatcheryBlockEntity extends BlockEntity implements TickingBlockEnti
     private void markUpdated() {
         this.setChanged();
         this.getLevel().sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
+    }
+
+    @Override
+    public void preRemoveSideEffects(BlockPos pos, BlockState state) {
+        if (this.hasLevel()) {
+            this.spawnFish(this.getCount());
+        }
     }
 }

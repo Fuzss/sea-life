@@ -66,12 +66,6 @@ public class PiscaryRegistries {
     }
 
     @SuppressWarnings("deprecation")
-    public static int getCycles(EntityType<?> type) {
-        HatcheryEntry entry = type.builtInRegistryHolder().getData(HATCHERY);
-        return entry != null ? entry.getCycles() : HatcheryEntry.DEFAULT.getCycles();
-    }
-
-    @SuppressWarnings("deprecation")
     public static boolean canContainFish(ItemStack held, @Nullable EntityType<?> type) {
         HatcheryEntry entry = type != null ? type.builtInRegistryHolder().getData(HATCHERY) : null;
         return entry != null  && entry.getWaterBucket() == held.getItem();

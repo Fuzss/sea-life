@@ -7,12 +7,12 @@ import net.minecraft.world.entity.ai.goal.RandomSwimmingGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import uk.joshiejack.piscary.init.PiscaryItems;
+import uk.joshiejack.piscary.init.ModItems;
 
 public class Piranha extends SolitaryFish {
 
     public Piranha(EntityType<? extends SolitaryFish> entityType, Level level) {
-        super(entityType, level, PiscaryItems.PIRANHA_BUCKET);
+        super(entityType, level, ModItems.PIRANHA_BUCKET);
     }
 
     @Override
