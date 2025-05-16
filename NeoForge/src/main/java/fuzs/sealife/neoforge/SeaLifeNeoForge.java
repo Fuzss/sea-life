@@ -1,16 +1,35 @@
 package fuzs.sealife.neoforge;
 
-import fuzs.puzzleslib.api.event.v1.server.LootTableLoadCallback;
-import fuzs.sealife.SeaLife;
 import fuzs.puzzleslib.api.core.v1.ModConstructor;
+import fuzs.puzzleslib.neoforge.api.data.v2.core.DataProviderHelper;
+import fuzs.sealife.SeaLife;
+import fuzs.sealife.data.ModRecipeProvider;
+import fuzs.sealife.data.loot.ModBlockLootProvider;
+import fuzs.sealife.data.loot.ModEntityTypeLootProvider;
+import fuzs.sealife.data.loot.ModFishingLootProvider;
+import fuzs.sealife.data.loot.ModTreasureItemLootProvider;
+import fuzs.sealife.data.tags.ModBiomeTagProvider;
+import fuzs.sealife.data.tags.ModBlockTagProvider;
+import fuzs.sealife.data.tags.ModEntityTypeTagProvider;
+import fuzs.sealife.data.tags.ModItemTagProvider;
+import fuzs.sealife.init.ModRegistry;
 import net.neoforged.fml.common.Mod;
-import uk.joshiejack.piscary.init.ModLootTables;
 
 @Mod(SeaLife.MOD_ID)
 public class SeaLifeNeoForge {
 
     public SeaLifeNeoForge() {
         ModConstructor.construct(SeaLife.MOD_ID, SeaLife::new);
-        LootTableLoadCallback.EVENT.register(ModLootTables::onLootTableLoad);
+        DataProviderHelper.registerDataProviders(SeaLife.MOD_ID,
+                ModRegistry.REGISTRY_SET_BUILDER,
+                ModBlockLootProvider::new,
+                ModEntityTypeLootProvider::new,
+                ModFishingLootProvider::new,
+                ModTreasureItemLootProvider::new,
+                ModBiomeTagProvider::new,
+                ModBlockTagProvider::new,
+                ModEntityTypeTagProvider::new,
+                ModItemTagProvider::new,
+                ModRecipeProvider::new);
     }
 }
