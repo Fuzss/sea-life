@@ -35,8 +35,8 @@ public class HatcheryBlockEntity extends BlockEntity implements TickingBlockEnti
 
     @Nullable
     private EntityType<?> entityType;
-    private int count = 0;
-    private int ticksPassed = 0;
+    private int count;
+    private int ticksPassed;
     private int breakChance = 128;
     @Nullable
     private HatcheryRenderData renderer;
@@ -46,7 +46,7 @@ public class HatcheryBlockEntity extends BlockEntity implements TickingBlockEnti
     }
 
     public boolean isEmpty() {
-        return this.entityType == null || this.count <= 0;
+        return this.entityType == null || this.count == 0;
     }
 
     public void setEntityTypeAndCount(EntityType<?> entityType, int count) {
@@ -96,7 +96,7 @@ public class HatcheryBlockEntity extends BlockEntity implements TickingBlockEnti
         }
     }
 
-    public LivingEntity extractFish(boolean adjustCount) {
+    public void extractFish(boolean adjustCount) {
         Entity entity = this.entityType.spawn((ServerLevel) this.getLevel(),
                 ItemStack.EMPTY,
                 null,
@@ -112,8 +112,6 @@ public class HatcheryBlockEntity extends BlockEntity implements TickingBlockEnti
             this.count--;
             this.setEntityTypeAndCount(this.entityType, this.count);
         }
-
-        return (LivingEntity) entity;
     }
 
     public void spawnFish(int count) {

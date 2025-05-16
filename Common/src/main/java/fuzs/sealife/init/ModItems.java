@@ -25,7 +25,6 @@ public class ModItems {
     public static final FoodProperties FISH_FINGERS_FOOD = new FoodProperties.Builder().nutrition(5)
             .saturationModifier(0.3F)
             .build();
-    // Meals
     public static final FoodProperties SASHIMI_FOOD = new FoodProperties.Builder().nutrition(4)
             .saturationModifier(0.4F)
             .build();
@@ -33,6 +32,8 @@ public class ModItems {
             .saturationModifier(0.6F)
             .build();
     public static final Consumable FISH_FINGERS_CONSUMABLE = Consumables.defaultFood().consumeSeconds(0.8F).build();
+    public static final Holder.Reference<Item> FISH_TRAP = ModRegistry.REGISTRIES.registerBlockItem(ModBlocks.FISH_TRAP);
+    public static final Holder.Reference<Item> HATCHERY = ModRegistry.REGISTRIES.registerBlockItem(ModBlocks.HATCHERY);
     // Loot
     public static final Holder.Reference<Item> FISH_BONES = ModRegistry.REGISTRIES.registerItem("fish_bones");
     public static final Holder.Reference<Item> FISH_FOSSIL = ModRegistry.REGISTRIES.registerItem("fish_fossil");
@@ -40,14 +41,13 @@ public class ModItems {
     public static final Holder.Reference<Item> PIRATE_TREASURE = ModRegistry.REGISTRIES.registerItem("pirate_treasure",
             (Item.Properties properties) -> new TreasureItem(properties, ModLootTables.TREASURE_ITEM),
             () -> new Item.Properties().stacksTo(16).useCooldown(0.2F));
+    // Meals
     public static final Holder.Reference<Item> FISH_FINGERS = ModRegistry.REGISTRIES.registerItem("fish_fingers",
             () -> new Item.Properties().food(FISH_FINGERS_FOOD, FISH_FINGERS_CONSUMABLE));
     public static final Holder.Reference<Item> SASHIMI = ModRegistry.REGISTRIES.registerItem("sashimi",
             () -> new Item.Properties().food(SASHIMI_FOOD));
     public static final Holder.Reference<Item> FISH_STEW = ModRegistry.REGISTRIES.registerItem("fish_stew",
             () -> new Item.Properties().food(FISH_STEW_FOOD));
-    public static final Holder.Reference<Item> FISH_TRAP = ModRegistry.REGISTRIES.registerBlockItem(ModBlocks.FISH_TRAP);
-    public static final Holder.Reference<Item> HATCHERY = ModRegistry.REGISTRIES.registerBlockItem(ModBlocks.HATCHERY);
     // Fish
     public static final Holder.Reference<Item> ANCHOVY = ModRegistry.REGISTRIES.registerItem("anchovy",
             () -> new Item.Properties().food(SMALL_FISH_FOOD));

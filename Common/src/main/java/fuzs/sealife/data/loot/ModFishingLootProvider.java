@@ -188,6 +188,7 @@ public class ModFishingLootProvider extends AbstractLootProvider.Simple {
                                         .setWeight(1)
                                         .when(inOceanBiome)
                                         .when(InvertedLootItemCondition.invert(inSnowyBiome)))));
+        this.skipValidation(ModLootTables.FISH_TRAP);
         this.add(ModLootTables.FISH_TRAP,
                 LootTable.lootTable()
                         .withPool(LootPool.lootPool()

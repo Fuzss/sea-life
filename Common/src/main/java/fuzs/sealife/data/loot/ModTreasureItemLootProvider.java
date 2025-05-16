@@ -17,6 +17,7 @@ public class ModTreasureItemLootProvider extends AbstractLootProvider.Simple {
 
     @Override
     public void addLootTables() {
+        this.skipValidation(ModLootTables.TREASURE_ITEM);
         this.add(ModLootTables.TREASURE_ITEM,
                 LootTable.lootTable()
                         .withPool(LootPool.lootPool()

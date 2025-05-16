@@ -16,8 +16,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.level.pathfinder.PathType;
 import net.minecraft.world.phys.Vec3;
-
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 public class FloordwellingFish extends SolitaryFish {
 
@@ -45,9 +44,8 @@ public class FloordwellingFish extends SolitaryFish {
             super(abstractFish, 1.0D, 40);
         }
 
-        @Nullable
         @Override
-        protected Vec3 getPosition() {
+        protected @Nullable Vec3 getPosition() {
             Vec3 vector3d = DefaultRandomPos.getPos(this.mob, 1, 1);
             for (int i = 0; vector3d != null && !this.mob.level()
                     .getBlockState(BlockPos.containing(vector3d))

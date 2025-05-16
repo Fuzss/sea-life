@@ -1,1 +1,6 @@
 accessWidener   v2  named
+accessible	field	net/minecraft/world/entity/animal/Pufferfish	SCARY_MOB	Lnet/minecraft/world/entity/ai/targeting/TargetingConditions$Selector;
+accessible	field	net/minecraft/world/entity/animal/Pufferfish	TARGETING_CONDITIONS	Lnet/minecraft/world/entity/ai/targeting/TargetingConditions;
+accessible	field	net/minecraft/world/item/MobBucketItem	type	Lnet/minecraft/world/entity/EntityType;
+accessible	method	net/minecraft/world/entity/decoration/PaintingVariants	register	(Lnet/minecraft/data/worldgen/BootstrapContext;Lnet/minecraft/resources/ResourceKey;II)V
+accessible	method	net/minecraft/world/entity/decoration/PaintingVariants	register	(Lnet/minecraft/data/worldgen/BootstrapContext;Lnet/minecraft/resources/ResourceKey;IIZ)V

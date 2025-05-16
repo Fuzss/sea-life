@@ -18,7 +18,7 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
 
     @Override
     public void addTranslations(TranslationBuilder translationBuilder) {
-        translationBuilder.add(ModRegistry.CREATIVE_MODE_TAB, SeaLife.MOD_NAME);
+        translationBuilder.add(ModRegistry.CREATIVE_MODE_TAB.value(), SeaLife.MOD_NAME);
         translationBuilder.addBlock(ModBlocks.FISH_TRAP, "Fish Trap");
         translationBuilder.addBlock(ModBlocks.HATCHERY, "Hatchery");
         translationBuilder.addItem(ModItems.ANCHOVY, "Anchovy");

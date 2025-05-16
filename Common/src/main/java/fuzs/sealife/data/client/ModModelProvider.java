@@ -2,13 +2,20 @@ package fuzs.sealife.data.client;
 
 import fuzs.puzzleslib.api.client.data.v2.AbstractModelProvider;
 import fuzs.puzzleslib.api.client.data.v2.models.ItemModelGenerationHelper;
+import fuzs.puzzleslib.api.client.data.v2.models.ModelTemplateHelper;
 import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
+import fuzs.sealife.SeaLife;
+import fuzs.sealife.init.ModBlocks;
+import fuzs.sealife.init.ModItems;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
-import net.minecraft.client.data.models.model.ModelTemplates;
-import fuzs.sealife.init.ModItems;
+import net.minecraft.client.data.models.model.*;
 
 public class ModModelProvider extends AbstractModelProvider {
+    public static final ModelTemplate TEMPLATE_HATCHERY = ModelTemplateHelper.createBlockModelTemplate(SeaLife.id(
+            "template_hatchery"), TextureSlot.TEXTURE);
+    public static final TexturedModel.Provider PROVIDER_HATCHERY = TexturedModel.createDefault(TextureMapping::defaultTexture,
+            TEMPLATE_HATCHERY);
 
     public ModModelProvider(DataProviderContext context) {
         super(context);
@@ -16,7 +23,8 @@ public class ModModelProvider extends AbstractModelProvider {
 
     @Override
     public void addBlockModels(BlockModelGenerators blockModelGenerators) {
-        super.addBlockModels(blockModelGenerators);
+        blockModelGenerators.createTrivialCube(ModBlocks.FISH_TRAP.value());
+        blockModelGenerators.createTrivialBlock(ModBlocks.HATCHERY.value(), PROVIDER_HATCHERY);
     }
 
     @Override
@@ -85,13 +93,10 @@ public class ModModelProvider extends AbstractModelProvider {
         itemModelGenerators.generateFlatItem(ModItems.PIRANHA_BUCKET.value(), ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.PUPFISH_BUCKET.value(), ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.SARDINE_BUCKET.value(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.SIAMESE_FIGHTING_FISH_BUCKET.value(),
-                ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.WHITEMARGIN_STARGAZER_BUCKET.value(),
-                ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.SIAMESE_FIGHTING_FISH_BUCKET.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.WHITEMARGIN_STARGAZER_BUCKET.value(), ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.STINGRAY_BUCKET.value(), ModelTemplates.FLAT_ITEM);
-        itemModelGenerators.generateFlatItem(ModItems.SILVER_STRIPE_BLAASOP_BUCKET.value(),
-                ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.SILVER_STRIPE_BLAASOP_BUCKET.value(), ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.TROUT_BUCKET.value(), ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.TUNA_BUCKET.value(), ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.WALLEYE_BUCKET.value(), ModelTemplates.FLAT_ITEM);

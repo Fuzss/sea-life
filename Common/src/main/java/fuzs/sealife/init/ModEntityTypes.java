@@ -139,7 +139,7 @@ public class ModEntityTypes {
             () -> EntityType.Builder.of(SolitaryFish.create(ModItems.SIAMESE_FIGHTING_FISH_BUCKET),
                     MobCategory.WATER_AMBIENT).sized(0.5F, 0.3F).clientTrackingRange(4));
     public static final Holder.Reference<EntityType<SolitaryFish>> WHITEMARGIN_STARGAZER = ModRegistry.REGISTRIES.registerEntityType(
-            "angelfish",
+            "whitemargin_stargazer",
             () -> EntityType.Builder.of(FloordwellingFish.create(ModItems.WHITEMARGIN_STARGAZER_BUCKET),
                     MobCategory.WATER_AMBIENT).sized(0.7F, 0.5F).clientTrackingRange(4));
     public static final Holder.Reference<EntityType<StingRay>> STINGRAY = ModRegistry.REGISTRIES.registerEntityType(

@@ -19,10 +19,10 @@ public class ModPaintingVariants {
             "window");
 
     public static void bootstrap(BootstrapContext<PaintingVariant> context) {
-        PaintingVariants.register(context, ALBATROSS, 16, 16);
-        PaintingVariants.register(context, BOATS, 16, 16);
-        PaintingVariants.register(context, LIGHTHOUSE, 32, 16);
-        PaintingVariants.register(context, SUNSET, 16, 16);
-        PaintingVariants.register(context, WINDOW, 32, 16);
+        PaintingVariants.register(context, ALBATROSS, 1, 1);
+        PaintingVariants.register(context, BOATS, 1, 1);
+        PaintingVariants.register(context, LIGHTHOUSE, 2, 1);
+        PaintingVariants.register(context, SUNSET, 1, 1);
+        PaintingVariants.register(context, WINDOW, 2, 1);
     }
 }

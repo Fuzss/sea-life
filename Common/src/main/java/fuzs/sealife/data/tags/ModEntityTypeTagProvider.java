@@ -2,11 +2,11 @@ package fuzs.sealife.data.tags;
 
 import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
 import fuzs.puzzleslib.api.data.v2.tags.AbstractTagProvider;
+import fuzs.sealife.init.ModEntityTypes;
+import fuzs.sealife.init.ModRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
-import fuzs.sealife.init.ModEntityTypes;
-import fuzs.sealife.init.ModRegistry;
 
 public class ModEntityTypeTagProvider extends AbstractTagProvider<EntityType<?>> {
 
@@ -33,7 +33,7 @@ public class ModEntityTypeTagProvider extends AbstractTagProvider<EntityType<?>>
                         ModEntityTypes.SARDINE.value(),
                         ModEntityTypes.TROUT.value(),
                         ModEntityTypes.WALLEYE.value())
-                .add("aquaculture:atlantic_herring",
+                .addOptional("aquaculture:atlantic_herring",
                         "aquaculture:synodontis",
                         "aquaculture:bluegill",
                         "aquaculture:brown_shrooma",
@@ -56,7 +56,7 @@ public class ModEntityTypeTagProvider extends AbstractTagProvider<EntityType<?>>
                         ModEntityTypes.SIAMESE_FIGHTING_FISH.value(),
                         ModEntityTypes.WHITEMARGIN_STARGAZER.value(),
                         ModEntityTypes.TUNA.value())
-                .add("aquaculture:blackfish",
+                .addOptional("aquaculture:blackfish",
                         "aquaculture:pollock",
                         "aquaculture:boulti",
                         "aquaculture:smallmouth_bass",
@@ -73,7 +73,7 @@ public class ModEntityTypeTagProvider extends AbstractTagProvider<EntityType<?>>
                         ModEntityTypes.PIRANHA.value(),
                         ModEntityTypes.SILVER_STRIPE_BLAASOP.value(),
                         ModEntityTypes.STINGRAY.value())
-                .add("aquaculture:atlantic_cod",
+                .addOptional("aquaculture:atlantic_cod",
                         "aquaculture:pacific_halibut",
                         "aquaculture:atlantic_halibut",
                         "aquaculture:pink_salmon",

@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "sealife:item/damselfish_spawn_egg",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -5711116
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -15789256
+      }
+    ]
+  }
+}

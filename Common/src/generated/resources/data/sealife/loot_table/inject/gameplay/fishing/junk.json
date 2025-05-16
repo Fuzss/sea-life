@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:fishing",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "sealife:fish_bones",
+          "weight": 17
+        },
+        {
+          "type": "minecraft:item",
+          "name": "sealife:empty_can",
+          "weight": 16
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "sealife:inject/gameplay/fishing/junk"
+}

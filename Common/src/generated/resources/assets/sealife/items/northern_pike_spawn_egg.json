@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "sealife:item/northern_pike_spawn_egg",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -5988227
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -10858182
+      }
+    ]
+  }
+}

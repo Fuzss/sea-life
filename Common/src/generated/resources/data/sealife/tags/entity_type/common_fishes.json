@@ -1,0 +1,40 @@
+{
+  "values": [
+    "minecraft:cod",
+    "minecraft:salmon",
+    "sealife:anchovy",
+    "sealife:bass",
+    "sealife:carp",
+    "sealife:chub",
+    "sealife:goldfish",
+    "sealife:neon_tetra",
+    "sealife:perch",
+    "sealife:sardine",
+    "sealife:trout",
+    "sealife:walleye",
+    {
+      "id": "aquaculture:atlantic_herring",
+      "required": false
+    },
+    {
+      "id": "aquaculture:synodontis",
+      "required": false
+    },
+    {
+      "id": "aquaculture:bluegill",
+      "required": false
+    },
+    {
+      "id": "aquaculture:brown_shrooma",
+      "required": false
+    },
+    {
+      "id": "aquaculture:red_shrooma",
+      "required": false
+    },
+    {
+      "id": "aquaculture:perch",
+      "required": false
+    }
+  ]
+}

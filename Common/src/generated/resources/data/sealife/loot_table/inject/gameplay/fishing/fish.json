@@ -1,0 +1,642 @@
+{
+  "type": "minecraft:fishing",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#minecraft:is_ocean"
+              }
+            },
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#c:is_hot"
+              }
+            }
+          ],
+          "name": "sealife:anchovy",
+          "weight": 32
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#minecraft:is_jungle"
+              }
+            }
+          ],
+          "name": "sealife:angelfish",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#minecraft:is_ocean"
+              }
+            },
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#c:is_snowy"
+              }
+            }
+          ],
+          "name": "sealife:anglerfish"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#c:is_hot"
+                }
+              }
+            },
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#c:is_cold"
+                }
+              }
+            }
+          ],
+          "name": "sealife:bass",
+          "weight": 12
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#minecraft:is_ocean"
+              }
+            },
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#c:is_hot"
+              }
+            }
+          ],
+          "name": "sealife:blue_tang"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#c:is_hot"
+                }
+              }
+            },
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#minecraft:is_ocean"
+                }
+              }
+            }
+          ],
+          "name": "sealife:bowfin",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#minecraft:is_ocean"
+              }
+            },
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#c:is_hot"
+              }
+            }
+          ],
+          "name": "sealife:butterflyfish"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#c:is_hot"
+                }
+              }
+            },
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#minecraft:is_ocean"
+                }
+              }
+            }
+          ],
+          "name": "sealife:carp",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#minecraft:is_river"
+              }
+            }
+          ],
+          "name": "sealife:catfish",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#c:is_hot"
+                }
+              }
+            },
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#minecraft:is_ocean"
+                }
+              }
+            }
+          ],
+          "name": "sealife:chub",
+          "weight": 54
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#minecraft:is_ocean"
+              }
+            },
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#c:is_hot"
+              }
+            }
+          ],
+          "name": "sealife:damselfish",
+          "weight": 3
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#minecraft:is_ocean"
+              }
+            }
+          ],
+          "name": "sealife:electric_ray"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#c:is_hot"
+                }
+              }
+            },
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#c:is_wet"
+                }
+              }
+            }
+          ],
+          "name": "sealife:goldfish",
+          "weight": 37
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#c:is_hot"
+                }
+              }
+            },
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#c:is_wet"
+                }
+              }
+            }
+          ],
+          "name": "sealife:koi"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#c:is_hot"
+                }
+              }
+            },
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#c:is_cold"
+                }
+              }
+            }
+          ],
+          "name": "sealife:lamprey",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#c:is_cold"
+                }
+              }
+            },
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#minecraft:is_ocean"
+                }
+              }
+            }
+          ],
+          "name": "sealife:lungfish"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#minecraft:is_ocean"
+              }
+            },
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#c:is_snowy"
+                }
+              }
+            }
+          ],
+          "name": "sealife:manta_ray"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#minecraft:is_ocean"
+                }
+              }
+            }
+          ],
+          "name": "sealife:minnow",
+          "weight": 102
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#minecraft:is_jungle"
+              }
+            }
+          ],
+          "name": "sealife:neon_tetra",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#c:is_snowy"
+              }
+            },
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#minecraft:is_river"
+              }
+            }
+          ],
+          "name": "sealife:northern_pike"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#minecraft:is_river"
+              }
+            }
+          ],
+          "name": "sealife:perch",
+          "weight": 21
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#c:is_hot"
+                }
+              }
+            },
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#minecraft:is_ocean"
+                }
+              }
+            }
+          ],
+          "name": "sealife:pickerel",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#minecraft:is_jungle"
+              }
+            }
+          ],
+          "name": "sealife:piranha"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#c:is_hot"
+                }
+              }
+            },
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#minecraft:is_ocean"
+                }
+              }
+            }
+          ],
+          "name": "sealife:pupfish",
+          "weight": 4
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#minecraft:is_ocean"
+              }
+            },
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#c:is_hot"
+                }
+              }
+            }
+          ],
+          "name": "sealife:sardine",
+          "weight": 30
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#c:is_hot"
+                }
+              }
+            },
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#minecraft:is_ocean"
+                }
+              }
+            }
+          ],
+          "name": "sealife:siamese_fighting_fish",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#minecraft:is_ocean"
+              }
+            }
+          ],
+          "name": "sealife:stingray"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#minecraft:is_ocean"
+              }
+            },
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#c:is_snowy"
+              }
+            }
+          ],
+          "name": "sealife:silver_stripe_blaasop"
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#c:is_hot"
+                }
+              }
+            }
+          ],
+          "name": "sealife:trout",
+          "weight": 14
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#minecraft:is_ocean"
+              }
+            },
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#c:is_hot"
+                }
+              }
+            }
+          ],
+          "name": "sealife:tuna",
+          "weight": 2
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#c:is_hot"
+                }
+              }
+            },
+            {
+              "condition": "minecraft:inverted",
+              "term": {
+                "condition": "minecraft:location_check",
+                "predicate": {
+                  "biomes": "#c:is_cold"
+                }
+              }
+            }
+          ],
+          "name": "sealife:walleye",
+          "weight": 8
+        },
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#c:is_hot"
+              }
+            },
+            {
+              "condition": "minecraft:location_check",
+              "predicate": {
+                "biomes": "#minecraft:is_ocean"
+              }
+            }
+          ],
+          "name": "sealife:whitemargin_stargazer",
+          "weight": 2
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "sealife:inject/gameplay/fishing/fish"
+}
