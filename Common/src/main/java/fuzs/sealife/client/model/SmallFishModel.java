@@ -20,10 +20,8 @@ public class SmallFishModel extends FishModel<LivingEntityRenderState> {
 
         partDefinition.addOrReplaceChild("tail",
                 CubeListBuilder.create()
-                        .texOffs(11, 2)
-                        .addBox(0.0F, -1.4F, 1.25F, 0.0F, 3.0F, 2.0F)
-                        .texOffs(11, 8)
-                        .addBox(0.0F, -0.4F, -0.75F, 0.0F, 1.0F, 2.0F),
+                        .texOffs(11, 1)
+                        .addBox(0.0F, -1.4F, 0.0F, 0.0F, 3.0F, 3.0F),
                 PartPose.offset(0.0F, 23.0F, 5.0F));
         PartDefinition partDefinition1 = partDefinition.addOrReplaceChild("body",
                 CubeListBuilder.create()

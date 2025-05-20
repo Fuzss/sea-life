@@ -8,10 +8,7 @@ import fuzs.sealife.data.loot.ModBlockLootProvider;
 import fuzs.sealife.data.loot.ModEntityTypeLootProvider;
 import fuzs.sealife.data.loot.ModFishingLootProvider;
 import fuzs.sealife.data.loot.ModTreasureItemLootProvider;
-import fuzs.sealife.data.tags.ModBiomeTagProvider;
-import fuzs.sealife.data.tags.ModBlockTagProvider;
-import fuzs.sealife.data.tags.ModEntityTypeTagProvider;
-import fuzs.sealife.data.tags.ModItemTagProvider;
+import fuzs.sealife.data.tags.*;
 import fuzs.sealife.init.ModRegistry;
 import net.neoforged.fml.common.Mod;
 
@@ -30,6 +27,7 @@ public class SeaLifeNeoForge {
                 ModBlockTagProvider::new,
                 ModEntityTypeTagProvider::new,
                 ModItemTagProvider::new,
+                ModPaintingVariantTagProvider::new,
                 ModRecipeProvider::new);
     }
 }

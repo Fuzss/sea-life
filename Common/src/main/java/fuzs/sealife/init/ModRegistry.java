@@ -12,6 +12,7 @@ import net.minecraft.util.context.ContextKeySet;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 
@@ -20,7 +21,7 @@ public class ModRegistry {
             ModPaintingVariants::bootstrap);
     static final RegistryManager REGISTRIES = RegistryManager.from(SeaLife.MOD_ID);
     public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab(
-            ModItems.PUPFISH);
+            () -> new ItemStack(ModItems.PUPFISH), CreativeModeTabHelper.getDisplayItems(SeaLife.MOD_ID));
 
     static final TagFactory TAGS = TagFactory.make(SeaLife.MOD_ID);
     public static final TagKey<Item> RAW_FISH_FOODS_ITEM_TAG = TagFactory.COMMON.registerItemTag("foods/raw_fish");

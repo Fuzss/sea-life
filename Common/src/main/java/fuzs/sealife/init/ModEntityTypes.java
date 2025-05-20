@@ -2,6 +2,7 @@ package fuzs.sealife.init;
 
 import fuzs.puzzleslib.api.core.v1.context.EntityAttributesContext;
 import fuzs.puzzleslib.api.core.v1.context.SpawnPlacementsContext;
+import fuzs.sealife.world.entity.animal.*;
 import net.minecraft.core.Holder;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
@@ -11,63 +12,59 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.animal.AbstractFish;
 import net.minecraft.world.level.levelgen.Heightmap;
-import fuzs.sealife.world.entity.animal.*;
 
 public class ModEntityTypes {
     public static final Holder.Reference<EntityType<ShoalingFish>> ANCHOVY = ModRegistry.REGISTRIES.registerEntityType(
             "anchovy",
-            () -> EntityType.Builder.of(ShoalingFish.create(ModItems.ANCHOVY_BUCKET, 24), MobCategory.WATER_AMBIENT)
-                    .sized(0.5F, 0.3F)
-                    .clientTrackingRange(4));
+            () -> EntityType.Builder.of(ShoalingFish.create(() -> ModItems.ANCHOVY_BUCKET, 24),
+                    MobCategory.WATER_AMBIENT).sized(0.5F, 0.3F).clientTrackingRange(4));
     public static final Holder.Reference<EntityType<ShoalingFish>> ANGELFISH = ModRegistry.REGISTRIES.registerEntityType(
             "angelfish",
-            () -> EntityType.Builder.of(ShoalingFish.create(ModItems.ANGELFISH_BUCKET), MobCategory.WATER_AMBIENT)
+            () -> EntityType.Builder.of(ShoalingFish.create(() -> ModItems.ANGELFISH_BUCKET), MobCategory.WATER_AMBIENT)
                     .sized(0.5F, 0.5F)
                     .clientTrackingRange(4));
     public static final Holder.Reference<EntityType<SolitaryFish>> ANGLERFISH = ModRegistry.REGISTRIES.registerEntityType(
             "anglerfish",
-            () -> EntityType.Builder.of(SolitaryFish.create(ModItems.ANGLERFISH_BUCKET), MobCategory.WATER_AMBIENT)
-                    .sized(0.7F, 0.6F)
-                    .clientTrackingRange(4));
+            () -> EntityType.Builder.of(SolitaryFish.create(() -> ModItems.ANGLERFISH_BUCKET),
+                    MobCategory.WATER_AMBIENT).sized(0.7F, 0.6F).clientTrackingRange(4));
     public static final Holder.Reference<EntityType<ShoalingFish>> BASS = ModRegistry.REGISTRIES.registerEntityType(
             "bass",
-            () -> EntityType.Builder.of(ShoalingFish.create(ModItems.BASS_BUCKET), MobCategory.WATER_AMBIENT)
+            () -> EntityType.Builder.of(ShoalingFish.create(() -> ModItems.BASS_BUCKET), MobCategory.WATER_AMBIENT)
                     .sized(0.7F, 0.5F)
                     .clientTrackingRange(4));
     public static final Holder.Reference<EntityType<ShoalingFish>> BLUE_TANG = ModRegistry.REGISTRIES.registerEntityType(
             "blue_tang",
-            () -> EntityType.Builder.of(ShoalingFish.create(ModItems.BLUE_TANG_BUCKET), MobCategory.WATER_AMBIENT)
+            () -> EntityType.Builder.of(ShoalingFish.create(() -> ModItems.BLUE_TANG_BUCKET), MobCategory.WATER_AMBIENT)
                     .sized(0.5F, 0.3F)
                     .clientTrackingRange(4));
     public static final Holder.Reference<EntityType<ShoalingFish>> BOWFIN = ModRegistry.REGISTRIES.registerEntityType(
             "bowfin",
-            () -> EntityType.Builder.of(ShoalingFish.create(ModItems.BOWFIN_BUCKET), MobCategory.WATER_AMBIENT)
+            () -> EntityType.Builder.of(ShoalingFish.create(() -> ModItems.BOWFIN_BUCKET), MobCategory.WATER_AMBIENT)
                     .sized(0.9F, 0.3F)
                     .clientTrackingRange(4));
     public static final Holder.Reference<EntityType<ShoalingFish>> BUTTERFLYFISH = ModRegistry.REGISTRIES.registerEntityType(
             "butterflyfish",
-            () -> EntityType.Builder.of(ShoalingFish.create(ModItems.BUTTERFLYFISH_BUCKET),
+            () -> EntityType.Builder.of(ShoalingFish.create(() -> ModItems.BUTTERFLYFISH_BUCKET),
                     MobCategory.WATER_AMBIENT).sized(0.5F, 0.3F).clientTrackingRange(4));
     public static final Holder.Reference<EntityType<ShoalingFish>> CARP = ModRegistry.REGISTRIES.registerEntityType(
             "carp",
-            () -> EntityType.Builder.of(ShoalingFish.create(ModItems.CARP_BUCKET), MobCategory.WATER_AMBIENT)
+            () -> EntityType.Builder.of(ShoalingFish.create(() -> ModItems.CARP_BUCKET), MobCategory.WATER_AMBIENT)
                     .sized(0.7F, 0.5F)
                     .clientTrackingRange(4));
     public static final Holder.Reference<EntityType<SolitaryFish>> CATFISH = ModRegistry.REGISTRIES.registerEntityType(
             "catfish",
-            () -> EntityType.Builder.of(SolitaryFish.create(ModItems.CATFISH_BUCKET), MobCategory.WATER_AMBIENT)
+            () -> EntityType.Builder.of(SolitaryFish.create(() -> ModItems.CATFISH_BUCKET), MobCategory.WATER_AMBIENT)
                     .sized(0.9F, 0.3F)
                     .clientTrackingRange(4));
     public static final Holder.Reference<EntityType<ShoalingFish>> CHUB = ModRegistry.REGISTRIES.registerEntityType(
             "chub",
-            () -> EntityType.Builder.of(ShoalingFish.create(ModItems.CHUB_BUCKET), MobCategory.WATER_AMBIENT)
+            () -> EntityType.Builder.of(ShoalingFish.create(() -> ModItems.CHUB_BUCKET), MobCategory.WATER_AMBIENT)
                     .sized(0.7F, 0.4F)
                     .clientTrackingRange(4));
     public static final Holder.Reference<EntityType<ShoalingFish>> DAMSELFISH = ModRegistry.REGISTRIES.registerEntityType(
             "damselfish",
-            () -> EntityType.Builder.of(ShoalingFish.create(ModItems.DAMSELFISH_BUCKET), MobCategory.WATER_AMBIENT)
-                    .sized(0.5F, 0.5F)
-                    .clientTrackingRange(4));
+            () -> EntityType.Builder.of(ShoalingFish.create(() -> ModItems.DAMSELFISH_BUCKET),
+                    MobCategory.WATER_AMBIENT).sized(0.5F, 0.5F).clientTrackingRange(4));
     public static final Holder.Reference<EntityType<ElectricRay>> ELECTRIC_RAY = ModRegistry.REGISTRIES.registerEntityType(
             "electric_ray",
             () -> EntityType.Builder.of(ElectricRay::new, MobCategory.WATER_AMBIENT)
@@ -75,21 +72,21 @@ public class ModEntityTypes {
                     .clientTrackingRange(4));
     public static final Holder.Reference<EntityType<SolitaryFish>> GOLDFISH = ModRegistry.REGISTRIES.registerEntityType(
             "goldfish",
-            () -> EntityType.Builder.of(SolitaryFish.create(ModItems.GOLDFISH_BUCKET), MobCategory.WATER_AMBIENT)
+            () -> EntityType.Builder.of(SolitaryFish.create(() -> ModItems.GOLDFISH_BUCKET), MobCategory.WATER_AMBIENT)
                     .sized(0.5F, 0.3F)
                     .clientTrackingRange(4));
     public static final Holder.Reference<EntityType<SolitaryFish>> KOI = ModRegistry.REGISTRIES.registerEntityType("koi",
-            () -> EntityType.Builder.of(SolitaryFish.create(ModItems.KOI_BUCKET), MobCategory.WATER_AMBIENT)
+            () -> EntityType.Builder.of(SolitaryFish.create(() -> ModItems.KOI_BUCKET), MobCategory.WATER_AMBIENT)
                     .sized(0.7F, 0.5F)
                     .clientTrackingRange(4));
     public static final Holder.Reference<EntityType<SolitaryFish>> LAMPREY = ModRegistry.REGISTRIES.registerEntityType(
             "lamprey",
-            () -> EntityType.Builder.of(SolitaryFish.create(ModItems.LAMPREY_BUCKET), MobCategory.WATER_AMBIENT)
+            () -> EntityType.Builder.of(SolitaryFish.create(() -> ModItems.LAMPREY_BUCKET), MobCategory.WATER_AMBIENT)
                     .sized(1.0F, 0.2F)
                     .clientTrackingRange(4));
     public static final Holder.Reference<EntityType<SolitaryFish>> LUNGFISH = ModRegistry.REGISTRIES.registerEntityType(
             "lungfish",
-            () -> EntityType.Builder.of(SolitaryFish.create(ModItems.LUNGFISH_BUCKET), MobCategory.WATER_AMBIENT)
+            () -> EntityType.Builder.of(SolitaryFish.create(() -> ModItems.LUNGFISH_BUCKET), MobCategory.WATER_AMBIENT)
                     .sized(0.7F, 0.4F)
                     .clientTrackingRange(4));
     public static final Holder.Reference<EntityType<MantaRay>> MANTA_RAY = ModRegistry.REGISTRIES.registerEntityType(
@@ -99,26 +96,25 @@ public class ModEntityTypes {
                     .clientTrackingRange(4));
     public static final Holder.Reference<EntityType<ShoalingFish>> MINNOW = ModRegistry.REGISTRIES.registerEntityType(
             "minnow",
-            () -> EntityType.Builder.of(ShoalingFish.create(ModItems.MINNOW_BUCKET), MobCategory.WATER_AMBIENT)
+            () -> EntityType.Builder.of(ShoalingFish.create(() -> ModItems.MINNOW_BUCKET), MobCategory.WATER_AMBIENT)
                     .sized(0.5F, 0.3F)
                     .clientTrackingRange(4));
     public static final Holder.Reference<EntityType<ShoalingFish>> NEON_TETRA = ModRegistry.REGISTRIES.registerEntityType(
             "neon_tetra",
-            () -> EntityType.Builder.of(ShoalingFish.create(ModItems.NEON_TETRA_BUCKET), MobCategory.WATER_AMBIENT)
-                    .sized(0.5F, 0.3F)
-                    .clientTrackingRange(4));
+            () -> EntityType.Builder.of(ShoalingFish.create(() -> ModItems.NEON_TETRA_BUCKET),
+                    MobCategory.WATER_AMBIENT).sized(0.5F, 0.3F).clientTrackingRange(4));
     public static final Holder.Reference<EntityType<ShoalingFish>> NORTHERN_PIKE = ModRegistry.REGISTRIES.registerEntityType(
             "northern_pike",
-            () -> EntityType.Builder.of(ShoalingFish.create(ModItems.NORTHERN_PIKE_BUCKET),
+            () -> EntityType.Builder.of(ShoalingFish.create(() -> ModItems.NORTHERN_PIKE_BUCKET),
                     MobCategory.WATER_AMBIENT).sized(0.7F, 0.4F).clientTrackingRange(4));
     public static final Holder.Reference<EntityType<ShoalingFish>> PERCH = ModRegistry.REGISTRIES.registerEntityType(
             "perch",
-            () -> EntityType.Builder.of(ShoalingFish.create(ModItems.PERCH_BUCKET), MobCategory.WATER_AMBIENT)
+            () -> EntityType.Builder.of(ShoalingFish.create(() -> ModItems.PERCH_BUCKET), MobCategory.WATER_AMBIENT)
                     .sized(0.7F, 0.5F)
                     .clientTrackingRange(4));
     public static final Holder.Reference<EntityType<ShoalingFish>> PICKEREL = ModRegistry.REGISTRIES.registerEntityType(
             "pickerel",
-            () -> EntityType.Builder.of(ShoalingFish.create(ModItems.PICKEREL_BUCKET), MobCategory.WATER_AMBIENT)
+            () -> EntityType.Builder.of(ShoalingFish.create(() -> ModItems.PICKEREL_BUCKET), MobCategory.WATER_AMBIENT)
                     .sized(0.7F, 0.5F)
                     .clientTrackingRange(4));
     public static final Holder.Reference<EntityType<Piranha>> PIRANHA = ModRegistry.REGISTRIES.registerEntityType(
@@ -126,21 +122,20 @@ public class ModEntityTypes {
             () -> EntityType.Builder.of(Piranha::new, MobCategory.MONSTER).sized(0.7F, 0.4F).clientTrackingRange(4));
     public static final Holder.Reference<EntityType<ShoalingFish>> PUPFISH = ModRegistry.REGISTRIES.registerEntityType(
             "pupfish",
-            () -> EntityType.Builder.of(ShoalingFish.create(ModItems.PUPFISH_BUCKET), MobCategory.WATER_AMBIENT)
+            () -> EntityType.Builder.of(ShoalingFish.create(() -> ModItems.PUPFISH_BUCKET), MobCategory.WATER_AMBIENT)
                     .sized(0.5F, 0.3F)
                     .clientTrackingRange(4));
     public static final Holder.Reference<EntityType<ShoalingFish>> SARDINE = ModRegistry.REGISTRIES.registerEntityType(
             "sardine",
-            () -> EntityType.Builder.of(ShoalingFish.create(ModItems.SARDINE_BUCKET, 16), MobCategory.WATER_AMBIENT)
-                    .sized(0.5F, 0.3F)
-                    .clientTrackingRange(4));
+            () -> EntityType.Builder.of(ShoalingFish.create(() -> ModItems.SARDINE_BUCKET, 16),
+                    MobCategory.WATER_AMBIENT).sized(0.5F, 0.3F).clientTrackingRange(4));
     public static final Holder.Reference<EntityType<SolitaryFish>> SIAMESE_FIGHTING_FISH = ModRegistry.REGISTRIES.registerEntityType(
             "siamese_fighting_fish",
-            () -> EntityType.Builder.of(SolitaryFish.create(ModItems.SIAMESE_FIGHTING_FISH_BUCKET),
+            () -> EntityType.Builder.of(SolitaryFish.create(() -> ModItems.SIAMESE_FIGHTING_FISH_BUCKET),
                     MobCategory.WATER_AMBIENT).sized(0.5F, 0.3F).clientTrackingRange(4));
     public static final Holder.Reference<EntityType<SolitaryFish>> WHITEMARGIN_STARGAZER = ModRegistry.REGISTRIES.registerEntityType(
             "whitemargin_stargazer",
-            () -> EntityType.Builder.of(FloordwellingFish.create(ModItems.WHITEMARGIN_STARGAZER_BUCKET),
+            () -> EntityType.Builder.of(FloordwellingFish.create(() -> ModItems.WHITEMARGIN_STARGAZER_BUCKET),
                     MobCategory.WATER_AMBIENT).sized(0.7F, 0.5F).clientTrackingRange(4));
     public static final Holder.Reference<EntityType<StingRay>> STINGRAY = ModRegistry.REGISTRIES.registerEntityType(
             "stingray",
@@ -149,21 +144,21 @@ public class ModEntityTypes {
                     .clientTrackingRange(4));
     public static final Holder.Reference<EntityType<SolitaryFish>> SILVER_STRIPE_BLAASOP = ModRegistry.REGISTRIES.registerEntityType(
             "silver_stripe_blaasop",
-            () -> EntityType.Builder.of(SolitaryFish.create(ModItems.SILVER_STRIPE_BLAASOP_BUCKET),
+            () -> EntityType.Builder.of(SolitaryFish.create(() -> ModItems.SILVER_STRIPE_BLAASOP_BUCKET),
                     MobCategory.WATER_AMBIENT).sized(0.7F, 0.4F).clientTrackingRange(4));
     public static final Holder.Reference<EntityType<ShoalingFish>> TROUT = ModRegistry.REGISTRIES.registerEntityType(
             "trout",
-            () -> EntityType.Builder.of(ShoalingFish.create(ModItems.TROUT_BUCKET), MobCategory.WATER_AMBIENT)
+            () -> EntityType.Builder.of(ShoalingFish.create(() -> ModItems.TROUT_BUCKET), MobCategory.WATER_AMBIENT)
                     .sized(0.7F, 0.4F)
                     .clientTrackingRange(4));
     public static final Holder.Reference<EntityType<ShoalingFish>> TUNA = ModRegistry.REGISTRIES.registerEntityType(
             "tuna",
-            () -> EntityType.Builder.of(ShoalingFish.create(ModItems.TUNA_BUCKET), MobCategory.WATER_AMBIENT)
+            () -> EntityType.Builder.of(ShoalingFish.create(() -> ModItems.TUNA_BUCKET), MobCategory.WATER_AMBIENT)
                     .sized(0.7F, 0.5F)
                     .clientTrackingRange(4));
     public static final Holder.Reference<EntityType<ShoalingFish>> WALLEYE = ModRegistry.REGISTRIES.registerEntityType(
             "walleye",
-            () -> EntityType.Builder.of(ShoalingFish.create(ModItems.WALLEYE_BUCKET), MobCategory.WATER_AMBIENT)
+            () -> EntityType.Builder.of(ShoalingFish.create(() -> ModItems.WALLEYE_BUCKET), MobCategory.WATER_AMBIENT)
                     .sized(0.7F, 0.4F)
                     .clientTrackingRange(4));
 

@@ -179,11 +179,6 @@ public class FishTrapBlock extends BaseEntityBlock implements SimpleWaterloggedB
     }
 
     @Override
-    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(WATERLOGGED, STAGE, BAITED);
-    }
-
-    @Override
     protected boolean hasAnalogOutputSignal(BlockState state) {
         return true;
     }
@@ -191,5 +186,10 @@ public class FishTrapBlock extends BaseEntityBlock implements SimpleWaterloggedB
     @Override
     protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
         return AbstractContainerMenu.getRedstoneSignalFromBlockEntity(level.getBlockEntity(pos));
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+        builder.add(WATERLOGGED, STAGE, BAITED);
     }
 }

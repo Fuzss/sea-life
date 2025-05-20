@@ -20,14 +20,8 @@ public class TallFishModel extends FishModel<LivingEntityRenderState> {
 
         partDefinition.addOrReplaceChild("tail",
                 CubeListBuilder.create()
-                        .texOffs(4, 2)
-                        .addBox(0.0F, 0.0F, 1.0F, 0.0F, 4.0F, 1.0F)
-                        .texOffs(2, 4)
-                        .addBox(0.0F, 0.0F, 2.0F, 0.0F, 1.0F, 1.0F)
-                        .texOffs(0, 4)
-                        .addBox(0.0F, 3.0F, 2.0F, 0.0F, 1.0F, 1.0F)
-                        .texOffs(0, 1)
-                        .addBox(0.0F, 1.0F, -1.0F, 0.0F, 2.0F, 2.0F),
+                        .texOffs(11, 0)
+                        .addBox(0.0F, 0.0F, 0.0F, 0.0F, 4.0F, 3.0F),
                 PartPose.offset(0.0F, 20.0F, 4.0F));
 
         partDefinition.addOrReplaceChild("body",

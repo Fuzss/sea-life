@@ -65,8 +65,12 @@ public class SeaLifeClient implements ClientModConstructor {
         registerEntityRenderer(context, ModEntityTypes.PIRANHA.value(), ModModelLayers.PIRANHA);
         registerEntityRenderer(context, ModEntityTypes.PUPFISH.value(), ModModelLayers.PUPFISH);
         registerEntityRenderer(context, ModEntityTypes.SARDINE.value(), ModModelLayers.SARDINE);
-        registerEntityRenderer(context, ModEntityTypes.SIAMESE_FIGHTING_FISH.value(), ModModelLayers.SIAMESE_FIGHTING_FISH);
-        registerEntityRenderer(context, ModEntityTypes.SILVER_STRIPE_BLAASOP.value(), ModModelLayers.SILVER_STRIPE_BLAASOP);
+        registerEntityRenderer(context,
+                ModEntityTypes.SIAMESE_FIGHTING_FISH.value(),
+                ModModelLayers.SIAMESE_FIGHTING_FISH);
+        registerEntityRenderer(context,
+                ModEntityTypes.SILVER_STRIPE_BLAASOP.value(),
+                ModModelLayers.SILVER_STRIPE_BLAASOP);
         context.registerEntityRenderer(ModEntityTypes.STINGRAY.value(),
                 (EntityRendererProvider.Context contextX) -> new FishRenderer(contextX,
                         ModModelLayers.STINGRAY,
@@ -75,7 +79,9 @@ public class SeaLifeClient implements ClientModConstructor {
         registerEntityRenderer(context, ModEntityTypes.TROUT.value(), ModModelLayers.TROUT);
         registerEntityRenderer(context, ModEntityTypes.TUNA.value(), ModModelLayers.TUNA);
         registerEntityRenderer(context, ModEntityTypes.WALLEYE.value(), ModModelLayers.WALLEYE);
-        registerEntityRenderer(context, ModEntityTypes.WHITEMARGIN_STARGAZER.value(), ModModelLayers.WHITEMARGIN_STARGAZER);
+        registerEntityRenderer(context,
+                ModEntityTypes.WHITEMARGIN_STARGAZER.value(),
+                ModModelLayers.WHITEMARGIN_STARGAZER);
     }
 
     static <T extends AbstractFish> void registerEntityRenderer(EntityRenderersContext context, EntityType<? extends T> entityType, ModelLayerLocation modelLayerLocation) {
@@ -96,14 +102,13 @@ public class SeaLifeClient implements ClientModConstructor {
         context.registerLayerDefinition(ModModelLayers.BUTTERFLYFISH, AngelfishModel::createBodyLayer);
         context.registerLayerDefinition(ModModelLayers.CARP, FatFishModel::createBodyLayer);
         context.registerLayerDefinition(ModModelLayers.CATFISH, LongFishModel::createBodyLayer);
-        context.registerLayerDefinition(ModModelLayers.CHUB,
-                () -> SalmonModel.createBodyLayer().apply(FishModel.SALMON_TRANSFORMER));
+        context.registerLayerDefinition(ModModelLayers.CHUB, SalmonModel::createBodyLayer);
         context.registerLayerDefinition(ModModelLayers.DAMSELFISH, TallFishModel::createBodyLayer);
         context.registerLayerDefinition(ModModelLayers.ELECTRIC_RAY, ElectricRayModel::createBodyLayer);
         context.registerLayerDefinition(ModModelLayers.GOLDFISH, SmallFishModel::createBodyLayer);
         context.registerLayerDefinition(ModModelLayers.KOI, FatFishModel::createBodyLayer);
         context.registerLayerDefinition(ModModelLayers.LAMPREY, LampreyModel::createBodyLayer);
-        context.registerLayerDefinition(ModModelLayers.LUNGFISH, LungfishModel::createBodyLayer);
+        context.registerLayerDefinition(ModModelLayers.LUNGFISH, LongFishModel::createBodyLayer);
         context.registerLayerDefinition(ModModelLayers.MANTA_RAY, MantaRayModel::createBodyLayer);
         context.registerLayerDefinition(ModModelLayers.MINNOW, SmallFishModel::createBodyLayer);
         context.registerLayerDefinition(ModModelLayers.NEON_TETRA, SmallFishModel::createBodyLayer);
@@ -115,14 +120,11 @@ public class SeaLifeClient implements ClientModConstructor {
         context.registerLayerDefinition(ModModelLayers.SARDINE, SmallFishModel::createBodyLayer);
         context.registerLayerDefinition(ModModelLayers.SIAMESE_FIGHTING_FISH,
                 SiameseFightingFishModel::createBodyLayer);
-        context.registerLayerDefinition(ModModelLayers.SILVER_STRIPE_BLAASOP,
-                () -> SalmonModel.createBodyLayer().apply(FishModel.SALMON_TRANSFORMER));
+        context.registerLayerDefinition(ModModelLayers.SILVER_STRIPE_BLAASOP, SalmonModel::createBodyLayer);
         context.registerLayerDefinition(ModModelLayers.STINGRAY, StingRayModel::createBodyLayer);
-        context.registerLayerDefinition(ModModelLayers.TROUT,
-                () -> SalmonModel.createBodyLayer().apply(FishModel.SALMON_TRANSFORMER));
+        context.registerLayerDefinition(ModModelLayers.TROUT, SalmonModel::createBodyLayer);
         context.registerLayerDefinition(ModModelLayers.TUNA, FatFishModel::createBodyLayer);
-        context.registerLayerDefinition(ModModelLayers.WALLEYE,
-                () -> SalmonModel.createBodyLayer().apply(FishModel.SALMON_TRANSFORMER));
+        context.registerLayerDefinition(ModModelLayers.WALLEYE, SalmonModel::createBodyLayer);
         context.registerLayerDefinition(ModModelLayers.WHITEMARGIN_STARGAZER, StargazerModel::createBodyLayer);
     }
 

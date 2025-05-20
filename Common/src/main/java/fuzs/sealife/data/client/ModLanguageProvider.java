@@ -3,12 +3,13 @@ package fuzs.sealife.data.client;
 import fuzs.puzzleslib.api.client.data.v2.AbstractLanguageProvider;
 import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
 import fuzs.sealife.SeaLife;
-import fuzs.sealife.init.ModBlocks;
-import fuzs.sealife.init.ModEntityTypes;
-import fuzs.sealife.init.ModItems;
-import fuzs.sealife.init.ModRegistry;
+import fuzs.sealife.init.*;
 import net.minecraft.core.Holder;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.decoration.PaintingVariant;
+
+import java.util.Objects;
 
 public class ModLanguageProvider extends AbstractLanguageProvider {
 
@@ -18,9 +19,16 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
 
     @Override
     public void addTranslations(TranslationBuilder translationBuilder) {
-        translationBuilder.add(ModRegistry.CREATIVE_MODE_TAB.value(), SeaLife.MOD_NAME);
+        translationBuilder.addCreativeModeTab(ModRegistry.CREATIVE_MODE_TAB, SeaLife.MOD_NAME);
         translationBuilder.addBlock(ModBlocks.FISH_TRAP, "Fish Trap");
         translationBuilder.addBlock(ModBlocks.HATCHERY, "Hatchery");
+        translationBuilder.addItem(ModItems.FISH_BONES, "Fish Bones");
+        translationBuilder.addItem(ModItems.EMPTY_CAN, "Empty Can");
+        translationBuilder.addItem(ModItems.FISH_FOSSIL, "Fish Fossil");
+        translationBuilder.addItem(ModItems.PIRATE_TREASURE, "Pirate Treasure");
+        translationBuilder.addItem(ModItems.FISH_FINGERS, "Fish Fingers");
+        translationBuilder.addItem(ModItems.SASHIMI, "Sashimi");
+        translationBuilder.addItem(ModItems.FISH_STEW, "Fish Stew");
         translationBuilder.addItem(ModItems.ANCHOVY, "Anchovy");
         translationBuilder.addItem(ModItems.ANGELFISH, "Angelfish");
         translationBuilder.addItem(ModItems.ANGLERFISH, "Anglerfish");
@@ -149,16 +157,22 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         addEntityType(translationBuilder, ModEntityTypes.TUNA, "Tuna");
         addEntityType(translationBuilder, ModEntityTypes.WALLEYE, "Walleye");
         addEntityType(translationBuilder, ModEntityTypes.WHITEMARGIN_STARGAZER, "Whitemargin Stargazer");
-        translationBuilder.addItem(ModItems.FISH_BONES, "Fish Bones");
-        translationBuilder.addItem(ModItems.EMPTY_CAN, "Empty Can");
-        translationBuilder.addItem(ModItems.FISH_FOSSIL, "Fish Fossil");
-        translationBuilder.addItem(ModItems.PIRATE_TREASURE, "Pirate Treasure");
-        translationBuilder.addItem(ModItems.FISH_FINGERS, "Fish Fingers");
-        translationBuilder.addItem(ModItems.SASHIMI, "Sashimi");
-        translationBuilder.addItem(ModItems.FISH_STEW, "Fish Stew");
+        addPaintingVariant(translationBuilder, ModPaintingVariants.ALBATROSS, "Albatross", "Joshiejack");
+        addPaintingVariant(translationBuilder, ModPaintingVariants.BOATS, "Boats", "Joshiejack");
+        addPaintingVariant(translationBuilder, ModPaintingVariants.LIGHTHOUSE, "Lighthouse", "Joshiejack");
+        addPaintingVariant(translationBuilder, ModPaintingVariants.SUNSET, "Sunset", "Joshiejack");
+        addPaintingVariant(translationBuilder, ModPaintingVariants.WINDOW, "Window", "Joshiejack");
     }
 
+    @Deprecated
     static void addEntityType(TranslationBuilder translationBuilder, Holder<? extends EntityType<?>> entityType, String value) {
         translationBuilder.add(entityType.value(), value);
+    }
+
+    @Deprecated
+    static void addPaintingVariant(TranslationBuilder translationBuilder, ResourceKey<PaintingVariant> paintingVariant, String title, String author) {
+        Objects.requireNonNull(paintingVariant, "painting variant is null");
+        translationBuilder.add(paintingVariant.location().toLanguageKey("painting", "title"), title);
+        translationBuilder.add(paintingVariant.location().toLanguageKey("painting", "author"), author);
     }
 }

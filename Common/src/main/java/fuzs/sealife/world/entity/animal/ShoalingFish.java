@@ -10,6 +10,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
 import java.util.OptionalInt;
+import java.util.function.Supplier;
 
 public class ShoalingFish extends AbstractSchoolingFish {
     private final Holder<Item> bucketItem;
@@ -25,14 +26,16 @@ public class ShoalingFish extends AbstractSchoolingFish {
         this.maxSchoolSize = maxSchoolSize;
     }
 
-    public static <T extends ShoalingFish> EntityType.EntityFactory<T> create(Holder<Item> bucketItem) {
-        return (EntityType<T> entityType, Level level) -> (T) new ShoalingFish(entityType, level, bucketItem);
-    }
-
-    public static <T extends ShoalingFish> EntityType.EntityFactory<T> create(Holder<Item> bucketItem, int maxSchoolSize) {
+    public static <T extends ShoalingFish> EntityType.EntityFactory<T> create(Supplier<Holder<Item>> bucketItemSupplier) {
         return (EntityType<T> entityType, Level level) -> (T) new ShoalingFish(entityType,
                 level,
-                bucketItem,
+                bucketItemSupplier.get());
+    }
+
+    public static <T extends ShoalingFish> EntityType.EntityFactory<T> create(Supplier<Holder<Item>> bucketItemSupplier, int maxSchoolSize) {
+        return (EntityType<T> entityType, Level level) -> (T) new ShoalingFish(entityType,
+                level,
+                bucketItemSupplier.get(),
                 OptionalInt.of(maxSchoolSize));
     }
 

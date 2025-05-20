@@ -1,4 +1,8 @@
-// 1.21.5	2025-05-16T14:55:55.938242	Tags for minecraft:entity_type mod id vanilla
+// 1.21.5	2025-05-18T15:02:33.201276	Tags for minecraft:entity_type mod id vanilla
+c90d22c8fd63631a6a12ec420aa820c06d4016ad data/minecraft/tags/entity_type/aquatic.json
+c90d22c8fd63631a6a12ec420aa820c06d4016ad data/minecraft/tags/entity_type/axolotl_hunt_targets.json
+c90d22c8fd63631a6a12ec420aa820c06d4016ad data/minecraft/tags/entity_type/can_breathe_under_water.json
+c90d22c8fd63631a6a12ec420aa820c06d4016ad data/minecraft/tags/entity_type/not_scary_for_pufferfish.json
 7646682af7efa0ad628f0639ab542154b27fe452 data/sealife/tags/entity_type/common_fishes.json
 07f5e1106eee11ecf875342044c794188bec5020 data/sealife/tags/entity_type/fishes.json
 fe8a5924fdb40f8c659bf84a677cd3288195fba0 data/sealife/tags/entity_type/rare_fishes.json

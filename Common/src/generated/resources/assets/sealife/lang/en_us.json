@@ -1,7 +1,6 @@
 {
   "block.sealife.fish_trap": "Fish Trap",
   "block.sealife.hatchery": "Hatchery",
-  "creative_mode_tab.sealife.main": "Sea Life",
   "entity.sealife.anchovy": "Anchovy",
   "entity.sealife.angelfish": "Angelfish",
   "entity.sealife.anglerfish": "Anglerfish",
@@ -136,5 +135,16 @@
   "item.sealife.walleye_spawn_egg": "Walleye Spawn Egg",
   "item.sealife.whitemargin_stargazer": "Whitemargin Stargazer",
   "item.sealife.whitemargin_stargazer_bucket": "Bucket of Whitemargin Stargazer",
-  "item.sealife.whitemargin_stargazer_spawn_egg": "Whitemargin Stargazer Spawn Egg"
+  "item.sealife.whitemargin_stargazer_spawn_egg": "Whitemargin Stargazer Spawn Egg",
+  "itemGroup.sealife.main": "Sea Life",
+  "painting.sealife.albatross.author": "Joshiejack",
+  "painting.sealife.albatross.title": "Albatross",
+  "painting.sealife.boats.author": "Joshiejack",
+  "painting.sealife.boats.title": "Boats",
+  "painting.sealife.lighthouse.author": "Joshiejack",
+  "painting.sealife.lighthouse.title": "Lighthouse",
+  "painting.sealife.sunset.author": "Joshiejack",
+  "painting.sealife.sunset.title": "Sunset",
+  "painting.sealife.window.author": "Joshiejack",
+  "painting.sealife.window.title": "Window"
 }

@@ -9,6 +9,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 
+import java.util.function.Supplier;
+
 public class SolitaryFish extends AbstractFish {
     private final Holder<Item> bucketItem;
 
@@ -17,8 +19,10 @@ public class SolitaryFish extends AbstractFish {
         this.bucketItem = bucketItem;
     }
 
-    public static <T extends SolitaryFish> EntityType.EntityFactory<T> create(Holder<Item> bucketItem) {
-        return (EntityType<T> entityType, Level level) -> (T) new SolitaryFish(entityType, level, bucketItem);
+    public static <T extends SolitaryFish> EntityType.EntityFactory<T> create(Supplier<Holder<Item>> bucketItemSupplier) {
+        return (EntityType<T> entityType, Level level) -> (T) new SolitaryFish(entityType,
+                level,
+                bucketItemSupplier.get());
     }
 
     @Override

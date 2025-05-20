@@ -25,6 +25,8 @@ import net.minecraft.world.level.biome.MobSpawnSettings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.function.Supplier;
+
 public class SeaLife implements ModConstructor {
     public static final String MOD_ID = "sealife";
     public static final String MOD_NAME = "Sea Life";
@@ -58,134 +60,138 @@ public class SeaLife implements ModConstructor {
         addFishSpawn(context,
                 ModEntityTypes.ANCHOVY,
                 ModRegistry.SPAWNS_ANCHOVY_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).anchovy);
+                () -> CONFIG.get(CommonConfig.class).anchovy);
         addFishSpawn(context,
                 ModEntityTypes.ANGELFISH,
                 ModRegistry.SPAWNS_ANGELFISH_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).angelfish);
+                () -> CONFIG.get(CommonConfig.class).angelfish);
         addFishSpawn(context,
                 ModEntityTypes.ANGLERFISH,
                 ModRegistry.SPAWNS_ANGLERFISH_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).anglerfish);
+                () -> CONFIG.get(CommonConfig.class).anglerfish);
         addFishSpawn(context,
                 ModEntityTypes.BASS,
                 ModRegistry.SPAWNS_BASS_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).bass);
+                () -> CONFIG.get(CommonConfig.class).bass);
         addFishSpawn(context,
                 ModEntityTypes.BLUE_TANG,
                 ModRegistry.SPAWNS_BLUE_TANG_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).blue_tang);
+                () -> CONFIG.get(CommonConfig.class).blue_tang);
         addFishSpawn(context,
                 ModEntityTypes.BOWFIN,
                 ModRegistry.SPAWNS_BOWFIN_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).bowfin);
+                () -> CONFIG.get(CommonConfig.class).bowfin);
         addFishSpawn(context,
                 ModEntityTypes.BUTTERFLYFISH,
                 ModRegistry.SPAWNS_BUTTERFLYFISH_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).butterflyfish);
+                () -> CONFIG.get(CommonConfig.class).butterflyfish);
         addFishSpawn(context,
                 ModEntityTypes.CARP,
                 ModRegistry.SPAWNS_CARP_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).carp);
+                () -> CONFIG.get(CommonConfig.class).carp);
         addFishSpawn(context,
                 ModEntityTypes.CATFISH,
                 ModRegistry.SPAWNS_CATFISH_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).catfish);
+                () -> CONFIG.get(CommonConfig.class).catfish);
         addFishSpawn(context,
                 ModEntityTypes.CHUB,
                 ModRegistry.SPAWNS_CHUB_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).chub);
+                () -> CONFIG.get(CommonConfig.class).chub);
         addFishSpawn(context,
                 ModEntityTypes.DAMSELFISH,
                 ModRegistry.SPAWNS_DAMSELFISH_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).damselfish);
+                () -> CONFIG.get(CommonConfig.class).damselfish);
         addFishSpawn(context,
                 ModEntityTypes.ELECTRIC_RAY,
                 ModRegistry.SPAWNS_ELECTRIC_RAY_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).electric_ray);
+                () -> CONFIG.get(CommonConfig.class).electric_ray);
         addFishSpawn(context,
                 ModEntityTypes.GOLDFISH,
                 ModRegistry.SPAWNS_GOLDFISH_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).goldfish);
-        addFishSpawn(context, ModEntityTypes.KOI, ModRegistry.SPAWNS_KOI_BIOME_TAG, CONFIG.get(CommonConfig.class).koi);
+                () -> CONFIG.get(CommonConfig.class).goldfish);
+        addFishSpawn(context,
+                ModEntityTypes.KOI,
+                ModRegistry.SPAWNS_KOI_BIOME_TAG,
+                () -> CONFIG.get(CommonConfig.class).koi);
         addFishSpawn(context,
                 ModEntityTypes.LAMPREY,
                 ModRegistry.SPAWNS_LAMPREY_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).lamprey);
+                () -> CONFIG.get(CommonConfig.class).lamprey);
         addFishSpawn(context,
                 ModEntityTypes.LUNGFISH,
                 ModRegistry.SPAWNS_LUNGFISH_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).lungfish);
+                () -> CONFIG.get(CommonConfig.class).lungfish);
         addFishSpawn(context,
                 ModEntityTypes.MANTA_RAY,
                 ModRegistry.SPAWNS_MANTA_RAY_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).manta_ray);
+                () -> CONFIG.get(CommonConfig.class).manta_ray);
         addFishSpawn(context,
                 ModEntityTypes.MINNOW,
                 ModRegistry.SPAWNS_MINNOW_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).minnow);
+                () -> CONFIG.get(CommonConfig.class).minnow);
         addFishSpawn(context,
                 ModEntityTypes.NEON_TETRA,
                 ModRegistry.SPAWNS_NEON_TETRA_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).neon_tetra);
+                () -> CONFIG.get(CommonConfig.class).neon_tetra);
         addFishSpawn(context,
                 ModEntityTypes.NORTHERN_PIKE,
                 ModRegistry.SPAWNS_NORTHERN_PIKE_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).northern_pike);
+                () -> CONFIG.get(CommonConfig.class).northern_pike);
         addFishSpawn(context,
                 ModEntityTypes.PERCH,
                 ModRegistry.SPAWNS_PERCH_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).perch);
+                () -> CONFIG.get(CommonConfig.class).perch);
         addFishSpawn(context,
                 ModEntityTypes.PICKEREL,
                 ModRegistry.SPAWNS_PICKEREL_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).pickerel);
+                () -> CONFIG.get(CommonConfig.class).pickerel);
         addFishSpawn(context,
                 ModEntityTypes.PIRANHA,
                 ModRegistry.SPAWNS_PIRANHA_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).piranha);
+                () -> CONFIG.get(CommonConfig.class).piranha);
         addFishSpawn(context,
                 ModEntityTypes.PUPFISH,
                 ModRegistry.SPAWNS_PUPFISH_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).pupfish);
+                () -> CONFIG.get(CommonConfig.class).pupfish);
         addFishSpawn(context,
                 ModEntityTypes.SARDINE,
                 ModRegistry.SPAWNS_SARDINE_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).sardine);
+                () -> CONFIG.get(CommonConfig.class).sardine);
         addFishSpawn(context,
                 ModEntityTypes.SIAMESE_FIGHTING_FISH,
                 ModRegistry.SPAWNS_SIAMESE_FIGHTING_FISH_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).siamese_fighting_fish);
+                () -> CONFIG.get(CommonConfig.class).siamese_fighting_fish);
         addFishSpawn(context,
                 ModEntityTypes.WHITEMARGIN_STARGAZER,
                 ModRegistry.SPAWNS_WHITEMARGIN_STARGAZER_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).whitemargin_stargazer);
+                () -> CONFIG.get(CommonConfig.class).whitemargin_stargazer);
         addFishSpawn(context,
                 ModEntityTypes.STINGRAY,
                 ModRegistry.SPAWNS_STINGRAY_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).stingray);
+                () -> CONFIG.get(CommonConfig.class).stingray);
         addFishSpawn(context,
                 ModEntityTypes.SILVER_STRIPE_BLAASOP,
                 ModRegistry.SPAWNS_SILVER_STRIPE_BLAASOP_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).silver_stripe_blaasop);
+                () -> CONFIG.get(CommonConfig.class).silver_stripe_blaasop);
         addFishSpawn(context,
                 ModEntityTypes.TROUT,
                 ModRegistry.SPAWNS_TROUT_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).trout);
+                () -> CONFIG.get(CommonConfig.class).trout);
         addFishSpawn(context,
                 ModEntityTypes.TUNA,
                 ModRegistry.SPAWNS_TUNA_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).tuna);
+                () -> CONFIG.get(CommonConfig.class).tuna);
         addFishSpawn(context,
                 ModEntityTypes.WALLEYE,
                 ModRegistry.SPAWNS_WALLEYE_BIOME_TAG,
-                CONFIG.get(CommonConfig.class).walleye);
+                () -> CONFIG.get(CommonConfig.class).walleye);
     }
 
-    static void addFishSpawn(BiomeModificationsContext context, Holder.Reference<? extends EntityType<?>> holder, TagKey<Biome> tagKey, CommonConfig.FishSpawnConfig config) {
+    static void addFishSpawn(BiomeModificationsContext context, Holder.Reference<? extends EntityType<?>> holder, TagKey<Biome> tagKey, Supplier<CommonConfig.FishSpawnConfig> configSupplier) {
         context.registerBiomeModification(BiomeLoadingPhase.ADDITIONS, (BiomeLoadingContext biomeLoadingContext) -> {
             return biomeLoadingContext.is(tagKey);
         }, (BiomeModificationContext biomeModificationContext) -> {
+            CommonConfig.FishSpawnConfig config = configSupplier.get();
             biomeModificationContext.mobSpawnSettings()
                     .addSpawn(holder.value().getCategory(),
                             config.weight,

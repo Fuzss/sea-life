@@ -1,6 +1,8 @@
 package fuzs.sealife.world.level.block.entity;
 
 import fuzs.puzzleslib.api.block.v1.entity.TickingBlockEntity;
+import fuzs.sealife.init.ModBlocks;
+import fuzs.sealife.init.ModRegistry;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -11,7 +13,6 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.animal.Bucketable;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
@@ -20,10 +21,9 @@ import net.minecraft.world.level.block.LevelEvent;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
-import fuzs.sealife.init.ModBlocks;
-import fuzs.sealife.init.ModRegistry;
 
 public class HatcheryBlockEntity extends BlockEntity implements TickingBlockEntity {
+    public static final int MAX_CAPACITY = 12;
     static final int TIME_UNITS = 24_000;
     static final int COMMON_CYCLES = 3;
     static final int UNCOMMON_CYCLES = 5;
@@ -50,14 +50,14 @@ public class HatcheryBlockEntity extends BlockEntity implements TickingBlockEnti
     }
 
     public void setEntityTypeAndCount(EntityType<?> entityType, int count) {
-        this.entityType = entityType;
-        this.count = count;
         this.markUpdated();
         if (!this.getLevel().isClientSide) {
             this.setChanged();
         } else {
-            this.getRenderData().reload(this.entityType, count, this.getLevel().random);
+            this.getRenderData().reload(this.entityType, count, this.getLevel().getRandom());
         }
+        this.entityType = entityType;
+        this.count = count;
     }
 
     @Override
@@ -70,14 +70,14 @@ public class HatcheryBlockEntity extends BlockEntity implements TickingBlockEnti
     @Override
     public void serverTick() {
         if (this.getEntityType() != null) {
-            if (this.getLevel().getGameTime() % 100 == 0 && this.count < 10) {
+            if (this.count < MAX_CAPACITY && this.getLevel().getGameTime() % 100 == 0) {
                 int ticksRequired = getHatchingCycles(this.getEntityType()) * TIME_UNITS;
                 if (ticksRequired > 0) {
                     this.ticksPassed += 100;
                     if (this.ticksPassed >= ticksRequired) {
                         this.ticksPassed = 0;
+                        this.setEntityTypeAndCount(this.entityType, this.count + 1);
                         this.count++;
-                        this.setEntityTypeAndCount(this.entityType, this.count);
                     }
                 }
             }
@@ -160,11 +160,13 @@ public class HatcheryBlockEntity extends BlockEntity implements TickingBlockEnti
     protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
         super.loadAdditional(tag, registries);
         this.entityType = tag.read(TAG_ENTITY, BuiltInRegistries.ENTITY_TYPE.byNameCodec()).orElse(null);
-        this.count = tag.getByteOr(TAG_COUNT, (byte) 0);
+        this.count = Math.min(MAX_CAPACITY, tag.getByteOr(TAG_COUNT, (byte) 0));
         this.ticksPassed = tag.getIntOr(TAG_TICKS_PASSED, 0);
         this.breakChance = tag.getByteOr(TAG_TIMES_PULLED, (byte) 0);
-        if (this.getLevel().isClientSide) {
-            this.getRenderData().reload(this.entityType, this.count, this.getLevel().random);
+        if (this.hasLevel() && this.getLevel().isClientSide) {
+            this.getRenderData().reload(this.entityType, this.count, this.getLevel().getRandom());
+        } else {
+            this.getRenderData().clearDisplayEntity();
         }
     }
 

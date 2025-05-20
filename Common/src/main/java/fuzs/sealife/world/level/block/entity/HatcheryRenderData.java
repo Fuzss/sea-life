@@ -6,12 +6,12 @@ import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Objects;
+
 public class HatcheryRenderData {
+    private final RandomSource randomSource = RandomSource.create();
     private final HatcheryBlockEntity blockEntity;
-    private final long[] rotations = new long[10];
-    private final boolean[] clockwise = new boolean[10];
-    private final int[] speed = new int[10];
-    private final float[] height = new float[10];
+    private FishRenderData[] data = new FishRenderData[0];
     @Nullable
     private Entity displayEntity;
 
@@ -19,26 +19,25 @@ public class HatcheryRenderData {
         this.blockEntity = blockEntity;
     }
 
-    public Entity reload(EntityType<?> entityType, int count, RandomSource randomSource) {
+    public void reload(EntityType<?> entityType, int count, RandomSource randomSource) {
         this.displayEntity = this.getOrCreateDisplayEntity(entityType);
-        for (int i = 0; i < count; i++) {
-            this.rotations[i] = randomSource.nextInt(720000);
-            this.clockwise[i] = randomSource.nextBoolean();
-            this.speed[i] = 1 + randomSource.nextInt(5);
-            this.height[i] = i;
+        FishRenderData[] data = new FishRenderData[count];
+        for (int i = 0; i < data.length; i++) {
+            data[i] = i < this.data.length ? this.data[i] : new FishRenderData(randomSource);
         }
 
-        return this.displayEntity;
+        this.data = data;
     }
 
     public void tick() {
         if (this.displayEntity == null) {
             this.reload(this.blockEntity.getEntityType(),
                     this.blockEntity.getCount(),
-                    this.blockEntity.getLevel().random);
+                    this.blockEntity.getLevel().getRandom());
         }
-        for (int i = 0; i < this.blockEntity.getCount(); i++) {
-            this.rotations[i] = this.rotations[i] + (this.clockwise[i] ? -this.speed[i] * 10L : this.speed[i] * 10L);
+
+        for (FishRenderData fishRenderData : this.data) {
+            fishRenderData.tick();
         }
 
         this.displayEntity.tickCount++;
@@ -47,6 +46,7 @@ public class HatcheryRenderData {
     @Nullable
     public Entity getOrCreateDisplayEntity(EntityType<?> entityType) {
         if (this.displayEntity == null) {
+            Objects.requireNonNull(this.blockEntity.getLevel(), "level is null");
             return this.displayEntity = this.blockEntity.getEntityType() == null ? null :
                     entityType.create(this.blockEntity.getLevel(), EntitySpawnReason.LOAD);
         } else {
@@ -54,15 +54,60 @@ public class HatcheryRenderData {
         }
     }
 
-    public float getRotation(int i) {
-        return (float) (720.0 * (this.rotations[i] & 0x3FFFL) / 0x3FFFL);
+    public void clearDisplayEntity() {
+        this.displayEntity = null;
     }
 
-    public float getHeight(int i) {
-        return this.height[i];
+    public float getRotation(int index) {
+        return this.data[index].getRotation();
     }
 
-    public boolean isClockwise(int i) {
-        return this.clockwise[i];
+    public float getHeight(int index) {
+        return this.data[index].getHeight();
+    }
+
+    public boolean isClockwise(int index) {
+        return this.data[index].isClockwise();
+    }
+
+    public static final class FishRenderData {
+        private int rotation;
+        private final boolean clockwise;
+        private final int speed;
+        private final float height;
+
+        public FishRenderData(RandomSource randomSource) {
+            this(randomSource.nextInt(720_000),
+                    randomSource.nextBoolean(),
+                    1 + randomSource.nextInt(5),
+                    randomSource.nextFloat() * 9.0F);
+        }
+
+        public FishRenderData(int rotation, boolean clockwise, int speed, float height) {
+            this.rotation = rotation;
+            this.clockwise = clockwise;
+            this.speed = speed;
+            this.height = height;
+        }
+
+        public void tick() {
+            this.rotation += this.speed * (this.clockwise ? -10 : 10);
+        }
+
+        public float getRotation() {
+            return 720.0F * (this.rotation & 0x3FFF) / 0x3FFF;
+        }
+
+        public boolean isClockwise() {
+            return this.clockwise;
+        }
+
+        public int getSpeed() {
+            return this.speed;
+        }
+
+        public float getHeight() {
+            return this.height;
+        }
     }
 }

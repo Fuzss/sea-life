@@ -17,7 +17,7 @@ public class ModBlocks {
             () -> Block.Properties.ofFullCopy(Blocks.BRAIN_CORAL).strength(0.1F).sound(SoundType.WOOL).noOcclusion());
     public static final Holder.Reference<Block> HATCHERY = ModRegistry.REGISTRIES.registerBlock("hatchery",
             HatcheryBlock::new,
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).randomTicks().strength(0.5F).noOcclusion());
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.WHITE_WOOL).strength(0.5F).noOcclusion());
     public static final Holder.Reference<BlockEntityType<FishTrapBlockEntity>> FISH_TRAP_BLOCK_ENTITY_TYPE = ModRegistry.REGISTRIES.registerBlockEntityType("fish_trap", FishTrapBlockEntity::new,
             FISH_TRAP);
     public static final Holder.Reference<BlockEntityType<HatcheryBlockEntity>> HATCHERY_BLOCK_ENTITY_TYPE = ModRegistry.REGISTRIES.registerBlockEntityType("hatchery", HatcheryBlockEntity::new,

@@ -39,11 +39,11 @@ public class SiameseFightingFishModel extends FishModel<LivingEntityRenderState>
                 PartPose.offset(-1.0F, -1.0F, -0.75F));
 
         partDefinition2.addOrReplaceChild("right_fin",
-                CubeListBuilder.create().texOffs(0, 1).addBox(0.0F, -0.5F, 0.0F, 0.0F, 1.0F, 2.0F),
+                CubeListBuilder.create().texOffs(14, 0).addBox(0.0F, -0.5F, 0.0F, 0.0F, 1.0F, 2.0F),
                 PartPose.offsetAndRotation(0.0F, 0.0F, 1.0F, -0.1745F, -0.6109F, 0.2618F));
 
         partDefinition2.addOrReplaceChild("left_fin",
-                CubeListBuilder.create().texOffs(0, 0).addBox(0.0F, -0.5F, 0.0F, 0.0F, 1.0F, 2.0F),
+                CubeListBuilder.create().texOffs(14, 0).mirror().addBox(0.0F, -0.5F, 0.0F, 0.0F, 1.0F, 2.0F),
                 PartPose.offsetAndRotation(2.0F, 0.0F, 1.0F, -0.1745F, 0.6109F, -0.2618F));
 
         return LayerDefinition.create(meshDefinition, 32, 16);

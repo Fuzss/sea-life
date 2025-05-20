@@ -6,6 +6,7 @@ import fuzs.sealife.init.ModEntityTypes;
 import fuzs.sealife.init.ModRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.entity.EntityType;
 
 public class ModEntityTypeTagProvider extends AbstractTagProvider<EntityType<?>> {
@@ -16,6 +17,10 @@ public class ModEntityTypeTagProvider extends AbstractTagProvider<EntityType<?>>
 
     @Override
     public void addTags(HolderLookup.Provider registries) {
+        this.tag(EntityTypeTags.AXOLOTL_HUNT_TARGETS).addTag(ModRegistry.FISHES_ENTITY_TYPE_TAG);
+        this.tag(EntityTypeTags.CAN_BREATHE_UNDER_WATER).addTag(ModRegistry.FISHES_ENTITY_TYPE_TAG);
+        this.tag(EntityTypeTags.AQUATIC).addTag(ModRegistry.FISHES_ENTITY_TYPE_TAG);
+        this.tag(EntityTypeTags.NOT_SCARY_FOR_PUFFERFISH).addTag(ModRegistry.FISHES_ENTITY_TYPE_TAG);
         this.tag(ModRegistry.FISHES_ENTITY_TYPE_TAG)
                 .addTag(ModRegistry.COMMON_FISHES_ENTITY_TYPE_TAG,
                         ModRegistry.UNCOMMON_FISHES_ENTITY_TYPE_TAG,

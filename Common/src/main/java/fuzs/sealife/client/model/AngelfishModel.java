@@ -20,10 +20,8 @@ public class AngelfishModel extends FishModel<LivingEntityRenderState> {
 
         partDefinition.addOrReplaceChild("tail",
                 CubeListBuilder.create()
-                        .texOffs(0, 15)
-                        .addBox(0.0F, -1.0F, 1.0F, 0.0F, 6.0F, 2.0F)
-                        .texOffs(0, 1)
-                        .addBox(0.0F, 1.0F, -1.0F, 0.0F, 2.0F, 2.0F),
+                        .texOffs(0, 14)
+                        .addBox(0.0F, -1.0F, 0.0F, 0.0F, 6.0F, 3.0F),
                 PartPose.offset(0.0F, 20.0F, 3.0F));
 
         partDefinition.addOrReplaceChild("body",
