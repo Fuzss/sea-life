@@ -23,6 +23,7 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         translationBuilder.addBlock(ModBlocks.FISH_TRAP, "Fish Trap");
         translationBuilder.addBlock(ModBlocks.HATCHERY, "Hatchery");
         translationBuilder.addItem(ModItems.FISH_BONES, "Fish Bones");
+        translationBuilder.addItem(ModItems.OLD_BOOT, "Old Boot");
         translationBuilder.addItem(ModItems.EMPTY_CAN, "Empty Can");
         translationBuilder.addItem(ModItems.FISH_FOSSIL, "Fish Fossil");
         translationBuilder.addItem(ModItems.PIRATE_TREASURE, "Pirate Treasure");

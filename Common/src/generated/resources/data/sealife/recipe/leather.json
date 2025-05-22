@@ -2,10 +2,10 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "sealife:fish_fossil"
+    "sealife:old_boot"
   ],
   "result": {
     "count": 3,
-    "id": "minecraft:coal"
+    "id": "minecraft:leather"
   }
 }

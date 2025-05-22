@@ -23,7 +23,7 @@ public class ModModelProvider extends AbstractModelProvider {
 
     @Override
     public void addBlockModels(BlockModelGenerators blockModelGenerators) {
-        blockModelGenerators.createTrivialCube(ModBlocks.FISH_TRAP.value());
+        blockModelGenerators.createTrivialBlock(ModBlocks.FISH_TRAP.value(), TexturedModel.CUBE_INNER_FACES);
         blockModelGenerators.createTrivialBlock(ModBlocks.HATCHERY.value(), PROVIDER_HATCHERY);
     }
 
@@ -31,6 +31,7 @@ public class ModModelProvider extends AbstractModelProvider {
     public void addItemModels(ItemModelGenerators itemModelGenerators) {
         itemModelGenerators.generateFlatItem(ModItems.FISH_BONES.value(), ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.FISH_FOSSIL.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.OLD_BOOT.value(), ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.EMPTY_CAN.value(), ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.PIRATE_TREASURE.value(), ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.FISH_FINGERS.value(), ModelTemplates.FLAT_ITEM);

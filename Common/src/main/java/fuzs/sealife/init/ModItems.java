@@ -1,5 +1,6 @@
 package fuzs.sealife.init;
 
+import fuzs.sealife.world.item.TreasureItem;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.sounds.SoundEvents;
@@ -10,7 +11,6 @@ import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.material.Fluids;
-import fuzs.sealife.world.item.TreasureItem;
 
 public class ModItems {
     public static final FoodProperties SMALL_FISH_FOOD = new FoodProperties.Builder().nutrition(1)
@@ -37,6 +37,7 @@ public class ModItems {
     // Loot
     public static final Holder.Reference<Item> FISH_BONES = ModRegistry.REGISTRIES.registerItem("fish_bones");
     public static final Holder.Reference<Item> FISH_FOSSIL = ModRegistry.REGISTRIES.registerItem("fish_fossil");
+    public static final Holder.Reference<Item> OLD_BOOT = ModRegistry.REGISTRIES.registerItem("old_boot");
     public static final Holder.Reference<Item> EMPTY_CAN = ModRegistry.REGISTRIES.registerItem("empty_can");
     public static final Holder.Reference<Item> PIRATE_TREASURE = ModRegistry.REGISTRIES.registerItem("pirate_treasure",
             (Item.Properties properties) -> new TreasureItem(properties, ModLootTables.TREASURE_ITEM),

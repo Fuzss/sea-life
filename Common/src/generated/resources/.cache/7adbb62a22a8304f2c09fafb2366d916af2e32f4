@@ -1,5 +1,2 @@
-// 1.21.5	2025-05-16T14:46:13.455866	Mod Fishing Loot Provider
+// 1.21.5	2025-05-22T11:30:22.286138	Mod Fishing Loot Provider
 0e02636fcc41b9a4c9cd8e21e7ea8a0404743e85 data/sealife/loot_table/gameplay/fish_trap.json
-fc566502fd25f55b5b958e519590c2489f3635c4 data/sealife/loot_table/inject/gameplay/fishing/fish.json
-d5a9748287cc456c548264a99554488c59665a51 data/sealife/loot_table/inject/gameplay/fishing/junk.json
-76cda38b851dfbdcec01f0d9d303f69b55cf63b9 data/sealife/loot_table/inject/gameplay/fishing/treasure.json

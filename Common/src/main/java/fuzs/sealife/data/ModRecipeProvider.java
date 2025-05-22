@@ -64,15 +64,19 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
                 .unlockedBy(getHasName(ItemTags.PLANKS), this.has(ItemTags.PLANKS))
                 .save(recipeOutput);
         //Recycler
-        ShapelessRecipeBuilder.shapeless(this.items(), RecipeCategory.MISC, Items.BONE_MEAL, 2)
+        ShapelessRecipeBuilder.shapeless(this.items(), RecipeCategory.MISC, Items.BONE_MEAL, 7)
                 .requires(ModItems.FISH_BONES.value())
                 .unlockedBy(getHasName(ModItems.FISH_BONES.value()), this.has(ModItems.FISH_BONES.value()))
                 .save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(this.items(), RecipeCategory.MISC, Items.IRON_NUGGET, 3)
+        ShapelessRecipeBuilder.shapeless(this.items(), RecipeCategory.MISC, Items.LEATHER, 3)
+                .requires(ModItems.OLD_BOOT.value())
+                .unlockedBy(getHasName(ModItems.OLD_BOOT.value()), this.has(ModItems.OLD_BOOT.value()))
+                .save(recipeOutput);
+        ShapelessRecipeBuilder.shapeless(this.items(), RecipeCategory.MISC, Items.IRON_NUGGET, 5)
                 .requires(ModItems.EMPTY_CAN.value())
                 .unlockedBy(getHasName(ModItems.EMPTY_CAN.value()), this.has(ModItems.EMPTY_CAN.value()))
                 .save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(this.items(), RecipeCategory.MISC, Items.COAL)
+        ShapelessRecipeBuilder.shapeless(this.items(), RecipeCategory.MISC, Items.COAL, 3)
                 .requires(ModItems.FISH_FOSSIL.value())
                 .unlockedBy(getHasName(ModItems.FISH_FOSSIL.value()), this.has(ModItems.FISH_FOSSIL.value()))
                 .save(recipeOutput);

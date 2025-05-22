@@ -9,9 +9,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Objects;
 
 public class HatcheryRenderData {
-    private final RandomSource randomSource = RandomSource.create();
     private final HatcheryBlockEntity blockEntity;
-    private FishRenderData[] data = new FishRenderData[0];
+    private FishData[] data = new FishData[0];
     @Nullable
     private Entity displayEntity;
 
@@ -21,9 +20,9 @@ public class HatcheryRenderData {
 
     public void reload(EntityType<?> entityType, int count, RandomSource randomSource) {
         this.displayEntity = this.getOrCreateDisplayEntity(entityType);
-        FishRenderData[] data = new FishRenderData[count];
+        FishData[] data = new FishData[count];
         for (int i = 0; i < data.length; i++) {
-            data[i] = i < this.data.length ? this.data[i] : new FishRenderData(randomSource);
+            data[i] = i < this.data.length ? this.data[i] : new FishData(randomSource);
         }
 
         this.data = data;
@@ -36,8 +35,8 @@ public class HatcheryRenderData {
                     this.blockEntity.getLevel().getRandom());
         }
 
-        for (FishRenderData fishRenderData : this.data) {
-            fishRenderData.tick();
+        for (FishData fishData : this.data) {
+            fishData.tick();
         }
 
         this.displayEntity.tickCount++;
@@ -70,20 +69,20 @@ public class HatcheryRenderData {
         return this.data[index].isClockwise();
     }
 
-    public static final class FishRenderData {
+    public static final class FishData {
         private int rotation;
         private final boolean clockwise;
         private final int speed;
         private final float height;
 
-        public FishRenderData(RandomSource randomSource) {
+        public FishData(RandomSource randomSource) {
             this(randomSource.nextInt(720_000),
                     randomSource.nextBoolean(),
                     1 + randomSource.nextInt(5),
                     randomSource.nextFloat() * 9.0F);
         }
 
-        public FishRenderData(int rotation, boolean clockwise, int speed, float height) {
+        public FishData(int rotation, boolean clockwise, int speed, float height) {
             this.rotation = rotation;
             this.clockwise = clockwise;
             this.speed = speed;
@@ -100,10 +99,6 @@ public class HatcheryRenderData {
 
         public boolean isClockwise() {
             return this.clockwise;
-        }
-
-        public int getSpeed() {
-            return this.speed;
         }
 
         public float getHeight() {

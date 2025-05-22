@@ -1,4 +1,4 @@
-// 1.21.5	2025-05-16T14:46:13.456822	Model Definitions
+// 1.21.5	2025-05-22T12:18:43.622184	Model Definitions
 e29f34d9a21abffc2ca4b3c14287c5242693a00b assets/sealife/blockstates/fish_trap.json
 c60bf2784869938b6d80f982ff3e36df6cc92f53 assets/sealife/blockstates/hatchery.json
 a7944973743d0466a63107cef408d017d8897f86 assets/sealife/items/anchovy.json
@@ -68,6 +68,7 @@ c8ca856471f7b33cc1e88c09bd57a4bc1713aebc assets/sealife/items/minnow_spawn_egg.j
 ce268b2aaf8afd22ec72a2db4ecc2323e8b002c4 assets/sealife/items/northern_pike.json
 db95b16d5fce69c163af671c9468583aed21d05e assets/sealife/items/northern_pike_bucket.json
 da544a7ae0d23217a575c16e8e74a8b8f13f4c15 assets/sealife/items/northern_pike_spawn_egg.json
+077b4dff8e8361596ba1b6bb938c27f7f7a4c130 assets/sealife/items/old_boot.json
 0f84eaeb35df63e6f3c4a5809d90b370fdff3eb3 assets/sealife/items/perch.json
 8d6ef4c73e7990e3400e73d6f803c6e87c8908c4 assets/sealife/items/perch_bucket.json
 72d0cabee537e27bd0ac9f06674cf6910b56e0d5 assets/sealife/items/perch_spawn_egg.json
@@ -106,7 +107,7 @@ d526d67f59b25ecc98597b05aa6dfed9f354c3f1 assets/sealife/items/walleye_spawn_egg.
 44758154f86903c8afb0cbb1faa1fe76dc2fb956 assets/sealife/items/whitemargin_stargazer.json
 4887f3fcd434dbe4d01dce8657243a9f1c5d52b7 assets/sealife/items/whitemargin_stargazer_bucket.json
 f780821a4b4406626c90030d371064953e3e24ea assets/sealife/items/whitemargin_stargazer_spawn_egg.json
-0f682b9bdb7c14909cd77a119019dc8e206eaaf5 assets/sealife/models/block/fish_trap.json
+a8f2f7467d44b00be4004d3983e199d304fe4a85 assets/sealife/models/block/fish_trap.json
 f65c7276b66bcee7657f0c5b69fbda0ca7ac2a20 assets/sealife/models/block/hatchery.json
 1703bda7828f397846c02e6bcc2b0e772a11d374 assets/sealife/models/item/anchovy.json
 27511bac800334acc36ffdcee04709922ddff659 assets/sealife/models/item/anchovy_bucket.json
@@ -173,6 +174,7 @@ f0bd42f0a6506c06b3f6967366bfc0e1ee9ae83d assets/sealife/models/item/minnow.json
 526bd967f348eb91c1421652cdc577cc21a3a089 assets/sealife/models/item/northern_pike.json
 7f8ef385b9583b44b6938c74e487a8d6e57995bb assets/sealife/models/item/northern_pike_bucket.json
 32e44091f9d7c22e893f1fccabe5a461852652a1 assets/sealife/models/item/northern_pike_spawn_egg.json
+55e1da285e0f0569ff6f6b7d887024a6b9a856fc assets/sealife/models/item/old_boot.json
 373dcc2bfcb84b91c0399bb525f2fb60a9ebbe2e assets/sealife/models/item/perch.json
 685e5ebcef3a3889ba753b537736051edd3adf0e assets/sealife/models/item/perch_bucket.json
 32e44091f9d7c22e893f1fccabe5a461852652a1 assets/sealife/models/item/perch_spawn_egg.json

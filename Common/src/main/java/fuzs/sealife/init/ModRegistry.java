@@ -6,6 +6,7 @@ import fuzs.puzzleslib.api.init.v3.tags.TagFactory;
 import fuzs.sealife.SeaLife;
 import net.minecraft.core.Holder;
 import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.context.ContextKeySet;
@@ -20,12 +21,18 @@ public class ModRegistry {
     public static final RegistrySetBuilder REGISTRY_SET_BUILDER = new RegistrySetBuilder().add(Registries.PAINTING_VARIANT,
             ModPaintingVariants::bootstrap);
     static final RegistryManager REGISTRIES = RegistryManager.from(SeaLife.MOD_ID);
-    public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab(
-            () -> new ItemStack(ModItems.PUPFISH), CreativeModeTabHelper.getDisplayItems(SeaLife.MOD_ID));
+    public static final Holder.Reference<SimpleParticleType> BUBBLE_PARTICLE_TYPE = REGISTRIES.registerParticleType(
+            "bubble");
+    public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab(() -> new ItemStack(
+            ModItems.PUPFISH), CreativeModeTabHelper.getDisplayItems(SeaLife.MOD_ID));
 
     static final TagFactory TAGS = TagFactory.make(SeaLife.MOD_ID);
     public static final TagKey<Item> RAW_FISH_FOODS_ITEM_TAG = TagFactory.COMMON.registerItemTag("foods/raw_fish");
     public static final TagKey<Item> RAW_MEAT_FOODS_ITEM_TAG = TagFactory.COMMON.registerItemTag("foods/raw_meat");
+    public static final TagKey<Biome> IS_COLD_BIOME_TAG = TagFactory.COMMON.registerBiomeTag("is_cold");
+    public static final TagKey<Biome> IS_HOT_BIOME_TAG = TagFactory.COMMON.registerBiomeTag("is_hot");
+    public static final TagKey<Biome> IS_SNOWY_BIOME_TAG = TagFactory.COMMON.registerBiomeTag("is_snowy");
+    public static final TagKey<Biome> IS_WET_BIOME_TAG = TagFactory.COMMON.registerBiomeTag("is_wet");
     public static final TagKey<Biome> IS_PLAINS_BIOME_TAG = TagFactory.COMMON.registerBiomeTag("is_plains");
     public static final TagKey<Biome> IS_SNOWY_PLAINS_BIOME_TAG = TagFactory.COMMON.registerBiomeTag("is_snowy_plains");
     public static final TagKey<Biome> IS_SWAMP_BIOME_TAG = TagFactory.COMMON.registerBiomeTag("is_swamp");
