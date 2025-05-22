@@ -112,7 +112,7 @@ public class FishTrapBlock extends BaseEntityBlock implements SimpleWaterloggedB
             if (serverLevel.getBlockEntity(blockPos) instanceof FishTrapBlockEntity blockEntity &&
                     blockEntity.isBaited()) {
                 if (blockState.getValue(STAGE) == 0) {
-                    serverLevel.setBlock(blockPos, blockState.cycle(STAGE), 260);
+                    serverLevel.setBlock(blockPos, blockState.cycle(STAGE), Block.UPDATE_CLIENTS);
                 } else {
                     LootParams lootParams = new LootParams.Builder(serverLevel).withParameter(LootContextParams.ORIGIN,
                                     Vec3.atCenterOf(blockPos))
@@ -124,7 +124,7 @@ public class FishTrapBlock extends BaseEntityBlock implements SimpleWaterloggedB
                     List<ItemStack> list = lootTable.getRandomItems(lootParams);
                     ItemStack itemStack = list.isEmpty() ? ItemStack.EMPTY : list.getFirst();
                     blockEntity.setItem(0, itemStack);
-                    serverLevel.setBlock(blockPos, blockState.setValue(STAGE, 0), 260);
+                    serverLevel.setBlock(blockPos, blockState.setValue(STAGE, 0), Block.UPDATE_CLIENTS);
                 }
             }
         }

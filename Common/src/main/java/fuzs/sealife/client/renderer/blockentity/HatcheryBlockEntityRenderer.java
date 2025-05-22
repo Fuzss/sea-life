@@ -2,6 +2,8 @@ package fuzs.sealife.client.renderer.blockentity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
+import fuzs.sealife.world.level.block.entity.HatcheryBlockEntity;
+import fuzs.sealife.world.level.block.entity.HatcheryRenderData;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
@@ -9,8 +11,6 @@ import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Pose;
 import net.minecraft.world.phys.Vec3;
-import fuzs.sealife.world.level.block.entity.HatcheryBlockEntity;
-import fuzs.sealife.world.level.block.entity.HatcheryRenderData;
 
 public class HatcheryBlockEntityRenderer implements BlockEntityRenderer<HatcheryBlockEntity> {
     private final EntityRenderDispatcher entityRenderer;
@@ -22,9 +22,9 @@ public class HatcheryBlockEntityRenderer implements BlockEntityRenderer<Hatchery
     @Override
     public void render(HatcheryBlockEntity blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay, Vec3 cameraPos) {
         HatcheryRenderData renderer = blockEntity.getRenderData();
-        Entity entity = renderer.getOrCreateDisplayEntity(blockEntity.getEntityType());
+        Entity entity = renderer.getDisplayEntity();
         if (entity != null) {
-            for (int i = 0; i < blockEntity.getCount(); i++) {
+            for (int i = 0; i < renderer.getCount(); i++) {
                 poseStack.pushPose();
                 poseStack.translate(0.5D, 0.6D, 0.5D);
                 float maxBbDimension = Math.max(entity.getBbWidth(), entity.getBbHeight());
@@ -50,18 +50,10 @@ public class HatcheryBlockEntityRenderer implements BlockEntityRenderer<Hatchery
                 poseStack.translate(1.35F, 0F, 1.35F);
                 poseStack.mulPose(Axis.XP.rotationDegrees(clockwise ? -65F : 65F));
                 entity.setPose(Pose.SWIMMING);
-//                if (HatcheryClient.rotates(entity.getType())) {
-//                    poseStack.mulPose(Axis.ZP.rotationDegrees(HatcheryClient.getRotation(entity.getType())));
-//                }
 
                 this.entityRenderer.render(entity, 0.0, 0.0, 0.0, partialTick, poseStack, bufferSource, 15728880);
                 poseStack.popPose();
             }
         }
-    }
-
-    @Override
-    public boolean shouldRenderOffScreen(HatcheryBlockEntity blockEntity) {
-        return blockEntity.getEntityType() != null;
     }
 }

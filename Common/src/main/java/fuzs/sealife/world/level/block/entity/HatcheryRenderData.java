@@ -4,53 +4,40 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Objects;
-
 public class HatcheryRenderData {
-    private final HatcheryBlockEntity blockEntity;
     private FishData[] data = new FishData[0];
     @Nullable
     private Entity displayEntity;
 
-    public HatcheryRenderData(HatcheryBlockEntity blockEntity) {
-        this.blockEntity = blockEntity;
-    }
-
-    public void reload(EntityType<?> entityType, int count, RandomSource randomSource) {
-        this.displayEntity = this.getOrCreateDisplayEntity(entityType);
-        FishData[] data = new FishData[count];
+    public void reload(Level level, @Nullable EntityType<?> entityType, int count) {
+        this.displayEntity = entityType != null ? entityType.create(level, EntitySpawnReason.LOAD) : null;
+        FishData[] data = new FishData[entityType != null ? count : 0];
         for (int i = 0; i < data.length; i++) {
-            data[i] = i < this.data.length ? this.data[i] : new FishData(randomSource);
+            data[i] = i < this.data.length ? this.data[i] : new FishData(level.getRandom());
         }
 
         this.data = data;
     }
 
     public void tick() {
-        if (this.displayEntity == null) {
-            this.reload(this.blockEntity.getEntityType(),
-                    this.blockEntity.getCount(),
-                    this.blockEntity.getLevel().getRandom());
+        if (this.displayEntity != null) {
+            this.displayEntity.tickCount++;
+            for (FishData fishData : this.data) {
+                fishData.tick();
+            }
         }
-
-        for (FishData fishData : this.data) {
-            fishData.tick();
-        }
-
-        this.displayEntity.tickCount++;
     }
 
     @Nullable
-    public Entity getOrCreateDisplayEntity(EntityType<?> entityType) {
-        if (this.displayEntity == null) {
-            Objects.requireNonNull(this.blockEntity.getLevel(), "level is null");
-            return this.displayEntity = this.blockEntity.getEntityType() == null ? null :
-                    entityType.create(this.blockEntity.getLevel(), EntitySpawnReason.LOAD);
-        } else {
-            return this.displayEntity;
-        }
+    public Entity getDisplayEntity() {
+        return this.displayEntity;
+    }
+
+    public int getCount() {
+        return this.data.length;
     }
 
     public void clearDisplayEntity() {

@@ -19,6 +19,7 @@ import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.Containers;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemContainerContents;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
@@ -89,7 +90,10 @@ public class FishTrapBlockEntity extends BlockEntity implements ListBackedContai
     public void setChanged() {
         super.setChanged();
         if (this.level != null) {
-            this.level.sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), 3);
+            this.level.sendBlockUpdated(this.worldPosition,
+                    this.getBlockState(),
+                    this.getBlockState(),
+                    Block.UPDATE_ALL);
         }
     }
 

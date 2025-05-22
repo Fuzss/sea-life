@@ -4,11 +4,13 @@ import com.google.common.collect.ImmutableMap;
 import com.mojang.serialization.MapCodec;
 import fuzs.puzzleslib.api.block.v1.entity.TickingEntityBlock;
 import fuzs.sealife.init.ModBlocks;
+import fuzs.sealife.init.ModRegistry;
 import fuzs.sealife.world.level.block.entity.HatcheryBlockEntity;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.RandomSource;
@@ -31,6 +33,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraft.world.level.pathfinder.PathComputationType;
@@ -45,6 +48,10 @@ import java.util.Collections;
 import java.util.Map;
 
 public class HatcheryBlock extends BaseEntityBlock implements SimpleWaterloggedBlock, TickingEntityBlock<HatcheryBlockEntity> {
+    public static final int MAX_CAPACITY = 12;
+    public static final int COMMON_CYCLES = 3;
+    public static final int UNCOMMON_CYCLES = 5;
+    public static final int RARE_CYCLES = 7;
     public static final MapCodec<HatcheryBlock> CODEC = simpleCodec(HatcheryBlock::new);
     protected static final VoxelShape SHAPE_INSIDE = Block.column(14.0, 1.0, 16.0);
     protected static final VoxelShape SHAPE = Shapes.join(Block.column(16.0, 0.0, 15.0),
@@ -52,11 +59,14 @@ public class HatcheryBlock extends BaseEntityBlock implements SimpleWaterloggedB
             BooleanOp.ONLY_FIRST);
     protected static final VoxelShape COLLISION_SHAPE = Shapes.join(Shapes.block(), SHAPE_INSIDE, BooleanOp.ONLY_FIRST);
     public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
+    public static final IntegerProperty STAGE = IntegerProperty.create("stage",
+            0,
+            Math.max(Math.max(COMMON_CYCLES, UNCOMMON_CYCLES), RARE_CYCLES));
     static Map<EntityType<?>, Item> bucketableMobs = Collections.emptyMap();
 
     public HatcheryBlock(BlockBehaviour.Properties properties) {
         super(properties);
-        this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, Boolean.FALSE));
+        this.registerDefaultState(this.stateDefinition.any().setValue(WATERLOGGED, Boolean.FALSE).setValue(STAGE, 0));
     }
 
     public static void onLoadComplete() {
@@ -108,8 +118,41 @@ public class HatcheryBlock extends BaseEntityBlock implements SimpleWaterloggedB
     }
 
     @Override
-    protected InteractionResult useItemOn(ItemStack itemInHand, BlockState state, Level level, BlockPos pos, Player player, InteractionHand interactionHand, BlockHitResult hitResult) {
-        if (level.getBlockEntity(pos) instanceof HatcheryBlockEntity blockEntity) {
+    protected boolean isRandomlyTicking(BlockState state) {
+        return super.isRandomlyTicking(state) && state.getValue(WATERLOGGED);
+    }
+
+    @Override
+    protected void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource) {
+        if (randomSource.nextInt(3) == 0) {
+            if (serverLevel.getBlockEntity(blockPos) instanceof HatcheryBlockEntity blockEntity &&
+                    blockEntity.getEntityType() != null && blockEntity.getCount() < MAX_CAPACITY) {
+                int hatchingCycles = getHatchingCycles(blockEntity.getEntityType());
+                if (blockState.getValue(STAGE) < hatchingCycles) {
+                    serverLevel.setBlock(blockPos, blockState.cycle(STAGE), Block.UPDATE_ALL);
+                } else {
+                    blockEntity.addFish(blockEntity.getEntityType(), 1);
+                    serverLevel.setBlock(blockPos, blockState.setValue(STAGE, 0), Block.UPDATE_ALL);
+                }
+            }
+        }
+    }
+
+    public static int getHatchingCycles(EntityType<?> entityType) {
+        if (entityType.is(ModRegistry.COMMON_FISHES_ENTITY_TYPE_TAG)) {
+            return COMMON_CYCLES;
+        } else if (entityType.is(ModRegistry.UNCOMMON_FISHES_ENTITY_TYPE_TAG)) {
+            return UNCOMMON_CYCLES;
+        } else if (entityType.is(ModRegistry.RARE_FISHES_ENTITY_TYPE_TAG)) {
+            return RARE_CYCLES;
+        } else {
+            return UNCOMMON_CYCLES;
+        }
+    }
+
+    @Override
+    protected InteractionResult useItemOn(ItemStack itemInHand, BlockState blockState, Level level, BlockPos blockPos, Player player, InteractionHand interactionHand, BlockHitResult hitResult) {
+        if (level.getBlockEntity(blockPos) instanceof HatcheryBlockEntity blockEntity) {
             if (itemInHand.is(Items.WATER_BUCKET)) {
                 if (!blockEntity.isEmpty()) {
                     Item item = bucketableMobs.get(blockEntity.getEntityType());
@@ -117,7 +160,8 @@ public class HatcheryBlock extends BaseEntityBlock implements SimpleWaterloggedB
                         ItemStack itemStack = new ItemStack(item);
                         ItemStack resultItemStack = ItemUtils.createFilledResult(itemInHand, player, itemStack);
                         if (!level.isClientSide()) {
-                            blockEntity.removeFish();
+                            level.setBlock(blockPos, blockState.setValue(STAGE, 0), Block.UPDATE_ALL);
+                            blockEntity.removeFish(1, false);
                             CriteriaTriggers.FILLED_BUCKET.trigger((ServerPlayer) player, itemStack);
                             player.playSound(SoundEvents.BUCKET_FILL_FISH, 1.0F, 1.0F);
                         }
@@ -126,21 +170,25 @@ public class HatcheryBlock extends BaseEntityBlock implements SimpleWaterloggedB
                     }
                 }
             } else if (itemInHand.getItem() instanceof MobBucketItem item) {
-                if (blockEntity.getCount() < HatcheryBlockEntity.MAX_CAPACITY &&
+                if (blockEntity.getCount() < MAX_CAPACITY &&
                         (blockEntity.getEntityType() == null || blockEntity.getEntityType() == item.type)) {
-                    ItemStack itemStack = state.getValue(WATERLOGGED) ? new ItemStack(Items.WATER_BUCKET) :
+                    ItemStack itemStack = blockState.getValue(WATERLOGGED) ? new ItemStack(Items.WATER_BUCKET) :
                             new ItemStack(Items.BUCKET);
                     ItemStack resultItemStack = ItemUtils.createFilledResult(itemInHand, player, itemStack);
                     if (!level.isClientSide()) {
                         // similar to SimpleWaterloggedBlock::placeLiquid
-                        if (!state.getValue(WATERLOGGED)) {
+                        if (!blockState.getValue(WATERLOGGED)) {
                             FluidState fluidState = Fluids.WATER.getSource(false);
-                            level.setBlock(pos, state.setValue(BlockStateProperties.WATERLOGGED, true), 3);
-                            level.scheduleTick(pos, fluidState.getType(), fluidState.getType().getTickDelay(level));
+                            level.setBlock(blockPos,
+                                    blockState.setValue(BlockStateProperties.WATERLOGGED, true),
+                                    Block.UPDATE_ALL);
+                            level.scheduleTick(blockPos,
+                                    fluidState.getType(),
+                                    fluidState.getType().getTickDelay(level));
                         }
                         CriteriaTriggers.FILLED_BUCKET.trigger((ServerPlayer) player, resultItemStack);
                         player.playSound(SoundEvents.BUCKET_FILL_FISH, 1.0F, 1.0F);
-                        blockEntity.setEntityTypeAndCount(item.type, blockEntity.getCount() + 1);
+                        blockEntity.addFish(item.type, 1);
                     }
                     player.setItemInHand(interactionHand, resultItemStack);
                     return InteractionResult.SUCCESS.heldItemTransformedTo(resultItemStack);
@@ -152,7 +200,7 @@ public class HatcheryBlock extends BaseEntityBlock implements SimpleWaterloggedB
             return InteractionResult.PASS;
         }
 
-        return super.useItemOn(itemInHand, state, level, pos, player, interactionHand, hitResult);
+        return super.useItemOn(itemInHand, blockState, level, blockPos, player, interactionHand, hitResult);
     }
 
     @Override
@@ -177,6 +225,6 @@ public class HatcheryBlock extends BaseEntityBlock implements SimpleWaterloggedB
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
-        builder.add(WATERLOGGED);
+        builder.add(WATERLOGGED, STAGE);
     }
 }
