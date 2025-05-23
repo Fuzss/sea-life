@@ -13,7 +13,7 @@ public class CommonConfig implements ConfigCore {
     @Config
     public final FishSpawnConfig bass = new FishSpawnConfig(6, 3, 5);
     @Config
-    public final FishSpawnConfig blue_tang = new FishSpawnConfig(1, 2, 3);
+    public final FishSpawnConfig blueTang = new FishSpawnConfig(1, 2, 3);
     @Config
     public final FishSpawnConfig bowfin = new FishSpawnConfig(3, 3, 5);
     @Config
@@ -27,7 +27,7 @@ public class CommonConfig implements ConfigCore {
     @Config
     public final FishSpawnConfig damselfish = new FishSpawnConfig(3, 2, 3);
     @Config
-    public final FishSpawnConfig electric_ray = new FishSpawnConfig(1, 1, 1);
+    public final FishSpawnConfig electricRay = new FishSpawnConfig(1, 1, 1);
     @Config
     public final FishSpawnConfig goldfish = new FishSpawnConfig(12, 1, 2);
     @Config
@@ -37,13 +37,13 @@ public class CommonConfig implements ConfigCore {
     @Config
     public final FishSpawnConfig lungfish = new FishSpawnConfig(1, 1, 1);
     @Config
-    public final FishSpawnConfig manta_ray = new FishSpawnConfig(1, 1, 1);
+    public final FishSpawnConfig mantaRay = new FishSpawnConfig(1, 1, 1);
     @Config
     public final FishSpawnConfig minnow = new FishSpawnConfig(14, 5, 8);
     @Config
-    public final FishSpawnConfig neon_tetra = new FishSpawnConfig(2, 5, 8);
+    public final FishSpawnConfig neonTetra = new FishSpawnConfig(2, 5, 8);
     @Config
-    public final FishSpawnConfig northern_pike = new FishSpawnConfig(1, 1, 2);
+    public final FishSpawnConfig northernPike = new FishSpawnConfig(1, 1, 2);
     @Config
     public final FishSpawnConfig perch = new FishSpawnConfig(10, 3, 5);
     @Config
@@ -55,11 +55,11 @@ public class CommonConfig implements ConfigCore {
     @Config
     public final FishSpawnConfig sardine = new FishSpawnConfig(12, 7, 12);
     @Config
-    public final FishSpawnConfig siamese_fighting_fish = new FishSpawnConfig(2, 1, 1);
+    public final FishSpawnConfig siameseFightingFish = new FishSpawnConfig(2, 1, 1);
     @Config
-    public final FishSpawnConfig silver_stripe_blaasop = new FishSpawnConfig(1, 1, 1);
+    public final FishSpawnConfig silverStripeBlaasop = new FishSpawnConfig(1, 1, 1);
     @Config
-    public final FishSpawnConfig whitemargin_stargazer = new FishSpawnConfig(2, 1, 1);
+    public final FishSpawnConfig whitemarginStargazer = new FishSpawnConfig(2, 1, 1);
     @Config
     public final FishSpawnConfig stingray = new FishSpawnConfig(1, 1, 1);
     @Config

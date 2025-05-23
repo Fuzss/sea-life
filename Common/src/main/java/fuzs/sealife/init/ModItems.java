@@ -32,6 +32,7 @@ public class ModItems {
             .saturationModifier(0.6F)
             .build();
     public static final Consumable FISH_FINGERS_CONSUMABLE = Consumables.defaultFood().consumeSeconds(0.8F).build();
+    // Blocks
     public static final Holder.Reference<Item> FISH_TRAP = ModRegistry.REGISTRIES.registerBlockItem(ModBlocks.FISH_TRAP);
     public static final Holder.Reference<Item> HATCHERY = ModRegistry.REGISTRIES.registerBlockItem(ModBlocks.HATCHERY);
     // Loot

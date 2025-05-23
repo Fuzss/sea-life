@@ -108,7 +108,7 @@ public class FishTrapBlock extends BaseEntityBlock implements SimpleWaterloggedB
 
     @Override
     protected void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource) {
-        if (randomSource.nextInt(5) == 0 && blockState.getValue(ENABLED)) {
+        if (randomSource.nextInt(7) == 0 && blockState.getValue(ENABLED)) {
             if (serverLevel.getBlockEntity(blockPos) instanceof FishTrapBlockEntity blockEntity &&
                     blockEntity.isBaited()) {
                 if (blockState.getValue(STAGE) == 0) {

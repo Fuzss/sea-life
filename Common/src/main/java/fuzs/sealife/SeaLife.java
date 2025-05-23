@@ -76,7 +76,7 @@ public class SeaLife implements ModConstructor {
         addFishSpawn(context,
                 ModEntityTypes.BLUE_TANG,
                 ModRegistry.SPAWNS_BLUE_TANG_BIOME_TAG,
-                () -> CONFIG.get(CommonConfig.class).blue_tang);
+                () -> CONFIG.get(CommonConfig.class).blueTang);
         addFishSpawn(context,
                 ModEntityTypes.BOWFIN,
                 ModRegistry.SPAWNS_BOWFIN_BIOME_TAG,
@@ -104,7 +104,7 @@ public class SeaLife implements ModConstructor {
         addFishSpawn(context,
                 ModEntityTypes.ELECTRIC_RAY,
                 ModRegistry.SPAWNS_ELECTRIC_RAY_BIOME_TAG,
-                () -> CONFIG.get(CommonConfig.class).electric_ray);
+                () -> CONFIG.get(CommonConfig.class).electricRay);
         addFishSpawn(context,
                 ModEntityTypes.GOLDFISH,
                 ModRegistry.SPAWNS_GOLDFISH_BIOME_TAG,
@@ -124,7 +124,7 @@ public class SeaLife implements ModConstructor {
         addFishSpawn(context,
                 ModEntityTypes.MANTA_RAY,
                 ModRegistry.SPAWNS_MANTA_RAY_BIOME_TAG,
-                () -> CONFIG.get(CommonConfig.class).manta_ray);
+                () -> CONFIG.get(CommonConfig.class).mantaRay);
         addFishSpawn(context,
                 ModEntityTypes.MINNOW,
                 ModRegistry.SPAWNS_MINNOW_BIOME_TAG,
@@ -132,11 +132,11 @@ public class SeaLife implements ModConstructor {
         addFishSpawn(context,
                 ModEntityTypes.NEON_TETRA,
                 ModRegistry.SPAWNS_NEON_TETRA_BIOME_TAG,
-                () -> CONFIG.get(CommonConfig.class).neon_tetra);
+                () -> CONFIG.get(CommonConfig.class).neonTetra);
         addFishSpawn(context,
                 ModEntityTypes.NORTHERN_PIKE,
                 ModRegistry.SPAWNS_NORTHERN_PIKE_BIOME_TAG,
-                () -> CONFIG.get(CommonConfig.class).northern_pike);
+                () -> CONFIG.get(CommonConfig.class).northernPike);
         addFishSpawn(context,
                 ModEntityTypes.PERCH,
                 ModRegistry.SPAWNS_PERCH_BIOME_TAG,
@@ -160,11 +160,11 @@ public class SeaLife implements ModConstructor {
         addFishSpawn(context,
                 ModEntityTypes.SIAMESE_FIGHTING_FISH,
                 ModRegistry.SPAWNS_SIAMESE_FIGHTING_FISH_BIOME_TAG,
-                () -> CONFIG.get(CommonConfig.class).siamese_fighting_fish);
+                () -> CONFIG.get(CommonConfig.class).siameseFightingFish);
         addFishSpawn(context,
                 ModEntityTypes.WHITEMARGIN_STARGAZER,
                 ModRegistry.SPAWNS_WHITEMARGIN_STARGAZER_BIOME_TAG,
-                () -> CONFIG.get(CommonConfig.class).whitemargin_stargazer);
+                () -> CONFIG.get(CommonConfig.class).whitemarginStargazer);
         addFishSpawn(context,
                 ModEntityTypes.STINGRAY,
                 ModRegistry.SPAWNS_STINGRAY_BIOME_TAG,
@@ -172,7 +172,7 @@ public class SeaLife implements ModConstructor {
         addFishSpawn(context,
                 ModEntityTypes.SILVER_STRIPE_BLAASOP,
                 ModRegistry.SPAWNS_SILVER_STRIPE_BLAASOP_BIOME_TAG,
-                () -> CONFIG.get(CommonConfig.class).silver_stripe_blaasop);
+                () -> CONFIG.get(CommonConfig.class).silverStripeBlaasop);
         addFishSpawn(context,
                 ModEntityTypes.TROUT,
                 ModRegistry.SPAWNS_TROUT_BIOME_TAG,
