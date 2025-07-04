@@ -127,7 +127,7 @@ public class FishTrapBlockEntityRenderer implements BlockEntityRenderer<FishTrap
     }
 
     @Override
-    public boolean shouldRenderOffScreen(FishTrapBlockEntity blockEntity) {
+    public boolean shouldRenderOffScreen() {
         return true;
     }
 

@@ -6,7 +6,7 @@ import fuzs.sealife.SeaLife;
 import fuzs.sealife.client.SeaLifeClient;
 import fuzs.sealife.data.client.ModLanguageProvider;
 import fuzs.sealife.data.client.ModModelProvider;
-import fuzs.sealife.neoforge.data.client.ModParticleProvider;
+import fuzs.sealife.data.client.ModParticleProvider;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.common.Mod;
 

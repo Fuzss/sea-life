@@ -18,6 +18,8 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import org.jetbrains.annotations.Nullable;
 
 public class HatcheryBlockEntity extends BlockEntity implements TickingBlockEntity {
@@ -102,18 +104,19 @@ public class HatcheryBlockEntity extends BlockEntity implements TickingBlockEnti
     }
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        EntityType<?> entityType = tag.read(TAG_ENTITY, BuiltInRegistries.ENTITY_TYPE.byNameCodec()).orElse(null);
-        int count = tag.getByteOr(TAG_COUNT, (byte) 0);
+    protected void loadAdditional(ValueInput valueInput) {
+        super.loadAdditional(valueInput);
+        EntityType<?> entityType = valueInput.read(TAG_ENTITY, BuiltInRegistries.ENTITY_TYPE.byNameCodec())
+                .orElse(null);
+        int count = valueInput.getByteOr(TAG_COUNT, (byte) 0);
         this.setFish(entityType, count);
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        tag.storeNullable(TAG_ENTITY, BuiltInRegistries.ENTITY_TYPE.byNameCodec(), this.entityType);
-        tag.putByte(TAG_COUNT, (byte) this.count);
+    protected void saveAdditional(ValueOutput valueOutput) {
+        super.saveAdditional(valueOutput);
+        valueOutput.storeNullable(TAG_ENTITY, BuiltInRegistries.ENTITY_TYPE.byNameCodec(), this.entityType);
+        valueOutput.putByte(TAG_COUNT, (byte) this.count);
     }
 
     @Override

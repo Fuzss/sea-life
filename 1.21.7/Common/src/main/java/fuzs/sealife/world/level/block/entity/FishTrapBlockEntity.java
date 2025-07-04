@@ -1,6 +1,7 @@
 package fuzs.sealife.world.level.block.entity;
 
 import fuzs.puzzleslib.api.block.v1.entity.TickingBlockEntity;
+import fuzs.puzzleslib.api.container.v1.ContainerSerializationHelper;
 import fuzs.puzzleslib.api.container.v1.ListBackedContainer;
 import fuzs.sealife.init.ModBlocks;
 import fuzs.sealife.init.ModRegistry;
@@ -22,6 +23,8 @@ import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.storage.ValueInput;
+import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
 
 public class FishTrapBlockEntity extends BlockEntity implements ListBackedContainer, TickingBlockEntity {
@@ -69,16 +72,15 @@ public class FishTrapBlockEntity extends BlockEntity implements ListBackedContai
     }
 
     @Override
-    protected void loadAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.loadAdditional(tag, registries);
-        this.items.clear();
-        ContainerHelper.loadAllItems(tag, this.items, registries);
+    protected void loadAdditional(ValueInput valueInput) {
+        super.loadAdditional(valueInput);
+        ContainerSerializationHelper.loadAllItems(valueInput, this.items);
     }
 
     @Override
-    protected void saveAdditional(CompoundTag tag, HolderLookup.Provider registries) {
-        super.saveAdditional(tag, registries);
-        ContainerHelper.saveAllItems(tag, this.items, true, registries);
+    protected void saveAdditional(ValueOutput valueOutput) {
+        super.saveAdditional(valueOutput);
+        ContainerHelper.saveAllItems(valueOutput, this.items, true);
     }
 
     @Override
@@ -128,7 +130,7 @@ public class FishTrapBlockEntity extends BlockEntity implements ListBackedContai
     }
 
     @Override
-    public void removeComponentsFromTag(CompoundTag tag) {
-        tag.remove("Items");
+    public void removeComponentsFromTag(ValueOutput valueOutput) {
+        valueOutput.discard("Items");
     }
 }
