@@ -1,0 +1,7 @@
+// 1.21.5	2025-05-22T15:06:34.538026	Tags for minecraft:item mod id vanilla
+c90d22c8fd63631a6a12ec420aa820c06d4016ad data/c/tags/item/foods/raw_fish.json
+c90d22c8fd63631a6a12ec420aa820c06d4016ad data/minecraft/tags/item/fishes.json
+5ce4048edacaf5feca24af7207c62da156b98f7b data/minecraft/tags/item/piglin_loved.json
+c90d22c8fd63631a6a12ec420aa820c06d4016ad data/minecraft/tags/item/wolf_food.json
+50c86f83da2e48d6bacd94eb4c30fdfb721f3e2e data/sealife/tags/item/fishes.json
+a21bffa917c0895f1e198937f71e875bd7d93770 data/sealife/tags/item/fishing_bait.json

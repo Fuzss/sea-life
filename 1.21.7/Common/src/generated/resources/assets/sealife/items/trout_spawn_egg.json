@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "sealife:item/trout_spawn_egg",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -3829091
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -9611723
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+// 1.21.5	2025-05-22T15:06:34.538501	Recipes
+39502d72c4cfa37774172fc8f59f21f2cc6bce12 data/sealife/advancement/recipes/decorations/fish_trap.json
+ea31ca9632e933b049fc9d36b313c14e4a53f69f data/sealife/advancement/recipes/decorations/hatchery.json
+814ad8f84929dc8c0e835c4e59ce0f745c2aa6e5 data/sealife/advancement/recipes/food/fish_fingers.json
+85f3345ec4599978445ccb7027a910964a9f1d15 data/sealife/advancement/recipes/food/fish_stew.json
+fc25995d6c249b67d780f87e477e298d6c5129ae data/sealife/advancement/recipes/food/sashimi.json
+25bca052ccfc0336aacc2ae54ec0f24bc014acf6 data/sealife/advancement/recipes/misc/bone_meal.json
+bd1186599d0a14b227d5e00615bf2912e65b2169 data/sealife/advancement/recipes/misc/coal.json
+d11ca72df6ad3d24c5552257449b0e4c124e0b4a data/sealife/advancement/recipes/misc/iron_nugget.json
+e2fe30c65fd42e51129426e51ac0ff5e441d78ec data/sealife/advancement/recipes/misc/leather.json
+40adbba282bea209c5bffbb323881003cdf6b65e data/sealife/recipe/bone_meal.json
+4c06fb16de285ebdf1c348b78674f9e8f7267994 data/sealife/recipe/coal.json
+ca0165c3a36dbbfdb70c0c7dd633f21a060853f0 data/sealife/recipe/fish_fingers.json
+a0bf8f20c1d5352cdb058f581140adc63f0148d1 data/sealife/recipe/fish_stew.json
+8a0d02789033136fa7b4322a82b22805d7fbcf37 data/sealife/recipe/fish_trap.json
+e4049a227792a0e9f4124c06fc91b0d907c0be1e data/sealife/recipe/hatchery.json
+dedb0430f51ef6d0bc58af1f2da284e6e8de808b data/sealife/recipe/iron_nugget.json
+423225de7c7bcfc23091a109c308900b14da669c data/sealife/recipe/leather.json
+0cbd1479819dd793a93b93b898be70daf5dc77f0 data/sealife/recipe/sashimi.json

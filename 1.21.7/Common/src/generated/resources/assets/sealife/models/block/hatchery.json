@@ -1,0 +1,6 @@
+{
+  "parent": "sealife:block/template_hatchery",
+  "textures": {
+    "texture": "sealife:block/hatchery"
+  }
+}

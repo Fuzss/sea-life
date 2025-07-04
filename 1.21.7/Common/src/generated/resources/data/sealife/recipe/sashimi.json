@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "#c:foods/raw_fish",
+    "#c:foods/raw_fish",
+    "#c:foods/raw_fish",
+    "minecraft:bowl"
+  ],
+  "result": {
+    "count": 1,
+    "id": "sealife:sashimi"
+  }
+}
