@@ -1,0 +1,13 @@
+{
+  "asset_id": "sealife:albatross",
+  "author": {
+    "color": "gray",
+    "translate": "painting.sealife.albatross.author"
+  },
+  "height": 1,
+  "title": {
+    "color": "yellow",
+    "translate": "painting.sealife.albatross.title"
+  },
+  "width": 1
+}

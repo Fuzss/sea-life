@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "sealife:item/silver_stripe_blaasop_spawn_egg",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -9273750
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -13681344
+      }
+    ]
+  }
+}

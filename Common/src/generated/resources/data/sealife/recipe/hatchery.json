@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "F": "#minecraft:wooden_fences",
+    "S": "#minecraft:wooden_slabs"
+  },
+  "pattern": [
+    "F F",
+    "F F",
+    "SSS"
+  ],
+  "result": {
+    "count": 1,
+    "id": "sealife:hatchery"
+  }
+}

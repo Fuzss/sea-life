@@ -1,0 +1,16 @@
+{
+  "type": "sealife:treasure_item",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:loot_table",
+          "value": "minecraft:chests/buried_treasure"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "sealife:gameplay/treasure_item"
+}

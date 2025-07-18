@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "sealife:fish_bones"
+  ],
+  "result": {
+    "count": 7,
+    "id": "minecraft:bone_meal"
+  }
+}

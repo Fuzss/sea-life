@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "sealife:item/butterflyfish_spawn_egg",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -874235
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -14145496
+      }
+    ]
+  }
+}
