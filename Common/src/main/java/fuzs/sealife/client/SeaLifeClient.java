@@ -5,9 +5,8 @@ import fuzs.puzzleslib.api.client.core.v1.context.*;
 import fuzs.sealife.client.model.*;
 import fuzs.sealife.client.model.geom.ModModelLayers;
 import fuzs.sealife.client.particle.CustomBubbleParticle;
-import fuzs.sealife.client.renderer.ModRenderType;
-import fuzs.sealife.client.renderer.blockentity.FishTrapBlockEntityRenderer;
-import fuzs.sealife.client.renderer.blockentity.HatcheryBlockEntityRenderer;
+import fuzs.sealife.client.renderer.blockentity.FishTrapRenderer;
+import fuzs.sealife.client.renderer.blockentity.HatcheryRenderer;
 import fuzs.sealife.client.renderer.entity.FishRenderer;
 import fuzs.sealife.init.ModBlocks;
 import fuzs.sealife.init.ModEntityTypes;
@@ -24,10 +23,8 @@ public class SeaLifeClient implements ClientModConstructor {
 
     @Override
     public void onRegisterBlockEntityRenderers(BlockEntityRenderersContext context) {
-        context.registerBlockEntityRenderer(ModBlocks.FISH_TRAP_BLOCK_ENTITY_TYPE.value(),
-                FishTrapBlockEntityRenderer::new);
-        context.registerBlockEntityRenderer(ModBlocks.HATCHERY_BLOCK_ENTITY_TYPE.value(),
-                HatcheryBlockEntityRenderer::new);
+        context.registerBlockEntityRenderer(ModBlocks.FISH_TRAP_BLOCK_ENTITY_TYPE.value(), FishTrapRenderer::new);
+        context.registerBlockEntityRenderer(ModBlocks.HATCHERY_BLOCK_ENTITY_TYPE.value(), HatcheryRenderer::new);
     }
 
     @Override
@@ -141,6 +138,6 @@ public class SeaLifeClient implements ClientModConstructor {
 
     @Override
     public void onRegisterRenderBuffers(RenderBuffersContext context) {
-        context.registerRenderBuffer(ModRenderType.text(FishTrapBlockEntityRenderer.GUI_SHEET));
+        context.registerRenderBuffer(FishTrapRenderer.RENDER_TYPE);
     }
 }

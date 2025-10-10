@@ -1,8 +1,9 @@
 package fuzs.sealife.init;
 
-import fuzs.puzzleslib.api.init.v3.LootContextKeySetFactory;
+import fuzs.puzzleslib.api.init.v3.registry.ContentRegistrationHelper;
 import fuzs.puzzleslib.api.init.v3.registry.RegistryManager;
 import fuzs.puzzleslib.api.init.v3.tags.TagFactory;
+import fuzs.puzzleslib.impl.item.CreativeModeTabHelper;
 import fuzs.sealife.SeaLife;
 import net.minecraft.core.Holder;
 import net.minecraft.core.RegistrySetBuilder;
@@ -79,7 +80,7 @@ public class ModRegistry {
     public static final TagKey<Biome> SPAWNS_TUNA_BIOME_TAG = TAGS.registerBiomeTag("spawns_tuna");
     public static final TagKey<Biome> SPAWNS_WALLEYE_BIOME_TAG = TAGS.registerBiomeTag("spawns_walleye");
 
-    public static final ContextKeySet TREASURE_ITEM_LOOT_CONTEXT_PARAM_SET = LootContextKeySetFactory.registerContextKeySet(
+    public static final ContextKeySet TREASURE_ITEM_LOOT_CONTEXT_PARAM_SET = ContentRegistrationHelper.registerContextKeySet(
             SeaLife.id("treasure_item"),
             (ContextKeySet.Builder builder) -> builder.required(LootContextParams.ORIGIN)
                     .required(LootContextParams.TOOL)

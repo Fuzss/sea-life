@@ -1,9 +1,9 @@
-// 1.21.8	2025-07-18T14:45:21.055215	Tags for minecraft:entity_type mod id vanilla
+// 1.21.10	2025-10-10T21:08:53.765555	Tags for minecraft:entity_type mod id vanilla
 c90d22c8fd63631a6a12ec420aa820c06d4016ad data/minecraft/tags/entity_type/aquatic.json
 c90d22c8fd63631a6a12ec420aa820c06d4016ad data/minecraft/tags/entity_type/axolotl_hunt_targets.json
 c90d22c8fd63631a6a12ec420aa820c06d4016ad data/minecraft/tags/entity_type/can_breathe_under_water.json
 c90d22c8fd63631a6a12ec420aa820c06d4016ad data/minecraft/tags/entity_type/not_scary_for_pufferfish.json
-7646682af7efa0ad628f0639ab542154b27fe452 data/sealife/tags/entity_type/common_fishes.json
-07f5e1106eee11ecf875342044c794188bec5020 data/sealife/tags/entity_type/fishes.json
-fe8a5924fdb40f8c659bf84a677cd3288195fba0 data/sealife/tags/entity_type/rare_fishes.json
-57b9380796257f77a130e72594b0b88e61fe4f31 data/sealife/tags/entity_type/uncommon_fishes.json
+0df39e55e97ff8868160e9719d0077716a21b05b data/sealife/tags/entity_type/common_fishes.json
+e9303f70b1d2b567906a3c0ab43e7febda7ffc71 data/sealife/tags/entity_type/fishes.json
+10aae3025fc5cf416374ac1544d3d52f12053f58 data/sealife/tags/entity_type/rare_fishes.json
+696eade3d0bbbcb4b167c1217f24e955e5410fd8 data/sealife/tags/entity_type/uncommon_fishes.json

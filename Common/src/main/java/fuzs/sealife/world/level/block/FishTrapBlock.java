@@ -74,7 +74,9 @@ public class FishTrapBlock extends BaseEntityBlock implements SimpleWaterloggedB
     public BlockState getStateForPlacement(BlockPlaceContext context) {
         FluidState fluidState = context.getLevel().getFluidState(context.getClickedPos());
         boolean bl = fluidState.getType() == Fluids.WATER;
-        return this.defaultBlockState().setValue(WATERLOGGED, bl).setValue(ENABLED, isSurroundedByWater(context.getLevel(), context.getClickedPos()));
+        return this.defaultBlockState()
+                .setValue(WATERLOGGED, bl)
+                .setValue(ENABLED, isSurroundedByWater(context.getLevel(), context.getClickedPos()));
     }
 
     @Override
@@ -109,8 +111,8 @@ public class FishTrapBlock extends BaseEntityBlock implements SimpleWaterloggedB
     @Override
     protected void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource) {
         if (randomSource.nextInt(7) == 0 && blockState.getValue(ENABLED)) {
-            if (serverLevel.getBlockEntity(blockPos) instanceof FishTrapBlockEntity blockEntity &&
-                    blockEntity.isBaited()) {
+            if (serverLevel.getBlockEntity(blockPos) instanceof FishTrapBlockEntity blockEntity
+                    && blockEntity.isBaited()) {
                 if (blockState.getValue(STAGE) == 0) {
                     serverLevel.setBlock(blockPos, blockState.cycle(STAGE), Block.UPDATE_CLIENTS);
                 } else {
@@ -133,7 +135,8 @@ public class FishTrapBlock extends BaseEntityBlock implements SimpleWaterloggedB
     @Override
     protected InteractionResult useItemOn(ItemStack itemStack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
         if (level.getBlockEntity(pos) instanceof FishTrapBlockEntity blockEntity) {
-            if (state.getValue(WATERLOGGED) && blockEntity.getItem(0).isEmpty() && itemStack.is(ModRegistry.FISHING_BAIT_ITEM_TAG)) {
+            if (state.getValue(WATERLOGGED) && blockEntity.getItem(0).isEmpty()
+                    && itemStack.is(ModRegistry.FISHING_BAIT_ITEM_TAG)) {
                 if (!level.isClientSide()) {
                     player.awardStat(Stats.ITEM_USED.get(itemStack.getItem()));
                     blockEntity.setItem(0, itemStack.consumeAndReturn(1, player));
@@ -186,8 +189,8 @@ public class FishTrapBlock extends BaseEntityBlock implements SimpleWaterloggedB
     }
 
     @Override
-    protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
-        return AbstractContainerMenu.getRedstoneSignalFromBlockEntity(level.getBlockEntity(pos));
+    protected int getAnalogOutputSignal(BlockState blockState, Level level, BlockPos blockPos, Direction direction) {
+        return AbstractContainerMenu.getRedstoneSignalFromBlockEntity(level.getBlockEntity(blockPos));
     }
 
     @Override

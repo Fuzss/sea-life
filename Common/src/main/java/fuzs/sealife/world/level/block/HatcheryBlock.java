@@ -125,8 +125,8 @@ public class HatcheryBlock extends BaseEntityBlock implements SimpleWaterloggedB
     @Override
     protected void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource) {
         if (randomSource.nextInt(3) == 0) {
-            if (serverLevel.getBlockEntity(blockPos) instanceof HatcheryBlockEntity blockEntity &&
-                    blockEntity.getEntityType() != null && blockEntity.getCount() < MAX_CAPACITY) {
+            if (serverLevel.getBlockEntity(blockPos) instanceof HatcheryBlockEntity blockEntity
+                    && blockEntity.getEntityType() != null && blockEntity.getCount() < MAX_CAPACITY) {
                 int hatchingCycles = getHatchingCycles(blockEntity.getEntityType());
                 if (blockState.getValue(STAGE) < hatchingCycles) {
                     serverLevel.setBlock(blockPos, blockState.cycle(STAGE), Block.UPDATE_ALL);
@@ -170,8 +170,8 @@ public class HatcheryBlock extends BaseEntityBlock implements SimpleWaterloggedB
                     }
                 }
             } else if (itemInHand.getItem() instanceof MobBucketItem item) {
-                if (blockEntity.getCount() < MAX_CAPACITY &&
-                        (blockEntity.getEntityType() == null || blockEntity.getEntityType() == item.type)) {
+                if (blockEntity.getCount() < MAX_CAPACITY && (blockEntity.getEntityType() == null
+                        || blockEntity.getEntityType() == item.type)) {
                     ItemStack itemStack = blockState.getValue(WATERLOGGED) ? new ItemStack(Items.WATER_BUCKET) :
                             new ItemStack(Items.BUCKET);
                     ItemStack resultItemStack = ItemUtils.createFilledResult(itemInHand, player, itemStack);
@@ -214,8 +214,8 @@ public class HatcheryBlock extends BaseEntityBlock implements SimpleWaterloggedB
     }
 
     @Override
-    protected int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
-        return level.getBlockEntity(pos) instanceof HatcheryBlockEntity blockEntity ? blockEntity.getCount() : 0;
+    protected int getAnalogOutputSignal(BlockState blockState, Level level, BlockPos blockPos, Direction direction) {
+        return level.getBlockEntity(blockPos) instanceof HatcheryBlockEntity blockEntity ? blockEntity.getCount() : 0;
     }
 
     @Override

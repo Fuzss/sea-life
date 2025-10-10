@@ -321,131 +321,131 @@ public class ModItems {
                     properties),
             () -> new Item.Properties().stacksTo(1).component(DataComponents.BUCKET_ENTITY_DATA, CustomData.EMPTY));
     // Spawn Eggs
-    public static final Holder.Reference<Item> ANCHOVY_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> ANCHOVY_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.ANCHOVY,
             0xDBE4DF,
             0x507853);
-    public static final Holder.Reference<Item> ANGELFISH_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> ANGELFISH_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.ANGELFISH,
             0xF2F2F2,
             0xECE43E);
-    public static final Holder.Reference<Item> ANGLERFISH_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> ANGLERFISH_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.ANGLERFISH,
             0x5A4229,
             0x271C0F);
-    public static final Holder.Reference<Item> BASS_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> BASS_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.BASS,
             0xA39F6F,
             0x3E3E1C);
-    public static final Holder.Reference<Item> BLUE_TANG_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> BLUE_TANG_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.BLUE_TANG,
             0x5070D4,
             0xFFFF10);
-    public static final Holder.Reference<Item> BOWFIN_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> BOWFIN_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.BOWFIN,
             0x8B7B40,
             0x343523);
-    public static final Holder.Reference<Item> BUTTERFLYFISH_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> BUTTERFLYFISH_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.BUTTERFLYFISH,
             0xF2A905,
             0x282828);
-    public static final Holder.Reference<Item> CARP_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> CARP_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.CARP,
             0xB99366,
             0x5A2C1D);
-    public static final Holder.Reference<Item> CATFISH_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> CATFISH_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.CATFISH,
             0xCCCC99,
             0x524941);
-    public static final Holder.Reference<Item> CHUB_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> CHUB_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.CHUB,
             0xE9BE89,
             0x4E5F93);
-    public static final Holder.Reference<Item> DAMSELFISH_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> DAMSELFISH_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.DAMSELFISH,
             0xA8DAF4,
             0x0F1338);
-    public static final Holder.Reference<Item> ELECTRIC_RAY_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> ELECTRIC_RAY_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.ELECTRIC_RAY,
             0xDBAD70,
             0x8A6D56);
-    public static final Holder.Reference<Item> GOLDFISH_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> GOLDFISH_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.GOLDFISH,
             0xFDB609,
             0xE37802);
-    public static final Holder.Reference<Item> KOI_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> KOI_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.KOI,
             0xE2DDDA,
             0xEB4132);
-    public static final Holder.Reference<Item> LAMPREY_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> LAMPREY_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.LAMPREY,
             0x84736F,
             0x262120);
-    public static final Holder.Reference<Item> LUNGFISH_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> LUNGFISH_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.LUNGFISH,
             0x8A8168,
             0x564739);
-    public static final Holder.Reference<Item> MANTA_RAY_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> MANTA_RAY_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.MANTA_RAY,
             0x314563,
             0xD2DAE7);
-    public static final Holder.Reference<Item> MINNOW_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> MINNOW_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.MINNOW,
             0xA4A750,
             0xD8BC5D);
-    public static final Holder.Reference<Item> NEON_TETRA_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> NEON_TETRA_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.NEON_TETRA,
             0x14CED5,
             0xA41904);
-    public static final Holder.Reference<Item> NORTHERN_PIKE_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> NORTHERN_PIKE_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.NORTHERN_PIKE,
             0xA4A07D,
             0x5A513A);
-    public static final Holder.Reference<Item> PERCH_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> PERCH_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.PERCH,
             0x342822,
             0xCEB14A);
-    public static final Holder.Reference<Item> PICKEREL_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> PICKEREL_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.PICKEREL,
             0x7B8240,
             0xB96F4A);
-    public static final Holder.Reference<Item> PIRANHA_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> PIRANHA_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.PIRANHA,
             0x20323E,
             0x9E1B00);
-    public static final Holder.Reference<Item> PUPFISH_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> PUPFISH_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.PUPFISH,
             0x87A3CF,
             0x7454A0);
-    public static final Holder.Reference<Item> SARDINE_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> SARDINE_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.SARDINE,
             0xE0DDE1,
             0x2C345A);
-    public static final Holder.Reference<Item> SIAMESE_FIGHTING_FISH_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> SIAMESE_FIGHTING_FISH_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.SIAMESE_FIGHTING_FISH,
             0x593E83,
             0x266FCB);
-    public static final Holder.Reference<Item> WHITEMARGIN_STARGAZER_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> WHITEMARGIN_STARGAZER_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.WHITEMARGIN_STARGAZER,
             0x72513D,
             0x4382A9);
-    public static final Holder.Reference<Item> STINGRAY_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> STINGRAY_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.STINGRAY,
             0x779974,
             0x1B281F);
-    public static final Holder.Reference<Item> SILVER_STRIPE_BLAASOP_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> SILVER_STRIPE_BLAASOP_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.SILVER_STRIPE_BLAASOP,
             0x727E6A,
             0x2F3D40);
-    public static final Holder.Reference<Item> TROUT_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> TROUT_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.TROUT,
             0xC5929D,
             0x6D5635);
-    public static final Holder.Reference<Item> TUNA_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> TUNA_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.TUNA,
             0x93A097,
             0x4A576F);
-    public static final Holder.Reference<Item> WALLEYE_SPAWN_EGG = ModRegistry.REGISTRIES.registerSpawnEggItem(
+    public static final Holder.Reference<Item> WALLEYE_SPAWN_EGG = ModRegistry.REGISTRIES.registerLegacySpawnEggItem(
             ModEntityTypes.WALLEYE,
             0xE2BD65,
             0x363932);

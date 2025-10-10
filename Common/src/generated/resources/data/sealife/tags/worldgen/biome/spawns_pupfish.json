@@ -1,7 +1,7 @@
 {
   "values": [
-    "minecraft:river",
     "minecraft:desert",
+    "minecraft:river",
     "minecraft:savanna",
     "minecraft:savanna_plateau"
   ]

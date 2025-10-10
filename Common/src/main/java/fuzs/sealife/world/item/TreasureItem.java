@@ -2,6 +2,7 @@ package fuzs.sealife.world.item;
 
 import fuzs.puzzleslib.api.item.v2.GiveItemHelper;
 import fuzs.puzzleslib.api.util.v1.InteractionResultHelper;
+import fuzs.sealife.init.ModRegistry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -14,7 +15,6 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.loot.LootParams;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
-import fuzs.sealife.init.ModRegistry;
 
 import java.util.List;
 
@@ -28,17 +28,13 @@ public class TreasureItem extends Item {
 
     @Override
     public InteractionResult use(Level level, Player player, InteractionHand interactionHand) {
-
         ItemStack itemInHand = player.getItemInHand(interactionHand);
         ItemStack originalItemInHand = itemInHand.copy();
         // consume first, so the slot can potentially be used for received items
         itemInHand.consume(1, player);
 
         if (level instanceof ServerLevel serverLevel) {
-
-            LootTable lootTable = serverLevel.getServer()
-                    .reloadableRegistries()
-                    .getLootTable(this.lootTable);
+            LootTable lootTable = serverLevel.getServer().reloadableRegistries().getLootTable(this.lootTable);
             List<ItemStack> items = lootTable.getRandomItems(new LootParams.Builder(serverLevel).withParameter(
                             LootContextParams.ORIGIN,
                             player.position())
@@ -50,6 +46,6 @@ public class TreasureItem extends Item {
             }
         }
 
-        return InteractionResultHelper.sidedSuccess(itemInHand, level.isClientSide);
+        return InteractionResultHelper.sidedSuccess(itemInHand, level.isClientSide());
     }
 }

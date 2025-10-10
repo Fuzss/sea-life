@@ -1,5 +1,6 @@
 package fuzs.sealife.world.level.block.entity;
 
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntitySpawnReason;
@@ -31,33 +32,21 @@ public class HatcheryRenderData {
         }
     }
 
+    public FishData[] getRawData() {
+        return this.data;
+    }
+
     @Nullable
     public Entity getDisplayEntity() {
         return this.displayEntity;
-    }
-
-    public int getCount() {
-        return this.data.length;
     }
 
     public void clearDisplayEntity() {
         this.displayEntity = null;
     }
 
-    public float getRotation(int index) {
-        return this.data[index].getRotation();
-    }
-
-    public float getHeight(int index) {
-        return this.data[index].getHeight();
-    }
-
-    public boolean isClockwise(int index) {
-        return this.data[index].isClockwise();
-    }
-
     public static final class FishData {
-        private int rotation;
+        private int rotation, oldRotation;
         private final boolean clockwise;
         private final int speed;
         private final float height;
@@ -70,18 +59,23 @@ public class HatcheryRenderData {
         }
 
         public FishData(int rotation, boolean clockwise, int speed, float height) {
-            this.rotation = rotation;
+            this.rotation = this.oldRotation = rotation;
             this.clockwise = clockwise;
             this.speed = speed;
             this.height = height;
         }
 
         public void tick() {
+            this.oldRotation = this.rotation;
             this.rotation += this.speed * (this.clockwise ? -10 : 10);
         }
 
-        public float getRotation() {
-            return 720.0F * (this.rotation & 0x3FFF) / 0x3FFF;
+        public float getRotation(float partialTick) {
+            return Mth.lerp(partialTick, this.getRotationDegrees(this.oldRotation), this.getRotationDegrees(this.rotation));
+        }
+
+        private float getRotationDegrees(int rotation) {
+            return 720.0F * (rotation & 0x3FFF) / 0x3FFF;
         }
 
         public boolean isClockwise() {

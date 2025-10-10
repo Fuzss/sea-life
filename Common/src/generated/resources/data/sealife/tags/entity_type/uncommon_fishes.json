@@ -1,41 +1,21 @@
 {
   "values": [
-    "minecraft:pufferfish",
-    "minecraft:tropical_fish",
     "sealife:angelfish",
-    "sealife:blue_tang",
-    "sealife:bowfin",
-    "sealife:butterflyfish",
-    "sealife:catfish",
-    "sealife:damselfish",
-    "sealife:koi",
-    "sealife:lamprey",
-    "sealife:northern_pike",
-    "sealife:pickerel",
-    "sealife:pupfish",
-    "sealife:siamese_fighting_fish",
-    "sealife:whitemargin_stargazer",
-    "sealife:tuna",
     {
       "id": "aquaculture:blackfish",
       "required": false
     },
-    {
-      "id": "aquaculture:pollock",
-      "required": false
-    },
+    "sealife:blue_tang",
     {
       "id": "aquaculture:boulti",
       "required": false
     },
-    {
-      "id": "aquaculture:smallmouth_bass",
-      "required": false
-    },
+    "sealife:bowfin",
     {
       "id": "aquaculture:brown_trout",
       "required": false
     },
+    "sealife:butterflyfish",
     {
       "id": "aquaculture:carp",
       "required": false
@@ -44,13 +24,33 @@
       "id": "aquaculture:catfish",
       "required": false
     },
+    "sealife:catfish",
+    "sealife:damselfish",
+    {
+      "id": "aquaculture:jellyfish",
+      "required": false
+    },
+    "sealife:koi",
+    "sealife:lamprey",
     {
       "id": "aquaculture:minnow",
       "required": false
     },
+    "sealife:northern_pike",
+    "sealife:pickerel",
     {
-      "id": "aquaculture:jellyfish",
+      "id": "aquaculture:pollock",
       "required": false
-    }
+    },
+    "minecraft:pufferfish",
+    "sealife:pupfish",
+    "sealife:siamese_fighting_fish",
+    {
+      "id": "aquaculture:smallmouth_bass",
+      "required": false
+    },
+    "minecraft:tropical_fish",
+    "sealife:tuna",
+    "sealife:whitemargin_stargazer"
   ]
 }

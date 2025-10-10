@@ -51,7 +51,7 @@ public class HatcheryBlockEntity extends BlockEntity implements TickingBlockEnti
             this.entityType = entityType;
             this.count = count;
             if (this.hasLevel()) {
-                if (this.getLevel().isClientSide) {
+                if (this.getLevel().isClientSide()) {
                     this.renderer.reload(this.getLevel(), entityType, count);
                 } else {
                     this.markUpdated();

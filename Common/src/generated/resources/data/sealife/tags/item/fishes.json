@@ -26,11 +26,11 @@
     "sealife:pupfish",
     "sealife:sardine",
     "sealife:siamese_fighting_fish",
-    "sealife:whitemargin_stargazer",
-    "sealife:stingray",
     "sealife:silver_stripe_blaasop",
+    "sealife:stingray",
     "sealife:trout",
     "sealife:tuna",
-    "sealife:walleye"
+    "sealife:walleye",
+    "sealife:whitemargin_stargazer"
   ]
 }
