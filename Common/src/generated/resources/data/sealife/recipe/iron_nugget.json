@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "sealife:empty_can"
+  ],
+  "result": {
+    "count": 5,
+    "id": "minecraft:iron_nugget"
+  }
+}

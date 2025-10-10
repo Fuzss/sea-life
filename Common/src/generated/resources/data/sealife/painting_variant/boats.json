@@ -1,0 +1,13 @@
+{
+  "asset_id": "sealife:boats",
+  "author": {
+    "color": "gray",
+    "translate": "painting.sealife.boats.author"
+  },
+  "height": 1,
+  "title": {
+    "color": "yellow",
+    "translate": "painting.sealife.boats.title"
+  },
+  "width": 1
+}

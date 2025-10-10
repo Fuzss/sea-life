@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    "#c:foods/raw_fish",
+    "minecraft:bread",
+    "#c:foods/raw_fish",
+    "minecraft:bread",
+    "minecraft:bowl"
+  ],
+  "result": {
+    "count": 1,
+    "id": "sealife:fish_fingers"
+  }
+}

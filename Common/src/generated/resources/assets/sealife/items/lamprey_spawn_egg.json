@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "sealife:item/lamprey_spawn_egg",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -8096913
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -14278368
+      }
+    ]
+  }
+}

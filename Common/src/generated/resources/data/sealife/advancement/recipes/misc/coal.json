@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_fish_fossil": {
+      "conditions": {
+        "items": [
+          {
+            "items": "sealife:fish_fossil"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:coal"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_fish_fossil"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:coal"
+    ]
+  }
+}

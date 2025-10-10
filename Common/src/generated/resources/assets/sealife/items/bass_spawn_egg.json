@@ -1,0 +1,16 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "sealife:item/bass_spawn_egg",
+    "tints": [
+      {
+        "type": "minecraft:constant",
+        "value": -6054033
+      },
+      {
+        "type": "minecraft:constant",
+        "value": -12698084
+      }
+    ]
+  }
+}
