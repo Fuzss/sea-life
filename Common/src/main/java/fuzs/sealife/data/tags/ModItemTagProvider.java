@@ -2,13 +2,13 @@ package fuzs.sealife.data.tags;
 
 import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
 import fuzs.puzzleslib.api.data.v2.tags.AbstractTagProvider;
+import fuzs.sealife.init.ModItems;
+import fuzs.sealife.init.ModRegistry;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
-import fuzs.sealife.init.ModRegistry;
-import fuzs.sealife.init.ModItems;
 
 public class ModItemTagProvider extends AbstractTagProvider<Item> {
 
@@ -56,5 +56,7 @@ public class ModItemTagProvider extends AbstractTagProvider<Item> {
         this.tag(ModRegistry.RAW_FISH_FOODS_ITEM_TAG).addTag(ModRegistry.FISHES_ITEM_TAG);
         this.tag(ItemTags.PIGLIN_LOVED).add(ModItems.GOLDFISH.value());
         this.tag(ModRegistry.FISHING_BAIT_ITEM_TAG).add(Items.ROTTEN_FLESH).addTag(ModRegistry.RAW_MEAT_FOODS_ITEM_TAG);
+        this.tag("c:foods/soup")
+                .add(ModItems.FISH_FINGERS.value(), ModItems.SASHIMI.value(), ModItems.FISH_STEW.value());
     }
 }

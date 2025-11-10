@@ -6,6 +6,7 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.MobBucketItem;
 import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.item.component.Consumables;
@@ -45,11 +46,11 @@ public class ModItems {
             () -> new Item.Properties().stacksTo(16).useCooldown(0.2F));
     // Meals
     public static final Holder.Reference<Item> FISH_FINGERS = ModRegistry.REGISTRIES.registerItem("fish_fingers",
-            () -> new Item.Properties().food(FISH_FINGERS_FOOD, FISH_FINGERS_CONSUMABLE));
+            () -> new Item.Properties().food(FISH_FINGERS_FOOD, FISH_FINGERS_CONSUMABLE).usingConvertsTo(Items.BOWL));
     public static final Holder.Reference<Item> SASHIMI = ModRegistry.REGISTRIES.registerItem("sashimi",
-            () -> new Item.Properties().food(SASHIMI_FOOD));
+            () -> new Item.Properties().food(SASHIMI_FOOD).usingConvertsTo(Items.BOWL));
     public static final Holder.Reference<Item> FISH_STEW = ModRegistry.REGISTRIES.registerItem("fish_stew",
-            () -> new Item.Properties().food(FISH_STEW_FOOD));
+            () -> new Item.Properties().food(FISH_STEW_FOOD).usingConvertsTo(Items.BOWL));
     // Fish
     public static final Holder.Reference<Item> ANCHOVY = ModRegistry.REGISTRIES.registerItem("anchovy",
             () -> new Item.Properties().food(SMALL_FISH_FOOD));
