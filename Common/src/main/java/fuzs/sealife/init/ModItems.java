@@ -23,11 +23,11 @@ public class ModItems {
     public static final FoodProperties LARGE_FISH_FOOD = new FoodProperties.Builder().nutrition(3)
             .saturationModifier(0.1F)
             .build();
-    public static final FoodProperties FISH_FINGERS_FOOD = new FoodProperties.Builder().nutrition(5)
-            .saturationModifier(0.3F)
+    public static final FoodProperties FISH_FINGERS_FOOD = new FoodProperties.Builder().nutrition(11)
+            .saturationModifier(1.0F)
             .build();
-    public static final FoodProperties SASHIMI_FOOD = new FoodProperties.Builder().nutrition(4)
-            .saturationModifier(0.4F)
+    public static final FoodProperties SASHIMI_FOOD = new FoodProperties.Builder().nutrition(5)
+            .saturationModifier(0.5F)
             .build();
     public static final FoodProperties FISH_STEW_FOOD = new FoodProperties.Builder().nutrition(7)
             .saturationModifier(0.6F)
