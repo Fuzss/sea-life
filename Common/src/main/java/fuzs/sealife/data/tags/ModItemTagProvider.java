@@ -52,10 +52,16 @@ public class ModItemTagProvider extends AbstractTagProvider<Item> {
                         ModItems.TUNA.value(),
                         ModItems.WALLEYE.value());
         this.tag(ItemTags.FISHES).addTag(ModRegistry.FISHES_ITEM_TAG);
-        this.tag(ItemTags.WOLF_FOOD).addTag(ModRegistry.FISHES_ITEM_TAG);
+        this.tag(ItemTags.WOLF_FOOD)
+                .add(ModItems.FISH_FINGERS.value(), ModItems.SASHIMI.value(), ModItems.FISH_STEW.value())
+                .addTag(ModRegistry.FISHES_ITEM_TAG);
+        this.tag(ItemTags.OCELOT_FOOD).addTag(ModRegistry.FISHES_ITEM_TAG);
+        this.tag(ItemTags.CAT_FOOD).addTag(ModRegistry.FISHES_ITEM_TAG);
         this.tag(ModRegistry.RAW_FISH_FOODS_ITEM_TAG).addTag(ModRegistry.FISHES_ITEM_TAG);
         this.tag(ItemTags.PIGLIN_LOVED).add(ModItems.GOLDFISH.value());
-        this.tag(ModRegistry.FISHING_BAIT_ITEM_TAG).add(Items.ROTTEN_FLESH).addTag(ModRegistry.RAW_MEAT_FOODS_ITEM_TAG);
+        this.tag(ModRegistry.FISHING_BAIT_ITEM_TAG)
+                .add(Items.ROTTEN_FLESH)
+                .addOptionalTag(ModRegistry.RAW_MEAT_FOODS_ITEM_TAG);
         this.tag("c:foods/soup")
                 .add(ModItems.FISH_FINGERS.value(), ModItems.SASHIMI.value(), ModItems.FISH_STEW.value());
     }

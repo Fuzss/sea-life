@@ -3,7 +3,6 @@ package fuzs.sealife.init;
 import fuzs.puzzleslib.api.init.v3.registry.ContentRegistrationHelper;
 import fuzs.puzzleslib.api.init.v3.registry.RegistryManager;
 import fuzs.puzzleslib.api.init.v3.tags.TagFactory;
-import fuzs.puzzleslib.impl.item.CreativeModeTabHelper;
 import fuzs.sealife.SeaLife;
 import net.minecraft.core.Holder;
 import net.minecraft.core.RegistrySetBuilder;
@@ -14,7 +13,6 @@ import net.minecraft.util.context.ContextKeySet;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 
@@ -24,8 +22,8 @@ public class ModRegistry {
     static final RegistryManager REGISTRIES = RegistryManager.from(SeaLife.MOD_ID);
     public static final Holder.Reference<SimpleParticleType> BUBBLE_PARTICLE_TYPE = REGISTRIES.registerParticleType(
             "bubble");
-    public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab(() -> new ItemStack(
-            ModItems.PUPFISH), CreativeModeTabHelper.getDisplayItems(SeaLife.MOD_ID));
+    public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab(
+            ModItems.PUPFISH);
 
     static final TagFactory TAGS = TagFactory.make(SeaLife.MOD_ID);
     public static final TagKey<Item> RAW_FISH_FOODS_ITEM_TAG = TagFactory.COMMON.registerItemTag("foods/raw_fish");

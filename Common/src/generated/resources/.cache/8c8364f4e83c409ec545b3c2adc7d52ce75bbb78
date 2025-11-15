@@ -1,8 +1,10 @@
-// 1.21.10	2025-11-10T22:59:45.072542	Tags for minecraft:item mod id vanilla
+// 1.21.10	2025-11-15T16:53:14.420905	Tags for minecraft:item mod id vanilla
 c90d22c8fd63631a6a12ec420aa820c06d4016ad data/c/tags/item/foods/raw_fish.json
 b6b78b720ec2e7c14df2f2c4982a19ac552667d0 data/c/tags/item/foods/soup.json
+c90d22c8fd63631a6a12ec420aa820c06d4016ad data/minecraft/tags/item/cat_food.json
 c90d22c8fd63631a6a12ec420aa820c06d4016ad data/minecraft/tags/item/fishes.json
+c90d22c8fd63631a6a12ec420aa820c06d4016ad data/minecraft/tags/item/ocelot_food.json
 5ce4048edacaf5feca24af7207c62da156b98f7b data/minecraft/tags/item/piglin_loved.json
-c90d22c8fd63631a6a12ec420aa820c06d4016ad data/minecraft/tags/item/wolf_food.json
+dfdccb868b5aa22ec56fbd4d523bb0ed09cb8fa4 data/minecraft/tags/item/wolf_food.json
 aeead89391004d7fee84bc1f905d4001e1d55722 data/sealife/tags/item/fishes.json
-a1d668094dc58546ab5cabffcd991209a11b612f data/sealife/tags/item/fishing_bait.json
+bba300258a9106f0e997ed3b05c83aa1ce38d527 data/sealife/tags/item/fishing_bait.json
