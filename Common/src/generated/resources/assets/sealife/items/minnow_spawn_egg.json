@@ -1,16 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "sealife:item/minnow_spawn_egg",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -5986480
-      },
-      {
-        "type": "minecraft:constant",
-        "value": -2573219
-      }
-    ]
+    "model": "sealife:item/minnow_spawn_egg"
   }
 }

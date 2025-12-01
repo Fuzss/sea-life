@@ -1,16 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "sealife:item/bowfin_spawn_egg",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -7636160
-      },
-      {
-        "type": "minecraft:constant",
-        "value": -13355741
-      }
-    ]
+    "model": "sealife:item/bowfin_spawn_egg"
   }
 }

@@ -1,16 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "sealife:item/blue_tang_spawn_egg",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -11505452
-      },
-      {
-        "type": "minecraft:constant",
-        "value": -240
-      }
-    ]
+    "model": "sealife:item/blue_tang_spawn_egg"
   }
 }

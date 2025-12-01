@@ -1,16 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "sealife:item/electric_ray_spawn_egg",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -2380432
-      },
-      {
-        "type": "minecraft:constant",
-        "value": -7705258
-      }
-    ]
+    "model": "sealife:item/electric_ray_spawn_egg"
   }
 }

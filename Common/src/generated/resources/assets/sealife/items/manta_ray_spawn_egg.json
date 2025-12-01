@@ -1,16 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "sealife:item/manta_ray_spawn_egg",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -13548189
-      },
-      {
-        "type": "minecraft:constant",
-        "value": -2958617
-      }
-    ]
+    "model": "sealife:item/manta_ray_spawn_egg"
   }
 }

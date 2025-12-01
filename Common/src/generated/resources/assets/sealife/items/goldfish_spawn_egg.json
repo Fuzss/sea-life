@@ -1,16 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "sealife:item/goldfish_spawn_egg",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -150007
-      },
-      {
-        "type": "minecraft:constant",
-        "value": -1869822
-      }
-    ]
+    "model": "sealife:item/goldfish_spawn_egg"
   }
 }

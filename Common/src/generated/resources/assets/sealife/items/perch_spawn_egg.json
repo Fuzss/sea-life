@@ -1,16 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "sealife:item/perch_spawn_egg",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -13359070
-      },
-      {
-        "type": "minecraft:constant",
-        "value": -3231414
-      }
-    ]
+    "model": "sealife:item/perch_spawn_egg"
   }
 }

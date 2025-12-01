@@ -1,16 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "sealife:item/pickerel_spawn_egg",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -8682944
-      },
-      {
-        "type": "minecraft:constant",
-        "value": -4624566
-      }
-    ]
+    "model": "sealife:item/pickerel_spawn_egg"
   }
 }

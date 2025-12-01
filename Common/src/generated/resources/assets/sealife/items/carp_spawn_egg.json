@@ -1,16 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "sealife:item/carp_spawn_egg",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -4615322
-      },
-      {
-        "type": "minecraft:constant",
-        "value": -10867683
-      }
-    ]
+    "model": "sealife:item/carp_spawn_egg"
   }
 }

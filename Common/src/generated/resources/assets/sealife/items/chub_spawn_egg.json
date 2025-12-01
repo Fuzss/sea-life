@@ -1,16 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "sealife:item/chub_spawn_egg",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -1458551
-      },
-      {
-        "type": "minecraft:constant",
-        "value": -11640941
-      }
-    ]
+    "model": "sealife:item/chub_spawn_egg"
   }
 }

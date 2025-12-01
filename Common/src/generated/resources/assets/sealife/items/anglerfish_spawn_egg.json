@@ -1,16 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "sealife:item/anglerfish_spawn_egg",
-    "tints": [
-      {
-        "type": "minecraft:constant",
-        "value": -10862039
-      },
-      {
-        "type": "minecraft:constant",
-        "value": -14214129
-      }
-    ]
+    "model": "sealife:item/anglerfish_spawn_egg"
   }
 }

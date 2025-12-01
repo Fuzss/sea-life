@@ -1,7 +1,6 @@
 package fuzs.sealife.data.client;
 
 import fuzs.puzzleslib.api.client.data.v2.AbstractModelProvider;
-import fuzs.puzzleslib.api.client.data.v2.models.ItemModelGenerationHelper;
 import fuzs.puzzleslib.api.client.data.v2.models.ModelTemplateHelper;
 import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
 import fuzs.sealife.SeaLife;
@@ -101,40 +100,40 @@ public class ModModelProvider extends AbstractModelProvider {
         itemModelGenerators.generateFlatItem(ModItems.TROUT_BUCKET.value(), ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.TUNA_BUCKET.value(), ModelTemplates.FLAT_ITEM);
         itemModelGenerators.generateFlatItem(ModItems.WALLEYE_BUCKET.value(), ModelTemplates.FLAT_ITEM);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.ANCHOVY_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.ANGELFISH_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.ANGLERFISH_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.BASS_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.BLUE_TANG_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.BOWFIN_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.BUTTERFLYFISH_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.CARP_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.CATFISH_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.CHUB_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.DAMSELFISH_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.ELECTRIC_RAY_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.GOLDFISH_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.KOI_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.LAMPREY_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.LUNGFISH_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.MANTA_RAY_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.MINNOW_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.NEON_TETRA_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.NORTHERN_PIKE_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.PERCH_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.PICKEREL_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.PIRANHA_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.PUPFISH_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.SARDINE_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.SIAMESE_FIGHTING_FISH_SPAWN_EGG.value(),
-                itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.WHITEMARGIN_STARGAZER_SPAWN_EGG.value(),
-                itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.STINGRAY_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.SILVER_STRIPE_BLAASOP_SPAWN_EGG.value(),
-                itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.TROUT_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.TUNA_SPAWN_EGG.value(), itemModelGenerators);
-        ItemModelGenerationHelper.generateSpawnEgg(ModItems.WALLEYE_SPAWN_EGG.value(), itemModelGenerators);
+        itemModelGenerators.generateFlatItem(ModItems.ANCHOVY_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.ANGELFISH_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.ANGLERFISH_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.BASS_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.BLUE_TANG_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.BOWFIN_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.BUTTERFLYFISH_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.CARP_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.CATFISH_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.CHUB_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.DAMSELFISH_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.ELECTRIC_RAY_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.GOLDFISH_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.KOI_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.LAMPREY_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.LUNGFISH_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.MANTA_RAY_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.MINNOW_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.NEON_TETRA_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.NORTHERN_PIKE_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.PERCH_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.PICKEREL_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.PIRANHA_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.PUPFISH_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.SARDINE_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.SIAMESE_FIGHTING_FISH_SPAWN_EGG.value(),
+                ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.WHITEMARGIN_STARGAZER_SPAWN_EGG.value(),
+                ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.STINGRAY_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.SILVER_STRIPE_BLAASOP_SPAWN_EGG.value(),
+                ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.TROUT_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.TUNA_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.WALLEYE_SPAWN_EGG.value(), ModelTemplates.FLAT_ITEM);
     }
 }
