@@ -1,0 +1,13 @@
+{
+  "asset_id": "sealife:sunset",
+  "author": {
+    "color": "gray",
+    "translate": "painting.sealife.sunset.author"
+  },
+  "height": 1,
+  "title": {
+    "color": "yellow",
+    "translate": "painting.sealife.sunset.title"
+  },
+  "width": 1
+}

@@ -1,0 +1,9 @@
+{
+  "values": [
+    {
+      "id": "#c:foods/raw_meat",
+      "required": false
+    },
+    "minecraft:rotten_flesh"
+  ]
+}

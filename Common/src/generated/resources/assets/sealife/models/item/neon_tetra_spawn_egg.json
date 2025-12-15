@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "sealife:item/neon_tetra_spawn_egg"
+  }
+}

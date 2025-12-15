@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "S": "minecraft:string",
+    "W": "#minecraft:logs"
+  },
+  "pattern": [
+    "WSW",
+    "S S",
+    "WSW"
+  ],
+  "result": {
+    "count": 1,
+    "id": "sealife:fish_trap"
+  }
+}

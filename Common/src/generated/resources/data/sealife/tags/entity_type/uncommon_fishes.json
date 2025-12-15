@@ -1,0 +1,56 @@
+{
+  "values": [
+    "sealife:angelfish",
+    {
+      "id": "aquaculture:blackfish",
+      "required": false
+    },
+    "sealife:blue_tang",
+    {
+      "id": "aquaculture:boulti",
+      "required": false
+    },
+    "sealife:bowfin",
+    {
+      "id": "aquaculture:brown_trout",
+      "required": false
+    },
+    "sealife:butterflyfish",
+    {
+      "id": "aquaculture:carp",
+      "required": false
+    },
+    {
+      "id": "aquaculture:catfish",
+      "required": false
+    },
+    "sealife:catfish",
+    "sealife:damselfish",
+    {
+      "id": "aquaculture:jellyfish",
+      "required": false
+    },
+    "sealife:koi",
+    "sealife:lamprey",
+    {
+      "id": "aquaculture:minnow",
+      "required": false
+    },
+    "sealife:northern_pike",
+    "sealife:pickerel",
+    {
+      "id": "aquaculture:pollock",
+      "required": false
+    },
+    "minecraft:pufferfish",
+    "sealife:pupfish",
+    "sealife:siamese_fighting_fish",
+    {
+      "id": "aquaculture:smallmouth_bass",
+      "required": false
+    },
+    "minecraft:tropical_fish",
+    "sealife:tuna",
+    "sealife:whitemargin_stargazer"
+  ]
+}

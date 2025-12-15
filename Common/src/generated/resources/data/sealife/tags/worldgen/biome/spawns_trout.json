@@ -1,0 +1,7 @@
+{
+  "values": [
+    "minecraft:grove",
+    "#minecraft:is_river",
+    "#minecraft:is_taiga"
+  ]
+}
