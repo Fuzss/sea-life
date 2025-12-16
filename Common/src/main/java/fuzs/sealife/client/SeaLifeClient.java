@@ -11,12 +11,12 @@ import fuzs.sealife.client.renderer.entity.FishRenderer;
 import fuzs.sealife.init.ModBlocks;
 import fuzs.sealife.init.ModEntityTypes;
 import fuzs.sealife.init.ModRegistry;
-import net.minecraft.client.model.SalmonModel;
+import net.minecraft.client.model.animal.fish.SalmonModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.animal.AbstractFish;
+import net.minecraft.world.entity.animal.fish.AbstractFish;
 import net.minecraft.world.level.block.Block;
 
 public class SeaLifeClient implements ClientModConstructor {
@@ -81,7 +81,7 @@ public class SeaLifeClient implements ClientModConstructor {
                 ModModelLayers.WHITEMARGIN_STARGAZER);
     }
 
-    static <T extends AbstractFish> void registerEntityRenderer(EntityRenderersContext context, EntityType<? extends T> entityType, ModelLayerLocation modelLayerLocation) {
+    private static <T extends AbstractFish> void registerEntityRenderer(EntityRenderersContext context, EntityType<? extends T> entityType, ModelLayerLocation modelLayerLocation) {
         context.registerEntityRenderer(entityType,
                 (EntityRendererProvider.Context contextX) -> new FishRenderer(contextX,
                         modelLayerLocation,

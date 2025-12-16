@@ -3,8 +3,8 @@ package fuzs.sealife.init;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.entity.decoration.PaintingVariant;
-import net.minecraft.world.entity.decoration.PaintingVariants;
+import net.minecraft.world.entity.decoration.painting.PaintingVariant;
+import net.minecraft.world.entity.decoration.painting.PaintingVariants;
 
 public class ModPaintingVariants {
     public static final ResourceKey<PaintingVariant> ALBATROSS = ModRegistry.REGISTRIES.makeResourceKey(Registries.PAINTING_VARIANT,

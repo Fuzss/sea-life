@@ -1,0 +1,62 @@
+{
+    "mod": {
+        "id": "sealife",
+        "group": "fuzs.sealife",
+        "name": "Sea Life",
+        "version": "21.11.0",
+        "authors": [
+            "Joshiejack",
+            "Fuzs"
+        ],
+        "description": "Bring oceans and rivers to life with new fish, items, and underwater machinery.",
+        "license": "MIT"
+    },
+    "dependencies": [
+        {
+            "name": "fabricapi",
+            "type": "required",
+            "platforms": [
+                "fabric"
+            ]
+        },
+        {
+            "name": "forgeconfigapiport",
+            "type": "required",
+            "platforms": [
+                "fabric"
+            ]
+        },
+        {
+            "name": "puzzleslib",
+            "type": "required",
+            "platforms": [
+                "fabric",
+                "neoforge"
+            ]
+        }
+    ],
+    "links": [
+        {
+            "name": "github",
+            "slug": "sealife"
+        },
+        {
+            "name": "curseforge",
+            "slug": "sea-life",
+            "id": "1370259"
+        },
+        {
+            "name": "modrinth",
+            "slug": "sea-life",
+            "id": "2RxBOoXP"
+        }
+    ],
+    "environments": {
+        "client": "required",
+        "server": "required"
+    },
+    "platforms": [
+        "fabric",
+        "neoforge"
+    ]
+}

@@ -7,17 +7,20 @@ import fuzs.sealife.init.ModBlocks;
 import fuzs.sealife.init.ModRegistry;
 import fuzs.sealife.world.level.block.FishTrapBlock;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.component.DataComponentGetter;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.Containers;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.block.Block;
@@ -27,10 +30,13 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
 
+import java.util.Optional;
+
 public class FishTrapBlockEntity extends BlockEntity implements ListBackedContainer, TickingBlockEntity {
     private final NonNullList<ItemStack> items = NonNullList.withSize(1, ItemStack.EMPTY);
     private float currentSpin;
     private float previousSpin;
+    private ItemStack displayItem = ItemStack.EMPTY;
 
     public FishTrapBlockEntity(BlockPos blockPos, BlockState blockState) {
         super(ModBlocks.FISH_TRAP_BLOCK_ENTITY_TYPE.value(), blockPos, blockState);
@@ -38,9 +44,17 @@ public class FishTrapBlockEntity extends BlockEntity implements ListBackedContai
 
     @Override
     public void clientTick() {
+        RandomSource randomSource = this.getLevel().getRandom();
         this.previousSpin = this.currentSpin;
         this.currentSpin = Mth.wrapDegrees(this.currentSpin + 5.0F);
-        RandomSource randomSource = this.getLevel().getRandom();
+        if (this.getLevel().getGameTime() % 100L == 0L) {
+            Optional<Holder<Item>> optional = this.getLevel()
+                    .registryAccess()
+                    .lookupOrThrow(Registries.ITEM)
+                    .getRandomElementOf(ModRegistry.FISHING_BAIT_ITEM_TAG, randomSource);
+            this.displayItem = optional.map(ItemStack::new).orElse(ItemStack.EMPTY);
+        }
+
         if (randomSource.nextFloat() <= 0.5F) {
             Vec3 vec3 = randomPosInsideCage(this.getBlockPos(), randomSource);
             if (this.getBlockState().getValue(FishTrapBlock.ENABLED) && this.isBaited()) {
@@ -69,6 +83,15 @@ public class FishTrapBlockEntity extends BlockEntity implements ListBackedContai
 
     public boolean isBaited() {
         return this.getItem(0).is(ModRegistry.FISHING_BAIT_ITEM_TAG);
+    }
+
+    public ItemStack getDisplayItem() {
+        if (this.isBaited()) {
+            return ItemStack.EMPTY;
+        } else {
+            ItemStack itemStack = this.getItem(0);
+            return itemStack.isEmpty() ? this.displayItem : itemStack;
+        }
     }
 
     @Override

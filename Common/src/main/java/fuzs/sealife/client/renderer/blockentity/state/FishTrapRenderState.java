@@ -5,8 +5,7 @@ import net.minecraft.client.renderer.entity.state.ItemClusterRenderState;
 import net.minecraft.client.renderer.item.ItemStackRenderState;
 
 public class FishTrapRenderState extends BlockEntityRenderState {
-    public final ItemStackRenderState item = new ItemStackRenderState();
-    public final ItemClusterRenderState cluster = new ItemClusterRenderState();
+    public final ItemStackRenderState displayItem = new ItemStackRenderState();
+    public final ItemClusterRenderState rotatingItem = new ItemClusterRenderState();
     public float spin;
-    public boolean isBait;
 }

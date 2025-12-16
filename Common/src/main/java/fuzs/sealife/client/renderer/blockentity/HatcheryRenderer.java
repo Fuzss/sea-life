@@ -13,7 +13,7 @@ import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
 import net.minecraft.client.renderer.state.CameraRenderState;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.phys.Vec3;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.Nullable;
 
 public class HatcheryRenderer implements BlockEntityRenderer<HatcheryBlockEntity, HatcheryRenderState> {
     private final EntityRenderDispatcher entityRenderer;
@@ -28,7 +28,7 @@ public class HatcheryRenderer implements BlockEntityRenderer<HatcheryBlockEntity
     }
 
     @Override
-    public void extractRenderState(HatcheryBlockEntity blockEntity, HatcheryRenderState renderState, float partialTick, Vec3 cameraPosition, @Nullable ModelFeatureRenderer.CrumblingOverlay breakProgress) {
+    public void extractRenderState(HatcheryBlockEntity blockEntity, HatcheryRenderState renderState, float partialTick, Vec3 cameraPosition, ModelFeatureRenderer.@Nullable CrumblingOverlay breakProgress) {
         BlockEntityRenderer.super.extractRenderState(blockEntity,
                 renderState,
                 partialTick,

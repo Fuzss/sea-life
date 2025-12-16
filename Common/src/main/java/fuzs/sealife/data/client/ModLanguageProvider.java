@@ -4,12 +4,6 @@ import fuzs.puzzleslib.api.client.data.v2.AbstractLanguageProvider;
 import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
 import fuzs.sealife.SeaLife;
 import fuzs.sealife.init.*;
-import net.minecraft.core.Holder;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.decoration.PaintingVariant;
-
-import java.util.Objects;
 
 public class ModLanguageProvider extends AbstractLanguageProvider {
 
@@ -126,54 +120,42 @@ public class ModLanguageProvider extends AbstractLanguageProvider {
         translationBuilder.addItem(ModItems.TROUT_SPAWN_EGG, "Trout Spawn Egg");
         translationBuilder.addItem(ModItems.TUNA_SPAWN_EGG, "Tuna Spawn Egg");
         translationBuilder.addItem(ModItems.WALLEYE_SPAWN_EGG, "Walleye Spawn Egg");
-        addEntityType(translationBuilder, ModEntityTypes.ANCHOVY, "Anchovy");
-        addEntityType(translationBuilder, ModEntityTypes.ANGELFISH, "Angelfish");
-        addEntityType(translationBuilder, ModEntityTypes.ANGLERFISH, "Anglerfish");
-        addEntityType(translationBuilder, ModEntityTypes.BASS, "Bass");
-        addEntityType(translationBuilder, ModEntityTypes.BLUE_TANG, "Blue Tang");
-        addEntityType(translationBuilder, ModEntityTypes.BOWFIN, "Bowfin");
-        addEntityType(translationBuilder, ModEntityTypes.BUTTERFLYFISH, "Butterflyfish");
-        addEntityType(translationBuilder, ModEntityTypes.CARP, "Carp");
-        addEntityType(translationBuilder, ModEntityTypes.CATFISH, "Catfish");
-        addEntityType(translationBuilder, ModEntityTypes.CHUB, "Chub");
-        addEntityType(translationBuilder, ModEntityTypes.DAMSELFISH, "Damselfish");
-        addEntityType(translationBuilder, ModEntityTypes.ELECTRIC_RAY, "Electric Ray");
-        addEntityType(translationBuilder, ModEntityTypes.GOLDFISH, "Goldfish");
-        addEntityType(translationBuilder, ModEntityTypes.KOI, "Koi");
-        addEntityType(translationBuilder, ModEntityTypes.LAMPREY, "Lamprey");
-        addEntityType(translationBuilder, ModEntityTypes.LUNGFISH, "Lungfish");
-        addEntityType(translationBuilder, ModEntityTypes.MANTA_RAY, "Manta Ray");
-        addEntityType(translationBuilder, ModEntityTypes.MINNOW, "Minnow");
-        addEntityType(translationBuilder, ModEntityTypes.NEON_TETRA, "Neon Tetra");
-        addEntityType(translationBuilder, ModEntityTypes.NORTHERN_PIKE, "Northern Pike");
-        addEntityType(translationBuilder, ModEntityTypes.PERCH, "Perch");
-        addEntityType(translationBuilder, ModEntityTypes.PICKEREL, "Pickerel");
-        addEntityType(translationBuilder, ModEntityTypes.PIRANHA, "Piranha");
-        addEntityType(translationBuilder, ModEntityTypes.PUPFISH, "Pupfish");
-        addEntityType(translationBuilder, ModEntityTypes.SARDINE, "Sardine");
-        addEntityType(translationBuilder, ModEntityTypes.SIAMESE_FIGHTING_FISH, "Siamese Fighting Fish");
-        addEntityType(translationBuilder, ModEntityTypes.SILVER_STRIPE_BLAASOP, "Silver-Stripe Blaasop");
-        addEntityType(translationBuilder, ModEntityTypes.STINGRAY, "Stingray");
-        addEntityType(translationBuilder, ModEntityTypes.TROUT, "Trout");
-        addEntityType(translationBuilder, ModEntityTypes.TUNA, "Tuna");
-        addEntityType(translationBuilder, ModEntityTypes.WALLEYE, "Walleye");
-        addEntityType(translationBuilder, ModEntityTypes.WHITEMARGIN_STARGAZER, "Whitemargin Stargazer");
-        addPaintingVariant(translationBuilder, ModPaintingVariants.ALBATROSS, "Albatross", "Joshiejack");
-        addPaintingVariant(translationBuilder, ModPaintingVariants.BOATS, "Boats", "Joshiejack");
-        addPaintingVariant(translationBuilder, ModPaintingVariants.LIGHTHOUSE, "Lighthouse", "Joshiejack");
-        addPaintingVariant(translationBuilder, ModPaintingVariants.SUNSET, "Sunset", "Joshiejack");
-        addPaintingVariant(translationBuilder, ModPaintingVariants.WINDOW, "Window", "Joshiejack");
-    }
-
-    @Deprecated
-    static void addEntityType(TranslationBuilder translationBuilder, Holder<? extends EntityType<?>> entityType, String value) {
-        translationBuilder.add(entityType.value(), value);
-    }
-
-    @Deprecated
-    static void addPaintingVariant(TranslationBuilder translationBuilder, ResourceKey<PaintingVariant> paintingVariant, String title, String author) {
-        Objects.requireNonNull(paintingVariant, "painting variant is null");
-        translationBuilder.add(paintingVariant.location().toLanguageKey("painting", "title"), title);
-        translationBuilder.add(paintingVariant.location().toLanguageKey("painting", "author"), author);
+        translationBuilder.addEntityType(ModEntityTypes.ANCHOVY, "Anchovy");
+        translationBuilder.addEntityType(ModEntityTypes.ANGELFISH, "Angelfish");
+        translationBuilder.addEntityType(ModEntityTypes.ANGLERFISH, "Anglerfish");
+        translationBuilder.addEntityType(ModEntityTypes.BASS, "Bass");
+        translationBuilder.addEntityType(ModEntityTypes.BLUE_TANG, "Blue Tang");
+        translationBuilder.addEntityType(ModEntityTypes.BOWFIN, "Bowfin");
+        translationBuilder.addEntityType(ModEntityTypes.BUTTERFLYFISH, "Butterflyfish");
+        translationBuilder.addEntityType(ModEntityTypes.CARP, "Carp");
+        translationBuilder.addEntityType(ModEntityTypes.CATFISH, "Catfish");
+        translationBuilder.addEntityType(ModEntityTypes.CHUB, "Chub");
+        translationBuilder.addEntityType(ModEntityTypes.DAMSELFISH, "Damselfish");
+        translationBuilder.addEntityType(ModEntityTypes.ELECTRIC_RAY, "Electric Ray");
+        translationBuilder.addEntityType(ModEntityTypes.GOLDFISH, "Goldfish");
+        translationBuilder.addEntityType(ModEntityTypes.KOI, "Koi");
+        translationBuilder.addEntityType(ModEntityTypes.LAMPREY, "Lamprey");
+        translationBuilder.addEntityType(ModEntityTypes.LUNGFISH, "Lungfish");
+        translationBuilder.addEntityType(ModEntityTypes.MANTA_RAY, "Manta Ray");
+        translationBuilder.addEntityType(ModEntityTypes.MINNOW, "Minnow");
+        translationBuilder.addEntityType(ModEntityTypes.NEON_TETRA, "Neon Tetra");
+        translationBuilder.addEntityType(ModEntityTypes.NORTHERN_PIKE, "Northern Pike");
+        translationBuilder.addEntityType(ModEntityTypes.PERCH, "Perch");
+        translationBuilder.addEntityType(ModEntityTypes.PICKEREL, "Pickerel");
+        translationBuilder.addEntityType(ModEntityTypes.PIRANHA, "Piranha");
+        translationBuilder.addEntityType(ModEntityTypes.PUPFISH, "Pupfish");
+        translationBuilder.addEntityType(ModEntityTypes.SARDINE, "Sardine");
+        translationBuilder.addEntityType(ModEntityTypes.SIAMESE_FIGHTING_FISH, "Siamese Fighting Fish");
+        translationBuilder.addEntityType(ModEntityTypes.SILVER_STRIPE_BLAASOP, "Silver-Stripe Blaasop");
+        translationBuilder.addEntityType(ModEntityTypes.STINGRAY, "Stingray");
+        translationBuilder.addEntityType(ModEntityTypes.TROUT, "Trout");
+        translationBuilder.addEntityType(ModEntityTypes.TUNA, "Tuna");
+        translationBuilder.addEntityType(ModEntityTypes.WALLEYE, "Walleye");
+        translationBuilder.addEntityType(ModEntityTypes.WHITEMARGIN_STARGAZER, "Whitemargin Stargazer");
+        translationBuilder.addPaintingVariant(ModPaintingVariants.ALBATROSS, "Albatross", "Joshiejack");
+        translationBuilder.addPaintingVariant(ModPaintingVariants.BOATS, "Boats", "Joshiejack");
+        translationBuilder.addPaintingVariant(ModPaintingVariants.LIGHTHOUSE, "Lighthouse", "Joshiejack");
+        translationBuilder.addPaintingVariant(ModPaintingVariants.SUNSET, "Sunset", "Joshiejack");
+        translationBuilder.addPaintingVariant(ModPaintingVariants.WINDOW, "Window", "Joshiejack");
     }
 }

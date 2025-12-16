@@ -8,14 +8,14 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.animal.AbstractFish;
+import net.minecraft.world.entity.animal.fish.AbstractFish;
 
 import java.util.function.Function;
 
 public class FishRenderer extends MobRenderer<AbstractFish, LivingEntityRenderState, EntityModel<LivingEntityRenderState>> {
-    private final ResourceLocation textureLocation;
+    private final Identifier textureLocation;
     private final boolean panicOnLand;
 
     public FishRenderer(EntityRendererProvider.Context context, ModelLayerLocation modelLayerLocation, Function<ModelPart, EntityModel<LivingEntityRenderState>> modelFactory) {
@@ -29,7 +29,7 @@ public class FishRenderer extends MobRenderer<AbstractFish, LivingEntityRenderSt
     }
 
     @Override
-    public ResourceLocation getTextureLocation(LivingEntityRenderState renderState) {
+    public Identifier getTextureLocation(LivingEntityRenderState renderState) {
         return this.textureLocation;
     }
 

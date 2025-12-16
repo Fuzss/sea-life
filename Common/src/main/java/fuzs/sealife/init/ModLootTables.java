@@ -2,11 +2,11 @@ package fuzs.sealife.init;
 
 import com.google.common.collect.ImmutableMap;
 import fuzs.puzzleslib.api.event.v1.server.LootTableLoadCallback;
-import net.minecraft.advancements.critereon.LocationPredicate;
+import net.minecraft.advancements.criterion.LocationPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
@@ -22,17 +22,17 @@ import java.util.Map;
 import java.util.function.BiConsumer;
 
 public class ModLootTables {
-    static final Map<ResourceLocation, BiConsumer<LootPool.Builder, HolderLookup.Provider>> LOOT_TABLE_INJECTIONS;
+    static final Map<Identifier, BiConsumer<LootPool.Builder, HolderLookup.Provider>> LOOT_TABLE_INJECTIONS;
     public static final ResourceKey<LootTable> TREASURE_ITEM = ModRegistry.REGISTRIES.makeResourceKey(Registries.LOOT_TABLE,
             "gameplay/treasure_item");
     public static final ResourceKey<LootTable> FISH_TRAP = ModRegistry.REGISTRIES.makeResourceKey(Registries.LOOT_TABLE,
             "gameplay/fish_trap");
 
     static {
-        ImmutableMap.Builder<ResourceLocation, BiConsumer<LootPool.Builder, HolderLookup.Provider>> builder = ImmutableMap.builder();
-        builder.put(BuiltInLootTables.FISHING_FISH.location(), ModLootTables::addFishingFish);
-        builder.put(BuiltInLootTables.FISHING_JUNK.location(), ModLootTables::addFishingJunk);
-        builder.put(BuiltInLootTables.FISHING_TREASURE.location(), ModLootTables::addFishingTreasure);
+        ImmutableMap.Builder<Identifier, BiConsumer<LootPool.Builder, HolderLookup.Provider>> builder = ImmutableMap.builder();
+        builder.put(BuiltInLootTables.FISHING_FISH.identifier(), ModLootTables::addFishingFish);
+        builder.put(BuiltInLootTables.FISHING_JUNK.identifier(), ModLootTables::addFishingJunk);
+        builder.put(BuiltInLootTables.FISHING_TREASURE.identifier(), ModLootTables::addFishingTreasure);
         LOOT_TABLE_INJECTIONS = builder.build();
     }
 
@@ -40,13 +40,13 @@ public class ModLootTables {
         // NO-OP
     }
 
-    public static void onLootTableLoad(ResourceLocation resourceLocation, LootTable.Builder lootTable, HolderLookup.Provider registries) {
-        if (LOOT_TABLE_INJECTIONS.containsKey(resourceLocation)) {
+    public static void onLootTableLoad(Identifier identifier, LootTable.Builder lootTable, HolderLookup.Provider registries) {
+        if (LOOT_TABLE_INJECTIONS.containsKey(identifier)) {
             MutableBoolean mutableBoolean = new MutableBoolean();
             LootTableLoadCallback.forEachPool(lootTable, (LootPool.Builder lootPoolBuilder) -> {
                 if (mutableBoolean.isFalse()) {
                     mutableBoolean.setTrue();
-                    LOOT_TABLE_INJECTIONS.get(resourceLocation).accept(lootPoolBuilder, registries);
+                    LOOT_TABLE_INJECTIONS.get(identifier).accept(lootPoolBuilder, registries);
                 }
             });
         }

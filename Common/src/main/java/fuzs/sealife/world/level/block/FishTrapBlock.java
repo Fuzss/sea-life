@@ -2,6 +2,8 @@ package fuzs.sealife.world.level.block;
 
 import com.mojang.serialization.MapCodec;
 import fuzs.puzzleslib.api.block.v1.entity.TickingEntityBlock;
+import fuzs.sealife.SeaLife;
+import fuzs.sealife.config.ServerConfig;
 import fuzs.sealife.init.ModBlocks;
 import fuzs.sealife.init.ModLootTables;
 import fuzs.sealife.init.ModRegistry;
@@ -42,7 +44,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.Nullable;
 
 import java.util.List;
 
@@ -164,7 +166,8 @@ public class FishTrapBlock extends BaseEntityBlock implements SimpleWaterloggedB
                     }
 
                     level.gameEvent(player, GameEvent.BLOCK_CHANGE, pos);
-                    if (level.getRandom().nextInt(3) == 0) {
+                    if (level.getRandom().nextDouble()
+                            < SeaLife.CONFIG.get(ServerConfig.class).fishTrapBreakingChance) {
                         level.destroyBlock(pos, false);
                     }
                 }

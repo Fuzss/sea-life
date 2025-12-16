@@ -6,7 +6,7 @@ import fuzs.sealife.init.ModPaintingVariants;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.PaintingVariantTags;
-import net.minecraft.world.entity.decoration.PaintingVariant;
+import net.minecraft.world.entity.decoration.painting.PaintingVariant;
 
 public class ModPaintingVariantTagProvider extends AbstractTagProvider<PaintingVariant> {
 

@@ -8,16 +8,16 @@ import fuzs.puzzleslib.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.api.core.v1.context.BiomeModificationsContext;
 import fuzs.puzzleslib.api.core.v1.context.EntityAttributesContext;
 import fuzs.puzzleslib.api.core.v1.context.SpawnPlacementsContext;
-import fuzs.puzzleslib.api.core.v1.utility.ResourceLocationHelper;
 import fuzs.puzzleslib.api.event.v1.LoadCompleteCallback;
 import fuzs.puzzleslib.api.event.v1.server.LootTableLoadCallback;
 import fuzs.sealife.config.CommonConfig;
+import fuzs.sealife.config.ServerConfig;
 import fuzs.sealife.init.ModEntityTypes;
 import fuzs.sealife.init.ModLootTables;
 import fuzs.sealife.init.ModRegistry;
 import fuzs.sealife.world.level.block.HatcheryBlock;
 import net.minecraft.core.Holder;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.biome.Biome;
@@ -32,7 +32,9 @@ public class SeaLife implements ModConstructor {
     public static final String MOD_NAME = "Sea Life";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
 
-    public static final ConfigHolder CONFIG = ConfigHolder.builder(MOD_ID).common(CommonConfig.class);
+    public static final ConfigHolder CONFIG = ConfigHolder.builder(MOD_ID)
+            .common(CommonConfig.class)
+            .server(ServerConfig.class);
 
     @Override
     public void onConstructMod() {
@@ -199,7 +201,7 @@ public class SeaLife implements ModConstructor {
         });
     }
 
-    public static ResourceLocation id(String path) {
-        return ResourceLocationHelper.fromNamespaceAndPath(MOD_ID, path);
+    public static Identifier id(String path) {
+        return Identifier.fromNamespaceAndPath(MOD_ID, path);
     }
 }
