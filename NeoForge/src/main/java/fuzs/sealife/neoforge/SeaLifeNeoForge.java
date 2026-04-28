@@ -2,14 +2,14 @@ package fuzs.sealife.neoforge;
 
 import fuzs.puzzleslib.common.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.neoforge.api.data.v2.core.DataProviderHelper;
-import fuzs.sealife.SeaLife;
-import fuzs.sealife.data.ModRecipeProvider;
-import fuzs.sealife.data.loot.ModBlockLootProvider;
-import fuzs.sealife.data.loot.ModEntityTypeLootProvider;
-import fuzs.sealife.data.loot.ModFishingLootProvider;
-import fuzs.sealife.data.loot.ModTreasureItemLootProvider;
-import fuzs.sealife.data.tags.*;
-import fuzs.sealife.init.ModRegistry;
+import fuzs.sealife.common.SeaLife;
+import fuzs.sealife.common.data.ModRecipeProvider;
+import fuzs.sealife.common.data.loot.ModBlockLootProvider;
+import fuzs.sealife.common.data.loot.ModEntityTypeLootProvider;
+import fuzs.sealife.common.data.loot.ModFishingLootProvider;
+import fuzs.sealife.common.data.loot.ModTreasureItemLootProvider;
+import fuzs.sealife.common.data.tags.*;
+import fuzs.sealife.common.init.ModRegistry;
 import net.neoforged.fml.common.Mod;
 
 @Mod(SeaLife.MOD_ID)

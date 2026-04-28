@@ -1,7 +1,7 @@
 package fuzs.sealife.fabric.client;
 
-import fuzs.sealife.SeaLife;
-import fuzs.sealife.client.SeaLifeClient;
+import fuzs.sealife.common.SeaLife;
+import fuzs.sealife.common.client.SeaLifeClient;
 import fuzs.puzzleslib.common.api.client.core.v1.ClientModConstructor;
 import net.fabricmc.api.ClientModInitializer;
 

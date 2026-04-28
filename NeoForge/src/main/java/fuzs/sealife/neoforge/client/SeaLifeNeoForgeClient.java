@@ -2,11 +2,11 @@ package fuzs.sealife.neoforge.client;
 
 import fuzs.puzzleslib.common.api.client.core.v1.ClientModConstructor;
 import fuzs.puzzleslib.neoforge.api.data.v2.core.DataProviderHelper;
-import fuzs.sealife.SeaLife;
-import fuzs.sealife.client.SeaLifeClient;
-import fuzs.sealife.data.client.ModLanguageProvider;
-import fuzs.sealife.data.client.ModModelProvider;
-import fuzs.sealife.data.client.ModParticleProvider;
+import fuzs.sealife.common.SeaLife;
+import fuzs.sealife.common.client.SeaLifeClient;
+import fuzs.sealife.common.data.client.ModLanguageProvider;
+import fuzs.sealife.common.data.client.ModModelProvider;
+import fuzs.sealife.common.data.client.ModParticleProvider;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.fml.common.Mod;
 
