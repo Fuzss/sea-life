@@ -1,4 +1,4 @@
-accessWidener   v2  named
+classTweaker    v2  official
 accessible	field	net/minecraft/world/entity/animal/fish/Pufferfish   SCARY_MOB	Lnet/minecraft/world/entity/ai/targeting/TargetingConditions$Selector;
 accessible	field	net/minecraft/world/entity/animal/fish/Pufferfish   TARGETING_CONDITIONS	Lnet/minecraft/world/entity/ai/targeting/TargetingConditions;
 accessible	field	net/minecraft/world/item/MobBucketItem	type	Lnet/minecraft/world/entity/EntityType;
