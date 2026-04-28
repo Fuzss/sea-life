@@ -1,7 +1,7 @@
 package fuzs.sealife.world.item;
 
-import fuzs.puzzleslib.api.item.v2.GiveItemHelper;
-import fuzs.puzzleslib.api.util.v1.InteractionResultHelper;
+import fuzs.puzzleslib.common.api.item.v2.GiveItemHelper;
+import fuzs.puzzleslib.common.api.util.v1.InteractionResultHelper;
 import fuzs.sealife.init.ModRegistry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;

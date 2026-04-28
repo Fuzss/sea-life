@@ -1,6 +1,6 @@
 package fuzs.sealife.world.level.block.entity;
 
-import fuzs.puzzleslib.api.block.v1.entity.TickingBlockEntity;
+import fuzs.puzzleslib.common.api.block.v1.entity.TickingBlockEntity;
 import fuzs.sealife.SeaLife;
 import fuzs.sealife.init.ModBlocks;
 import fuzs.sealife.world.level.block.HatcheryBlock;
@@ -15,6 +15,7 @@ import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.Bucketable;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -36,7 +37,7 @@ public class HatcheryBlockEntity extends BlockEntity implements TickingBlockEnti
     }
 
     @Override
-    public void clientTick() {
+    public void clientTick(Level level, BlockPos blockPos, BlockState blockState) {
         if (!this.isEmpty()) {
             this.getRenderData().tick();
         }

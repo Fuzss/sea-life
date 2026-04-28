@@ -1,7 +1,7 @@
 package fuzs.sealife.client;
 
-import fuzs.puzzleslib.api.client.core.v1.ClientModConstructor;
-import fuzs.puzzleslib.api.client.core.v1.context.*;
+import fuzs.puzzleslib.common.api.client.core.v1.ClientModConstructor;
+import fuzs.puzzleslib.common.api.client.core.v1.context.*;
 import fuzs.sealife.client.model.*;
 import fuzs.sealife.client.model.geom.ModModelLayers;
 import fuzs.sealife.client.particle.CustomBubbleParticle;
@@ -13,11 +13,9 @@ import fuzs.sealife.init.ModEntityTypes;
 import fuzs.sealife.init.ModRegistry;
 import net.minecraft.client.model.animal.fish.SalmonModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
-import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.fish.AbstractFish;
-import net.minecraft.world.level.block.Block;
 
 public class SeaLifeClient implements ClientModConstructor {
 
@@ -123,12 +121,6 @@ public class SeaLifeClient implements ClientModConstructor {
         context.registerLayerDefinition(ModModelLayers.TUNA, FatFishModel::createBodyLayer);
         context.registerLayerDefinition(ModModelLayers.WALLEYE, SalmonModel::createBodyLayer);
         context.registerLayerDefinition(ModModelLayers.WHITEMARGIN_STARGAZER, StargazerModel::createBodyLayer);
-    }
-
-    @Override
-    public void onRegisterBlockRenderTypes(RenderTypesContext<Block> context) {
-        context.registerChunkRenderType(ModBlocks.FISH_TRAP.value(), ChunkSectionLayer.CUTOUT);
-        context.registerChunkRenderType(ModBlocks.HATCHERY.value(), ChunkSectionLayer.CUTOUT);
     }
 
     @Override

@@ -1,15 +1,15 @@
 package fuzs.sealife;
 
-import fuzs.puzzleslib.api.biome.v1.BiomeLoadingContext;
-import fuzs.puzzleslib.api.biome.v1.BiomeLoadingPhase;
-import fuzs.puzzleslib.api.biome.v1.BiomeModificationContext;
-import fuzs.puzzleslib.api.config.v3.ConfigHolder;
-import fuzs.puzzleslib.api.core.v1.ModConstructor;
-import fuzs.puzzleslib.api.core.v1.context.BiomeModificationsContext;
-import fuzs.puzzleslib.api.core.v1.context.EntityAttributesContext;
-import fuzs.puzzleslib.api.core.v1.context.SpawnPlacementsContext;
-import fuzs.puzzleslib.api.event.v1.LoadCompleteCallback;
-import fuzs.puzzleslib.api.event.v1.server.LootTableLoadCallback;
+import fuzs.puzzleslib.common.api.biome.v1.BiomeLoadingContext;
+import fuzs.puzzleslib.common.api.biome.v1.BiomeLoadingPhase;
+import fuzs.puzzleslib.common.api.biome.v1.BiomeModificationContext;
+import fuzs.puzzleslib.common.api.config.v3.ConfigHolder;
+import fuzs.puzzleslib.common.api.core.v1.ModConstructor;
+import fuzs.puzzleslib.common.api.core.v1.context.BiomeModificationsContext;
+import fuzs.puzzleslib.common.api.core.v1.context.EntityAttributesContext;
+import fuzs.puzzleslib.common.api.core.v1.context.SpawnPlacementsContext;
+import fuzs.puzzleslib.common.api.event.v1.LoadCompleteCallback;
+import fuzs.puzzleslib.common.api.event.v1.server.LootTableLoadCallback;
 import fuzs.sealife.config.CommonConfig;
 import fuzs.sealife.config.ServerConfig;
 import fuzs.sealife.init.ModEntityTypes;

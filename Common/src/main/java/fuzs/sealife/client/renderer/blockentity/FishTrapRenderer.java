@@ -17,11 +17,11 @@ import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
 import net.minecraft.client.renderer.item.ItemModelResolver;
 import net.minecraft.client.renderer.rendertype.RenderType;
 import net.minecraft.client.renderer.rendertype.RenderTypes;
-import net.minecraft.client.renderer.state.CameraRenderState;
+import net.minecraft.client.renderer.state.level.CameraRenderState;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
-import net.minecraft.client.resources.model.Material;
-import net.minecraft.client.resources.model.MaterialSet;
+import net.minecraft.client.resources.model.sprite.SpriteGetter;
+import net.minecraft.client.resources.model.sprite.SpriteId;
 import net.minecraft.resources.Identifier;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
@@ -32,15 +32,15 @@ import org.jspecify.annotations.Nullable;
 
 public class FishTrapRenderer implements BlockEntityRenderer<FishTrapBlockEntity, FishTrapRenderState> {
     public static final RenderType RENDER_TYPE = RenderTypes.text(Sheets.GUI_SHEET);
-    private static final Material SPEECH_BUBBLE_TEXTURE = new Material(Sheets.GUI_SHEET, SeaLife.id("speech_bubble"));
+    private static final SpriteId SPEECH_BUBBLE_TEXTURE = new SpriteId(Sheets.GUI_SHEET, SeaLife.id("speech_bubble"));
 
     private final RandomSource random = RandomSource.create();
     private final ItemModelResolver itemModelResolver;
-    private final MaterialSet materials;
+    private final SpriteGetter sprites;
 
     public FishTrapRenderer(BlockEntityRendererProvider.Context context) {
         this.itemModelResolver = context.itemModelResolver();
-        this.materials = context.materials();
+        this.sprites = context.sprites();
     }
 
     @Override
@@ -96,8 +96,8 @@ public class FishTrapRenderer implements BlockEntityRenderer<FishTrapBlockEntity
     }
 
     /**
-     * @see net.minecraft.client.gui.GuiGraphics#innerBlit(RenderPipeline, Identifier, int, int, int, int, float,
-     *         float, float, float, int)
+     * @see net.minecraft.client.gui.GuiGraphicsExtractor#innerBlit(RenderPipeline, Identifier, int, int, int, int,
+     *         float, float, float, float, int)
      */
     private void submitSpeechBubble(FishTrapRenderState renderState, PoseStack poseStack, SubmitNodeCollector nodeCollector, CameraRenderState cameraRenderState) {
         poseStack.pushPose();
@@ -114,7 +114,7 @@ public class FishTrapRenderer implements BlockEntityRenderer<FishTrapBlockEntity
                 RENDER_TYPE,
                 (PoseStack.Pose pose, VertexConsumer vertexConsumer) -> {
                     Matrix4f matrix4f = pose.pose();
-                    TextureAtlasSprite sprite = this.materials.get(SPEECH_BUBBLE_TEXTURE);
+                    TextureAtlasSprite sprite = this.sprites.get(SPEECH_BUBBLE_TEXTURE);
                     vertexConsumer.addVertex(matrix4f, -0.5F, -0.5F, 0.0F)
                             .setUv(sprite.getU0(), sprite.getV0())
                             .setColor(-1)

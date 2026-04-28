@@ -1,8 +1,8 @@
 package fuzs.sealife.init;
 
-import fuzs.puzzleslib.api.init.v3.registry.ContentRegistrationHelper;
-import fuzs.puzzleslib.api.init.v3.registry.RegistryManager;
-import fuzs.puzzleslib.api.init.v3.tags.TagFactory;
+import fuzs.puzzleslib.common.api.init.v3.registry.ContentRegistrationHelper;
+import fuzs.puzzleslib.common.api.init.v3.registry.RegistryManager;
+import fuzs.puzzleslib.common.api.init.v3.tags.TagFactory;
 import fuzs.sealife.SeaLife;
 import net.minecraft.core.Holder;
 import net.minecraft.core.RegistrySetBuilder;

@@ -1,8 +1,8 @@
 package fuzs.sealife.world.level.block.entity;
 
-import fuzs.puzzleslib.api.block.v1.entity.TickingBlockEntity;
-import fuzs.puzzleslib.api.container.v1.ContainerSerializationHelper;
-import fuzs.puzzleslib.api.container.v1.ListBackedContainer;
+import fuzs.puzzleslib.common.api.block.v1.entity.TickingBlockEntity;
+import fuzs.puzzleslib.common.api.container.v1.ContainerSerializationHelper;
+import fuzs.puzzleslib.common.api.container.v1.ListBackedContainer;
 import fuzs.sealife.init.ModBlocks;
 import fuzs.sealife.init.ModRegistry;
 import fuzs.sealife.world.level.block.FishTrapBlock;
@@ -23,6 +23,7 @@ import net.minecraft.world.Containers;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemContainerContents;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -43,29 +44,27 @@ public class FishTrapBlockEntity extends BlockEntity implements ListBackedContai
     }
 
     @Override
-    public void clientTick() {
-        RandomSource randomSource = this.getLevel().getRandom();
+    public void clientTick(Level level, BlockPos blockPos, BlockState blockState) {
+        RandomSource randomSource = level.getRandom();
         this.previousSpin = this.currentSpin;
         this.currentSpin = Mth.wrapDegrees(this.currentSpin + 5.0F);
-        if (this.getLevel().getGameTime() % 100L == 0L) {
-            Optional<Holder<Item>> optional = this.getLevel()
-                    .registryAccess()
+        if (level.getGameTime() % 100L == 0L) {
+            Optional<Holder<Item>> optional = level.registryAccess()
                     .lookupOrThrow(Registries.ITEM)
                     .getRandomElementOf(ModRegistry.FISHING_BAIT_ITEM_TAG, randomSource);
             this.displayItem = optional.map(ItemStack::new).orElse(ItemStack.EMPTY);
         }
 
         if (randomSource.nextFloat() <= 0.5F) {
-            Vec3 vec3 = randomPosInsideCage(this.getBlockPos(), randomSource);
-            if (this.getBlockState().getValue(FishTrapBlock.ENABLED) && this.isBaited()) {
-                this.getLevel()
-                        .addParticle(ModRegistry.BUBBLE_PARTICLE_TYPE.value(),
-                                vec3.x(),
-                                vec3.y(),
-                                vec3.z(),
-                                0.0,
-                                0.0,
-                                0.0);
+            Vec3 vec3 = randomPosInsideCage(blockPos, randomSource);
+            if (blockState.getValue(FishTrapBlock.ENABLED) && this.isBaited()) {
+                level.addParticle(ModRegistry.BUBBLE_PARTICLE_TYPE.value(),
+                        vec3.x(),
+                        vec3.y(),
+                        vec3.z(),
+                        0.0,
+                        0.0,
+                        0.0);
             }
         }
     }

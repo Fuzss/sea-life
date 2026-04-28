@@ -1,9 +1,10 @@
 {
+    "minecraft": "26.1.2",
     "mod": {
         "id": "sealife",
         "group": "fuzs.sealife",
         "name": "Sea Life",
-        "version": "21.11.0",
+        "version": "26.1.0",
         "authors": [
             "Joshiejack",
             "Fuzs"
@@ -37,13 +38,13 @@
     ],
     "links": [
         {
-            "name": "github",
-            "slug": "sealife"
-        },
-        {
             "name": "curseforge",
             "slug": "sea-life",
             "id": "1370259"
+        },
+        {
+            "name": "github",
+            "slug": "sea-life"
         },
         {
             "name": "modrinth",

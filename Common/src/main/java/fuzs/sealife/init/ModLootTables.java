@@ -1,7 +1,7 @@
 package fuzs.sealife.init;
 
 import com.google.common.collect.ImmutableMap;
-import fuzs.puzzleslib.api.event.v1.server.LootTableLoadCallback;
+import fuzs.puzzleslib.common.api.event.v1.server.LootTableLoadCallback;
 import net.minecraft.advancements.criterion.LocationPredicate;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;

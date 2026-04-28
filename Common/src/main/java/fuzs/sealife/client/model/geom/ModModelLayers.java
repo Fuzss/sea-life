@@ -1,6 +1,6 @@
 package fuzs.sealife.client.model.geom;
 
-import fuzs.puzzleslib.api.client.init.v1.ModelLayerFactory;
+import fuzs.puzzleslib.common.api.client.init.v1.ModelLayerFactory;
 import fuzs.sealife.SeaLife;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 

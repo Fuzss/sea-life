@@ -2,13 +2,14 @@ package fuzs.sealife.world.level.block;
 
 import com.google.common.collect.ImmutableMap;
 import com.mojang.serialization.MapCodec;
-import fuzs.puzzleslib.api.block.v1.entity.TickingEntityBlock;
+import fuzs.puzzleslib.common.api.block.v1.entity.TickingEntityBlock;
 import fuzs.sealife.init.ModBlocks;
 import fuzs.sealife.init.ModRegistry;
 import fuzs.sealife.world.level.block.entity.HatcheryBlockEntity;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -139,11 +140,12 @@ public class HatcheryBlock extends BaseEntityBlock implements SimpleWaterloggedB
     }
 
     public static int getHatchingCycles(EntityType<?> entityType) {
-        if (entityType.is(ModRegistry.COMMON_FISHES_ENTITY_TYPE_TAG)) {
+        Holder<EntityType<?>> holder = entityType.builtInRegistryHolder();
+        if (holder.is(ModRegistry.COMMON_FISHES_ENTITY_TYPE_TAG)) {
             return COMMON_CYCLES;
-        } else if (entityType.is(ModRegistry.UNCOMMON_FISHES_ENTITY_TYPE_TAG)) {
+        } else if (holder.is(ModRegistry.UNCOMMON_FISHES_ENTITY_TYPE_TAG)) {
             return UNCOMMON_CYCLES;
-        } else if (entityType.is(ModRegistry.RARE_FISHES_ENTITY_TYPE_TAG)) {
+        } else if (holder.is(ModRegistry.RARE_FISHES_ENTITY_TYPE_TAG)) {
             return RARE_CYCLES;
         } else {
             return UNCOMMON_CYCLES;

@@ -1,7 +1,7 @@
 package fuzs.sealife.world.level.block;
 
 import com.mojang.serialization.MapCodec;
-import fuzs.puzzleslib.api.block.v1.entity.TickingEntityBlock;
+import fuzs.puzzleslib.common.api.block.v1.entity.TickingEntityBlock;
 import fuzs.sealife.SeaLife;
 import fuzs.sealife.config.ServerConfig;
 import fuzs.sealife.init.ModBlocks;

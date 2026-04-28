@@ -1,7 +1,7 @@
 package fuzs.sealife.init;
 
-import fuzs.puzzleslib.api.core.v1.context.EntityAttributesContext;
-import fuzs.puzzleslib.api.core.v1.context.SpawnPlacementsContext;
+import fuzs.puzzleslib.common.api.core.v1.context.EntityAttributesContext;
+import fuzs.puzzleslib.common.api.core.v1.context.SpawnPlacementsContext;
 import fuzs.sealife.world.entity.animal.*;
 import net.minecraft.core.Holder;
 import net.minecraft.world.entity.EntityType;
