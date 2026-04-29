@@ -77,7 +77,8 @@ public class HatcheryBlock extends BaseEntityBlock implements SimpleWaterloggedB
                 builder.put(mobBucketItem.type, item);
             }
         }
-        bucketableMobs = builder.build();
+
+        bucketableMobs = builder.buildKeepingLast();
     }
 
     @Override
