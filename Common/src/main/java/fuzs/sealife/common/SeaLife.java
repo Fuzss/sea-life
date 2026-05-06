@@ -8,14 +8,12 @@ import fuzs.puzzleslib.common.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.common.api.core.v1.context.BiomeModificationsContext;
 import fuzs.puzzleslib.common.api.core.v1.context.EntityAttributesContext;
 import fuzs.puzzleslib.common.api.core.v1.context.SpawnPlacementsContext;
-import fuzs.puzzleslib.common.api.event.v1.LoadCompleteCallback;
 import fuzs.puzzleslib.common.api.event.v1.server.LootTableLoadCallback;
 import fuzs.sealife.common.config.CommonConfig;
 import fuzs.sealife.common.config.ServerConfig;
 import fuzs.sealife.common.init.ModEntityTypes;
 import fuzs.sealife.common.init.ModLootTables;
 import fuzs.sealife.common.init.ModRegistry;
-import fuzs.sealife.common.world.level.block.HatcheryBlock;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
@@ -43,7 +41,6 @@ public class SeaLife implements ModConstructor {
     }
 
     private static void registerEventHandlers() {
-        LoadCompleteCallback.EVENT.register(HatcheryBlock::onLoadComplete);
         LootTableLoadCallback.EVENT.register(ModLootTables::onLootTableLoad);
     }
 
