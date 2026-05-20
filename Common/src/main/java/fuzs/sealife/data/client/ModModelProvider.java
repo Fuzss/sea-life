@@ -6,9 +6,9 @@ import fuzs.puzzleslib.api.data.v2.core.DataProviderContext;
 import fuzs.sealife.SeaLife;
 import fuzs.sealife.init.ModBlocks;
 import fuzs.sealife.init.ModItems;
-import net.minecraft.client.data.models.BlockModelGenerators;
-import net.minecraft.client.data.models.ItemModelGenerators;
-import net.minecraft.client.data.models.model.*;
+import net.minecraft.data.models.BlockModelGenerators;
+import net.minecraft.data.models.ItemModelGenerators;
+import net.minecraft.data.models.model.*;
 
 public class ModModelProvider extends AbstractModelProvider {
     public static final ModelTemplate TEMPLATE_HATCHERY = ModelTemplateHelper.createBlockModelTemplate(SeaLife.id(

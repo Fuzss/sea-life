@@ -3,10 +3,9 @@ package fuzs.sealife.world.level.block.entity;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
-import org.jspecify.annotations.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 public class HatcheryRenderData {
     private FishData[] data = new FishData[0];
@@ -14,7 +13,7 @@ public class HatcheryRenderData {
     private Entity displayEntity;
 
     public void reload(Level level, @Nullable EntityType<?> entityType, int count) {
-        this.displayEntity = entityType != null ? entityType.create(level, EntitySpawnReason.LOAD) : null;
+        this.displayEntity = entityType != null ? entityType.create(level) : null;
         FishData[] data = new FishData[entityType != null ? count : 0];
         for (int i = 0; i < data.length; i++) {
             data[i] = i < this.data.length ? this.data[i] : new FishData(level.getRandom());
@@ -71,7 +70,9 @@ public class HatcheryRenderData {
         }
 
         public float getRotation(float partialTick) {
-            return Mth.lerp(partialTick, this.getRotationDegrees(this.oldRotation), this.getRotationDegrees(this.rotation));
+            return Mth.lerp(partialTick,
+                    this.getRotationDegrees(this.oldRotation),
+                    this.getRotationDegrees(this.rotation));
         }
 
         private float getRotationDegrees(int rotation) {

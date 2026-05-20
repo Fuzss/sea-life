@@ -6,9 +6,9 @@ import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
-import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
+import net.minecraft.world.entity.Entity;
 
-public class AngelfishModel extends FishModel<LivingEntityRenderState> {
+public class AngelfishModel<T extends Entity> extends FishModel<T> {
 
     public AngelfishModel(ModelPart modelPart) {
         super(modelPart);
@@ -19,9 +19,7 @@ public class AngelfishModel extends FishModel<LivingEntityRenderState> {
         PartDefinition partDefinition = meshDefinition.getRoot();
 
         partDefinition.addOrReplaceChild("tail",
-                CubeListBuilder.create()
-                        .texOffs(0, 14)
-                        .addBox(0.0F, -1.0F, 0.0F, 0.0F, 6.0F, 3.0F),
+                CubeListBuilder.create().texOffs(0, 14).addBox(0.0F, -1.0F, 0.0F, 0.0F, 6.0F, 3.0F),
                 PartPose.offset(0.0F, 20.0F, 3.0F));
 
         partDefinition.addOrReplaceChild("body",

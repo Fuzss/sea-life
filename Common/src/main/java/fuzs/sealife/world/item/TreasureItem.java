@@ -7,7 +7,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -27,12 +27,13 @@ public class TreasureItem extends Item {
     }
 
     @Override
-    public InteractionResult use(Level level, Player player, InteractionHand interactionHand) {
+    public InteractionResultHolder<ItemStack> use(Level level, Player player, InteractionHand interactionHand) {
         ItemStack itemInHand = player.getItemInHand(interactionHand);
         ItemStack originalItemInHand = itemInHand.copy();
         // consume first, so the slot can potentially be used for received items
         itemInHand.consume(1, player);
 
+        player.getCooldowns().addCooldown(this, 4);
         if (level instanceof ServerLevel serverLevel) {
             LootTable lootTable = serverLevel.getServer().reloadableRegistries().getLootTable(this.lootTable);
             List<ItemStack> items = lootTable.getRandomItems(new LootParams.Builder(serverLevel).withParameter(

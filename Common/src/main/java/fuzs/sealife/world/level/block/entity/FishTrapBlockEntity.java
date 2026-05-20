@@ -6,11 +6,7 @@ import fuzs.puzzleslib.api.container.v1.ListBackedContainer;
 import fuzs.sealife.init.ModBlocks;
 import fuzs.sealife.init.ModRegistry;
 import fuzs.sealife.world.level.block.FishTrapBlock;
-import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.core.NonNullList;
-import net.minecraft.core.component.DataComponentGetter;
+import net.minecraft.core.*;
 import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.Registries;
@@ -19,15 +15,12 @@ import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.ContainerHelper;
-import net.minecraft.world.Containers;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemContainerContents;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.storage.ValueInput;
-import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.Optional;
@@ -51,7 +44,10 @@ public class FishTrapBlockEntity extends BlockEntity implements ListBackedContai
             Optional<Holder<Item>> optional = this.getLevel()
                     .registryAccess()
                     .lookupOrThrow(Registries.ITEM)
-                    .getRandomElementOf(ModRegistry.FISHING_BAIT_ITEM_TAG, randomSource);
+                    .get(ModRegistry.FISHING_BAIT_ITEM_TAG)
+                    .flatMap((HolderSet.Named<Item> holderSet) -> {
+                        return holderSet.getRandomElement(randomSource);
+                    });
             this.displayItem = optional.map(ItemStack::new).orElse(ItemStack.EMPTY);
         }
 
@@ -95,15 +91,15 @@ public class FishTrapBlockEntity extends BlockEntity implements ListBackedContai
     }
 
     @Override
-    protected void loadAdditional(ValueInput valueInput) {
-        super.loadAdditional(valueInput);
-        ContainerSerializationHelper.loadAllItems(valueInput, this.items);
+    protected void loadAdditional(CompoundTag valueInput, HolderLookup.Provider registries) {
+        super.loadAdditional(valueInput, registries);
+        ContainerSerializationHelper.loadAllItems(valueInput, this.items, registries);
     }
 
     @Override
-    protected void saveAdditional(ValueOutput valueOutput) {
-        super.saveAdditional(valueOutput);
-        ContainerHelper.saveAllItems(valueOutput, this.items, true);
+    protected void saveAdditional(CompoundTag valueOutput, HolderLookup.Provider registries) {
+        super.saveAdditional(valueOutput, registries);
+        ContainerHelper.saveAllItems(valueOutput, this.items, true, registries);
     }
 
     @Override
@@ -133,14 +129,7 @@ public class FishTrapBlockEntity extends BlockEntity implements ListBackedContai
     }
 
     @Override
-    public void preRemoveSideEffects(BlockPos pos, BlockState state) {
-        if (this.level != null) {
-            Containers.dropContents(this.level, pos, this.getContainerItems());
-        }
-    }
-
-    @Override
-    protected void applyImplicitComponents(DataComponentGetter componentGetter) {
+    protected void applyImplicitComponents(BlockEntity.DataComponentInput componentGetter) {
         super.applyImplicitComponents(componentGetter);
         componentGetter.getOrDefault(DataComponents.CONTAINER, ItemContainerContents.EMPTY)
                 .copyInto(this.getContainerItems());
@@ -153,7 +142,7 @@ public class FishTrapBlockEntity extends BlockEntity implements ListBackedContai
     }
 
     @Override
-    public void removeComponentsFromTag(ValueOutput valueOutput) {
-        valueOutput.discard("Items");
+    public void removeComponentsFromTag(CompoundTag valueOutput) {
+        valueOutput.remove("Items");
     }
 }

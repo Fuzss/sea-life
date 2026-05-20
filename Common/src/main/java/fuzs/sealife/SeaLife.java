@@ -5,19 +5,17 @@ import fuzs.puzzleslib.api.biome.v1.BiomeLoadingPhase;
 import fuzs.puzzleslib.api.biome.v1.BiomeModificationContext;
 import fuzs.puzzleslib.api.config.v3.ConfigHolder;
 import fuzs.puzzleslib.api.core.v1.ModConstructor;
-import fuzs.puzzleslib.api.core.v1.context.BiomeModificationsContext;
 import fuzs.puzzleslib.api.core.v1.context.EntityAttributesContext;
 import fuzs.puzzleslib.api.core.v1.context.SpawnPlacementsContext;
-import fuzs.puzzleslib.api.event.v1.LoadCompleteCallback;
+import fuzs.puzzleslib.api.core.v2.context.BiomeModificationsContext;
 import fuzs.puzzleslib.api.event.v1.server.LootTableLoadCallback;
 import fuzs.sealife.config.CommonConfig;
 import fuzs.sealife.config.ServerConfig;
 import fuzs.sealife.init.ModEntityTypes;
 import fuzs.sealife.init.ModLootTables;
 import fuzs.sealife.init.ModRegistry;
-import fuzs.sealife.world.level.block.HatcheryBlock;
 import net.minecraft.core.Holder;
-import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.biome.Biome;
@@ -43,7 +41,6 @@ public class SeaLife implements ModConstructor {
     }
 
     private static void registerEventHandlers() {
-        LoadCompleteCallback.EVENT.register(HatcheryBlock::onLoadComplete);
         LootTableLoadCallback.EVENT.register(ModLootTables::onLootTableLoad);
     }
 
@@ -196,12 +193,14 @@ public class SeaLife implements ModConstructor {
             CommonConfig.FishSpawnConfig config = configSupplier.get();
             biomeModificationContext.mobSpawnSettings()
                     .addSpawn(holder.value().getCategory(),
-                            config.weight,
-                            new MobSpawnSettings.SpawnerData(holder.value(), config.minCount, config.maxCount));
+                            new MobSpawnSettings.SpawnerData(holder.value(),
+                                    config.weight,
+                                    config.minCount,
+                                    config.maxCount));
         });
     }
 
-    public static Identifier id(String path) {
-        return Identifier.fromNamespaceAndPath(MOD_ID, path);
+    public static ResourceLocation id(String path) {
+        return ResourceLocation.fromNamespaceAndPath(MOD_ID, path);
     }
 }

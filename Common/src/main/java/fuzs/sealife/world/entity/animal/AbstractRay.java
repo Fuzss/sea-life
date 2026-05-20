@@ -4,7 +4,7 @@ import net.minecraft.core.Holder;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.animal.fish.Pufferfish;
+import net.minecraft.world.entity.animal.Pufferfish;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 
@@ -22,7 +22,7 @@ public abstract class AbstractRay extends FloordwellingFish {
             for (Mob mob : this.level()
                     .getEntitiesOfClass(Mob.class,
                             this.getBoundingBox().inflate(0.3),
-                            (Mob mobX) -> Pufferfish.TARGETING_CONDITIONS.test(serverLevel, this, mobX))) {
+                            (Mob mobX) -> Pufferfish.targetingConditions.test(this, mobX))) {
                 if (mob.isAlive()) {
                     this.touch(serverLevel, mob);
                 }

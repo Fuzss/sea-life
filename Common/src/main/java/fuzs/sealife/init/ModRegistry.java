@@ -9,11 +9,11 @@ import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
-import net.minecraft.util.context.ContextKeySet;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.storage.loot.parameters.LootContextParamSet;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 
 public class ModRegistry {
@@ -78,9 +78,9 @@ public class ModRegistry {
     public static final TagKey<Biome> SPAWNS_TUNA_BIOME_TAG = TAGS.registerBiomeTag("spawns_tuna");
     public static final TagKey<Biome> SPAWNS_WALLEYE_BIOME_TAG = TAGS.registerBiomeTag("spawns_walleye");
 
-    public static final ContextKeySet TREASURE_ITEM_LOOT_CONTEXT_PARAM_SET = ContentRegistrationHelper.registerContextKeySet(
+    public static final LootContextParamSet TREASURE_ITEM_LOOT_CONTEXT_PARAM_SET = ContentRegistrationHelper.registerContextKeySet(
             SeaLife.id("treasure_item"),
-            (ContextKeySet.Builder builder) -> builder.required(LootContextParams.ORIGIN)
+            (LootContextParamSet.Builder builder) -> builder.required(LootContextParams.ORIGIN)
                     .required(LootContextParams.TOOL)
                     .optional(LootContextParams.THIS_ENTITY));
 

@@ -13,7 +13,7 @@ import net.minecraft.client.renderer.feature.ModelFeatureRenderer;
 import net.minecraft.client.renderer.state.CameraRenderState;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.phys.Vec3;
-import org.jspecify.annotations.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 public class HatcheryRenderer implements BlockEntityRenderer<HatcheryBlockEntity, HatcheryRenderState> {
     private final EntityRenderDispatcher entityRenderer;

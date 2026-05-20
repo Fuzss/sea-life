@@ -1,6 +1,7 @@
 package fuzs.sealife.world.level.block.entity;
 
 import fuzs.puzzleslib.api.block.v1.entity.TickingBlockEntity;
+import fuzs.puzzleslib.api.util.v1.CompoundTagHelper;
 import fuzs.sealife.SeaLife;
 import fuzs.sealife.init.ModBlocks;
 import fuzs.sealife.world.level.block.HatcheryBlock;
@@ -11,16 +12,14 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.animal.Bucketable;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.storage.ValueInput;
-import net.minecraft.world.level.storage.ValueOutput;
-import org.jspecify.annotations.Nullable;
+import org.jetbrains.annotations.Nullable;
 
 public class HatcheryBlockEntity extends BlockEntity implements TickingBlockEntity {
     static final String TAG_ENTITY = "Entity";
@@ -78,7 +77,7 @@ public class HatcheryBlockEntity extends BlockEntity implements TickingBlockEnti
                             ItemStack.EMPTY,
                             null,
                             this.worldPosition,
-                            EntitySpawnReason.BUCKET,
+                            MobSpawnType.BUCKET,
                             true,
                             false);
                     if (entity instanceof Bucketable bucketable) {
@@ -104,18 +103,22 @@ public class HatcheryBlockEntity extends BlockEntity implements TickingBlockEnti
     }
 
     @Override
-    protected void loadAdditional(ValueInput valueInput) {
-        super.loadAdditional(valueInput);
-        EntityType<?> entityType = valueInput.read(TAG_ENTITY, BuiltInRegistries.ENTITY_TYPE.byNameCodec())
-                .orElse(null);
-        int count = valueInput.getByteOr(TAG_COUNT, (byte) 0);
+    protected void loadAdditional(CompoundTag valueInput, HolderLookup.Provider registries) {
+        super.loadAdditional(valueInput, registries);
+        EntityType<?> entityType = CompoundTagHelper.read(valueInput,
+                TAG_ENTITY,
+                BuiltInRegistries.ENTITY_TYPE.byNameCodec()).orElse(null);
+        int count = valueInput.getByte(TAG_COUNT);
         this.setFish(entityType, count);
     }
 
     @Override
-    protected void saveAdditional(ValueOutput valueOutput) {
-        super.saveAdditional(valueOutput);
-        valueOutput.storeNullable(TAG_ENTITY, BuiltInRegistries.ENTITY_TYPE.byNameCodec(), this.entityType);
+    protected void saveAdditional(CompoundTag valueOutput, HolderLookup.Provider registries) {
+        super.saveAdditional(valueOutput, registries);
+        CompoundTagHelper.storeNullable(valueOutput,
+                TAG_ENTITY,
+                BuiltInRegistries.ENTITY_TYPE.byNameCodec(),
+                this.entityType);
         valueOutput.putByte(TAG_COUNT, (byte) this.count);
     }
 
@@ -136,13 +139,6 @@ public class HatcheryBlockEntity extends BlockEntity implements TickingBlockEnti
                     this.getBlockState(),
                     this.getBlockState(),
                     Block.UPDATE_ALL);
-        }
-    }
-
-    @Override
-    public void preRemoveSideEffects(BlockPos pos, BlockState state) {
-        if (this.hasLevel()) {
-            this.removeFish(this.count, true);
         }
     }
 }

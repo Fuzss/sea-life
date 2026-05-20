@@ -6,9 +6,9 @@ import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
-import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
+import net.minecraft.world.entity.Entity;
 
-public class AnglerfishModel extends FishModel<LivingEntityRenderState> {
+public class AnglerfishModel<T extends Entity> extends FishModel<T> {
 
     public AnglerfishModel(ModelPart modelPart) {
         super(modelPart);

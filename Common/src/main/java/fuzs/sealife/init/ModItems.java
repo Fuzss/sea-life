@@ -8,8 +8,6 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.MobBucketItem;
-import net.minecraft.world.item.component.Consumable;
-import net.minecraft.world.item.component.Consumables;
 import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.material.Fluids;
 
@@ -25,14 +23,17 @@ public class ModItems {
             .build();
     public static final FoodProperties FISH_FINGERS_FOOD = new FoodProperties.Builder().nutrition(11)
             .saturationModifier(1.0F)
+            .usingConvertsTo(Items.BOWL)
+            .fast()
             .build();
     public static final FoodProperties SASHIMI_FOOD = new FoodProperties.Builder().nutrition(5)
             .saturationModifier(0.5F)
+            .usingConvertsTo(Items.BOWL)
             .build();
     public static final FoodProperties FISH_STEW_FOOD = new FoodProperties.Builder().nutrition(7)
             .saturationModifier(0.6F)
+            .usingConvertsTo(Items.BOWL)
             .build();
-    public static final Consumable FISH_FINGERS_CONSUMABLE = Consumables.defaultFood().consumeSeconds(0.8F).build();
     // Blocks
     public static final Holder.Reference<Item> FISH_TRAP = ModRegistry.REGISTRIES.registerBlockItem(ModBlocks.FISH_TRAP);
     public static final Holder.Reference<Item> HATCHERY = ModRegistry.REGISTRIES.registerBlockItem(ModBlocks.HATCHERY);
@@ -43,80 +44,80 @@ public class ModItems {
     public static final Holder.Reference<Item> EMPTY_CAN = ModRegistry.REGISTRIES.registerItem("empty_can");
     public static final Holder.Reference<Item> PIRATE_TREASURE = ModRegistry.REGISTRIES.registerItem("pirate_treasure",
             (Item.Properties properties) -> new TreasureItem(properties, ModLootTables.TREASURE_ITEM),
-            () -> new Item.Properties().stacksTo(16).useCooldown(0.2F));
+            () -> new Item.Properties().stacksTo(16));
     // Meals
-    public static final Holder.Reference<Item> FISH_FINGERS = ModRegistry.REGISTRIES.registerItem("fish_fingers",
-            () -> new Item.Properties().food(FISH_FINGERS_FOOD, FISH_FINGERS_CONSUMABLE).usingConvertsTo(Items.BOWL));
-    public static final Holder.Reference<Item> SASHIMI = ModRegistry.REGISTRIES.registerItem("sashimi",
-            () -> new Item.Properties().food(SASHIMI_FOOD).usingConvertsTo(Items.BOWL));
-    public static final Holder.Reference<Item> FISH_STEW = ModRegistry.REGISTRIES.registerItem("fish_stew",
-            () -> new Item.Properties().food(FISH_STEW_FOOD).usingConvertsTo(Items.BOWL));
+    public static final Holder.Reference<Item> FISH_FINGERS = ModRegistry.REGISTRIES.registerSimpleItem("fish_fingers",
+            () -> new Item.Properties().food(FISH_FINGERS_FOOD));
+    public static final Holder.Reference<Item> SASHIMI = ModRegistry.REGISTRIES.registerSimpleItem("sashimi",
+            () -> new Item.Properties().food(SASHIMI_FOOD));
+    public static final Holder.Reference<Item> FISH_STEW = ModRegistry.REGISTRIES.registerSimpleItem("fish_stew",
+            () -> new Item.Properties().food(FISH_STEW_FOOD));
     // Fish
-    public static final Holder.Reference<Item> ANCHOVY = ModRegistry.REGISTRIES.registerItem("anchovy",
+    public static final Holder.Reference<Item> ANCHOVY = ModRegistry.REGISTRIES.registerSimpleItem("anchovy",
             () -> new Item.Properties().food(SMALL_FISH_FOOD));
-    public static final Holder.Reference<Item> ANGELFISH = ModRegistry.REGISTRIES.registerItem("angelfish",
+    public static final Holder.Reference<Item> ANGELFISH = ModRegistry.REGISTRIES.registerSimpleItem("angelfish",
             () -> new Item.Properties().food(MEDIUM_FISH_FOOD));
-    public static final Holder.Reference<Item> ANGLERFISH = ModRegistry.REGISTRIES.registerItem("anglerfish",
+    public static final Holder.Reference<Item> ANGLERFISH = ModRegistry.REGISTRIES.registerSimpleItem("anglerfish",
             () -> new Item.Properties().food(MEDIUM_FISH_FOOD));
-    public static final Holder.Reference<Item> BASS = ModRegistry.REGISTRIES.registerItem("bass",
+    public static final Holder.Reference<Item> BASS = ModRegistry.REGISTRIES.registerSimpleItem("bass",
             () -> new Item.Properties().food(LARGE_FISH_FOOD));
-    public static final Holder.Reference<Item> BLUE_TANG = ModRegistry.REGISTRIES.registerItem("blue_tang",
+    public static final Holder.Reference<Item> BLUE_TANG = ModRegistry.REGISTRIES.registerSimpleItem("blue_tang",
             () -> new Item.Properties().food(MEDIUM_FISH_FOOD));
-    public static final Holder.Reference<Item> BOWFIN = ModRegistry.REGISTRIES.registerItem("bowfin",
+    public static final Holder.Reference<Item> BOWFIN = ModRegistry.REGISTRIES.registerSimpleItem("bowfin",
             () -> new Item.Properties().food(LARGE_FISH_FOOD));
-    public static final Holder.Reference<Item> BUTTERFLYFISH = ModRegistry.REGISTRIES.registerItem("butterflyfish",
+    public static final Holder.Reference<Item> BUTTERFLYFISH = ModRegistry.REGISTRIES.registerSimpleItem("butterflyfish",
             () -> new Item.Properties().food(MEDIUM_FISH_FOOD));
-    public static final Holder.Reference<Item> CARP = ModRegistry.REGISTRIES.registerItem("carp",
+    public static final Holder.Reference<Item> CARP = ModRegistry.REGISTRIES.registerSimpleItem("carp",
             () -> new Item.Properties().food(LARGE_FISH_FOOD));
-    public static final Holder.Reference<Item> CATFISH = ModRegistry.REGISTRIES.registerItem("catfish",
+    public static final Holder.Reference<Item> CATFISH = ModRegistry.REGISTRIES.registerSimpleItem("catfish",
             () -> new Item.Properties().food(LARGE_FISH_FOOD));
-    public static final Holder.Reference<Item> CHUB = ModRegistry.REGISTRIES.registerItem("chub",
+    public static final Holder.Reference<Item> CHUB = ModRegistry.REGISTRIES.registerSimpleItem("chub",
             () -> new Item.Properties().food(LARGE_FISH_FOOD));
-    public static final Holder.Reference<Item> DAMSELFISH = ModRegistry.REGISTRIES.registerItem("damselfish",
+    public static final Holder.Reference<Item> DAMSELFISH = ModRegistry.REGISTRIES.registerSimpleItem("damselfish",
             () -> new Item.Properties().food(SMALL_FISH_FOOD));
-    public static final Holder.Reference<Item> ELECTRIC_RAY = ModRegistry.REGISTRIES.registerItem("electric_ray",
+    public static final Holder.Reference<Item> ELECTRIC_RAY = ModRegistry.REGISTRIES.registerSimpleItem("electric_ray",
             () -> new Item.Properties().food(MEDIUM_FISH_FOOD));
-    public static final Holder.Reference<Item> GOLDFISH = ModRegistry.REGISTRIES.registerItem("goldfish",
+    public static final Holder.Reference<Item> GOLDFISH = ModRegistry.REGISTRIES.registerSimpleItem("goldfish",
             () -> new Item.Properties().food(SMALL_FISH_FOOD));
-    public static final Holder.Reference<Item> KOI = ModRegistry.REGISTRIES.registerItem("koi",
+    public static final Holder.Reference<Item> KOI = ModRegistry.REGISTRIES.registerSimpleItem("koi",
             () -> new Item.Properties().food(MEDIUM_FISH_FOOD));
-    public static final Holder.Reference<Item> LAMPREY = ModRegistry.REGISTRIES.registerItem("lamprey",
+    public static final Holder.Reference<Item> LAMPREY = ModRegistry.REGISTRIES.registerSimpleItem("lamprey",
             () -> new Item.Properties().food(LARGE_FISH_FOOD));
-    public static final Holder.Reference<Item> LUNGFISH = ModRegistry.REGISTRIES.registerItem("lungfish",
+    public static final Holder.Reference<Item> LUNGFISH = ModRegistry.REGISTRIES.registerSimpleItem("lungfish",
             () -> new Item.Properties().food(MEDIUM_FISH_FOOD));
-    public static final Holder.Reference<Item> MANTA_RAY = ModRegistry.REGISTRIES.registerItem("manta_ray",
+    public static final Holder.Reference<Item> MANTA_RAY = ModRegistry.REGISTRIES.registerSimpleItem("manta_ray",
             () -> new Item.Properties().food(LARGE_FISH_FOOD));
-    public static final Holder.Reference<Item> MINNOW = ModRegistry.REGISTRIES.registerItem("minnow",
+    public static final Holder.Reference<Item> MINNOW = ModRegistry.REGISTRIES.registerSimpleItem("minnow",
             () -> new Item.Properties().food(SMALL_FISH_FOOD));
-    public static final Holder.Reference<Item> NEON_TETRA = ModRegistry.REGISTRIES.registerItem("neon_tetra",
+    public static final Holder.Reference<Item> NEON_TETRA = ModRegistry.REGISTRIES.registerSimpleItem("neon_tetra",
             () -> new Item.Properties().food(SMALL_FISH_FOOD));
-    public static final Holder.Reference<Item> NORTHERN_PIKE = ModRegistry.REGISTRIES.registerItem("northern_pike",
+    public static final Holder.Reference<Item> NORTHERN_PIKE = ModRegistry.REGISTRIES.registerSimpleItem("northern_pike",
             () -> new Item.Properties().food(LARGE_FISH_FOOD));
-    public static final Holder.Reference<Item> PERCH = ModRegistry.REGISTRIES.registerItem("perch",
+    public static final Holder.Reference<Item> PERCH = ModRegistry.REGISTRIES.registerSimpleItem("perch",
             () -> new Item.Properties().food(LARGE_FISH_FOOD));
-    public static final Holder.Reference<Item> PICKEREL = ModRegistry.REGISTRIES.registerItem("pickerel",
+    public static final Holder.Reference<Item> PICKEREL = ModRegistry.REGISTRIES.registerSimpleItem("pickerel",
             () -> new Item.Properties().food(LARGE_FISH_FOOD));
-    public static final Holder.Reference<Item> PIRANHA = ModRegistry.REGISTRIES.registerItem("piranha",
+    public static final Holder.Reference<Item> PIRANHA = ModRegistry.REGISTRIES.registerSimpleItem("piranha",
             () -> new Item.Properties().food(MEDIUM_FISH_FOOD));
-    public static final Holder.Reference<Item> PUPFISH = ModRegistry.REGISTRIES.registerItem("pupfish",
+    public static final Holder.Reference<Item> PUPFISH = ModRegistry.REGISTRIES.registerSimpleItem("pupfish",
             () -> new Item.Properties().food(SMALL_FISH_FOOD));
-    public static final Holder.Reference<Item> SARDINE = ModRegistry.REGISTRIES.registerItem("sardine",
+    public static final Holder.Reference<Item> SARDINE = ModRegistry.REGISTRIES.registerSimpleItem("sardine",
             () -> new Item.Properties().food(SMALL_FISH_FOOD));
-    public static final Holder.Reference<Item> SIAMESE_FIGHTING_FISH = ModRegistry.REGISTRIES.registerItem(
+    public static final Holder.Reference<Item> SIAMESE_FIGHTING_FISH = ModRegistry.REGISTRIES.registerSimpleItem(
             "siamese_fighting_fish",
             () -> new Item.Properties().food(SMALL_FISH_FOOD));
-    public static final Holder.Reference<Item> STINGRAY = ModRegistry.REGISTRIES.registerItem("stingray",
+    public static final Holder.Reference<Item> STINGRAY = ModRegistry.REGISTRIES.registerSimpleItem("stingray",
             () -> new Item.Properties().food(LARGE_FISH_FOOD));
-    public static final Holder.Reference<Item> SILVER_STRIPE_BLAASOP = ModRegistry.REGISTRIES.registerItem(
+    public static final Holder.Reference<Item> SILVER_STRIPE_BLAASOP = ModRegistry.REGISTRIES.registerSimpleItem(
             "silver_stripe_blaasop",
             () -> new Item.Properties().food(LARGE_FISH_FOOD));
-    public static final Holder.Reference<Item> TROUT = ModRegistry.REGISTRIES.registerItem("trout",
+    public static final Holder.Reference<Item> TROUT = ModRegistry.REGISTRIES.registerSimpleItem("trout",
             () -> new Item.Properties().food(MEDIUM_FISH_FOOD));
-    public static final Holder.Reference<Item> TUNA = ModRegistry.REGISTRIES.registerItem("tuna",
+    public static final Holder.Reference<Item> TUNA = ModRegistry.REGISTRIES.registerSimpleItem("tuna",
             () -> new Item.Properties().food(LARGE_FISH_FOOD));
-    public static final Holder.Reference<Item> WALLEYE = ModRegistry.REGISTRIES.registerItem("walleye",
+    public static final Holder.Reference<Item> WALLEYE = ModRegistry.REGISTRIES.registerSimpleItem("walleye",
             () -> new Item.Properties().food(LARGE_FISH_FOOD));
-    public static final Holder.Reference<Item> WHITEMARGIN_STARGAZER = ModRegistry.REGISTRIES.registerItem(
+    public static final Holder.Reference<Item> WHITEMARGIN_STARGAZER = ModRegistry.REGISTRIES.registerSimpleItem(
             "whitemargin_stargazer",
             () -> new Item.Properties().food(LARGE_FISH_FOOD));
     // Buckets

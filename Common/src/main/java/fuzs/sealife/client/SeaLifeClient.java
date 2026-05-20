@@ -11,12 +11,12 @@ import fuzs.sealife.client.renderer.entity.FishRenderer;
 import fuzs.sealife.init.ModBlocks;
 import fuzs.sealife.init.ModEntityTypes;
 import fuzs.sealife.init.ModRegistry;
-import net.minecraft.client.model.animal.fish.SalmonModel;
+import net.minecraft.client.model.SalmonModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
-import net.minecraft.client.renderer.chunk.ChunkSectionLayer;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.animal.fish.AbstractFish;
+import net.minecraft.world.entity.animal.AbstractFish;
 import net.minecraft.world.level.block.Block;
 
 public class SeaLifeClient implements ClientModConstructor {
@@ -127,8 +127,8 @@ public class SeaLifeClient implements ClientModConstructor {
 
     @Override
     public void onRegisterBlockRenderTypes(RenderTypesContext<Block> context) {
-        context.registerChunkRenderType(ModBlocks.FISH_TRAP.value(), ChunkSectionLayer.CUTOUT);
-        context.registerChunkRenderType(ModBlocks.HATCHERY.value(), ChunkSectionLayer.CUTOUT);
+        context.registerRenderType(RenderType.cutout(), ModBlocks.FISH_TRAP.value());
+        context.registerRenderType(RenderType.cutout(), ModBlocks.HATCHERY.value());
     }
 
     @Override

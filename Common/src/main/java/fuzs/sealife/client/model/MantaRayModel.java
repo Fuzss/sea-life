@@ -6,9 +6,9 @@ import net.minecraft.client.model.geom.builders.CubeListBuilder;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
-import net.minecraft.client.renderer.entity.state.LivingEntityRenderState;
+import net.minecraft.world.entity.Entity;
 
-public class MantaRayModel extends FishModel<LivingEntityRenderState> {
+public class MantaRayModel<T extends Entity> extends FishModel<T> {
 
     public MantaRayModel(ModelPart modelPart) {
         super(modelPart);

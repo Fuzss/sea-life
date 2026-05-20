@@ -6,7 +6,7 @@ import fuzs.sealife.init.ModPaintingVariants;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.PaintingVariantTags;
-import net.minecraft.world.entity.decoration.painting.PaintingVariant;
+import net.minecraft.world.entity.decoration.PaintingVariant;
 
 public class ModPaintingVariantTagProvider extends AbstractTagProvider<PaintingVariant> {
 
@@ -16,8 +16,8 @@ public class ModPaintingVariantTagProvider extends AbstractTagProvider<PaintingV
 
     @Override
     public void addTags(HolderLookup.Provider registries) {
-        this.tag(PaintingVariantTags.PLACEABLE)
-                .addKey(ModPaintingVariants.ALBATROSS,
+        this.add(PaintingVariantTags.PLACEABLE)
+                .add(ModPaintingVariants.ALBATROSS,
                         ModPaintingVariants.BOATS,
                         ModPaintingVariants.LIGHTHOUSE,
                         ModPaintingVariants.SUNSET,

@@ -3,7 +3,7 @@
         "id": "sealife",
         "group": "fuzs.sealife",
         "name": "Sea Life",
-        "version": "21.11.0",
+        "version": "21.1.0",
         "authors": [
             "Joshiejack",
             "Fuzs"
@@ -37,13 +37,13 @@
     ],
     "links": [
         {
-            "name": "github",
-            "slug": "sealife"
-        },
-        {
             "name": "curseforge",
             "slug": "sea-life",
             "id": "1370259"
+        },
+        {
+            "name": "github",
+            "slug": "sealife"
         },
         {
             "name": "modrinth",

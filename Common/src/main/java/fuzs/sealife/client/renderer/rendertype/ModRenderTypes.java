@@ -2,9 +2,9 @@
 //
 //import fuzs.sealife.SeaLife;
 //import net.minecraft.client.renderer.RenderPipelines;
-//import net.minecraft.client.renderer.rendertype.RenderType;
-//import net.minecraft.resources.Identifier;
-//import net.minecraft.util.Util;
+//import net.minecraft.client.renderer.RenderType;
+//import net.minecraft.resources.ResourceLocation;
+//import net.minecraft.Util;
 //
 //import java.util.function.Function;
 //
@@ -15,7 +15,7 @@
 //    /**
 //     * @see net.minecraft.client.renderer.rendertype.RenderTypes#TEXT
 //     */
-//    private static final Function<Identifier, RenderType> TEXT = Util.memoize((Identifier identifier) -> create(SeaLife.id(
+//    private static final Function<ResourceLocation, RenderType> TEXT = Util.memoize((ResourceLocation identifier) -> create(SeaLife.id(
 //                    "text").toString(),
 //            786432,
 //            false,
@@ -44,7 +44,7 @@
 //        // NO-OP
 //    }
 //
-//    public static RenderType text(Identifier location) {
+//    public static RenderType text(ResourceLocation location) {
 //        return TEXT.apply(location);
 //    }
 //}

@@ -1,5 +1,6 @@
 package fuzs.sealife.world.entity.animal;
 
+import fuzs.sealife.init.ModItems;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -7,7 +8,6 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.Level;
-import fuzs.sealife.init.ModItems;
 
 public class StingRay extends AbstractRay {
 
@@ -22,8 +22,7 @@ public class StingRay extends AbstractRay {
 
     @Override
     protected void touch(ServerLevel serverLevel, Mob mob) {
-        if (mob.hurtServer(serverLevel, this.damageSources().lightningBolt(), 1.0F) &&
-                !mob.hasEffect(MobEffects.POISON)) {
+        if (mob.hurt(this.damageSources().lightningBolt(), 1.0F) && !mob.hasEffect(MobEffects.POISON)) {
             mob.addEffect(new MobEffectInstance(MobEffects.POISON, 150, 0), this);
             this.playSound(SoundEvents.PUFFER_FISH_STING, 1.0F, 1.0F);
         }
