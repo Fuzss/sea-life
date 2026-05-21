@@ -31,17 +31,29 @@ public class HatcheryRenderData {
         }
     }
 
-    public FishData[] getRawData() {
-        return this.data;
-    }
-
     @Nullable
     public Entity getDisplayEntity() {
         return this.displayEntity;
     }
 
+    public int getCount() {
+        return this.data.length;
+    }
+
     public void clearDisplayEntity() {
         this.displayEntity = null;
+    }
+
+    public float getRotation(int index, float partialTicks) {
+        return this.data[index].getRotation(partialTicks);
+    }
+
+    public float getHeight(int index) {
+        return this.data[index].getHeight();
+    }
+
+    public boolean isClockwise(int index) {
+        return this.data[index].isClockwise();
     }
 
     public static final class FishData {

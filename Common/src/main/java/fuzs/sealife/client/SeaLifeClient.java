@@ -135,9 +135,4 @@ public class SeaLifeClient implements ClientModConstructor {
     public void onRegisterParticleProviders(ParticleProvidersContext context) {
         context.registerParticleProvider(ModRegistry.BUBBLE_PARTICLE_TYPE.value(), CustomBubbleParticle.Provider::new);
     }
-
-    @Override
-    public void onRegisterRenderBuffers(RenderBuffersContext context) {
-        context.registerRenderBuffer(FishTrapRenderer.RENDER_TYPE);
-    }
 }

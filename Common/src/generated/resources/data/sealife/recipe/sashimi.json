@@ -2,10 +2,18 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "#c:foods/raw_fish",
-    "#c:foods/raw_fish",
-    "#c:foods/raw_fish",
-    "minecraft:bowl"
+    {
+      "tag": "c:foods/raw_fish"
+    },
+    {
+      "tag": "c:foods/raw_fish"
+    },
+    {
+      "tag": "c:foods/raw_fish"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
   ],
   "result": {
     "count": 1,

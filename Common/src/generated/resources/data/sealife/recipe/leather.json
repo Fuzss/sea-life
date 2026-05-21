@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "sealife:old_boot"
+    {
+      "item": "sealife:old_boot"
+    }
   ],
   "result": {
     "count": 3,

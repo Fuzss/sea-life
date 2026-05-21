@@ -17,15 +17,15 @@ public class ModEntityTypeTagProvider extends AbstractTagProvider<EntityType<?>>
 
     @Override
     public void addTags(HolderLookup.Provider registries) {
-        this.add(EntityTypeTags.AXOLOTL_HUNT_TARGETS).addTag(ModRegistry.FISHES_ENTITY_TYPE_TAG);
-        this.add(EntityTypeTags.CAN_BREATHE_UNDER_WATER).addTag(ModRegistry.FISHES_ENTITY_TYPE_TAG);
-        this.add(EntityTypeTags.AQUATIC).addTag(ModRegistry.FISHES_ENTITY_TYPE_TAG);
-        this.add(EntityTypeTags.NOT_SCARY_FOR_PUFFERFISH).addTag(ModRegistry.FISHES_ENTITY_TYPE_TAG);
-        this.add(ModRegistry.FISHES_ENTITY_TYPE_TAG)
+        this.tag(EntityTypeTags.AXOLOTL_HUNT_TARGETS).addTag(ModRegistry.FISHES_ENTITY_TYPE_TAG);
+        this.tag(EntityTypeTags.CAN_BREATHE_UNDER_WATER).addTag(ModRegistry.FISHES_ENTITY_TYPE_TAG);
+        this.tag(EntityTypeTags.AQUATIC).addTag(ModRegistry.FISHES_ENTITY_TYPE_TAG);
+        this.tag(EntityTypeTags.NOT_SCARY_FOR_PUFFERFISH).addTag(ModRegistry.FISHES_ENTITY_TYPE_TAG);
+        this.tag(ModRegistry.FISHES_ENTITY_TYPE_TAG)
                 .addTag(ModRegistry.COMMON_FISHES_ENTITY_TYPE_TAG,
                         ModRegistry.UNCOMMON_FISHES_ENTITY_TYPE_TAG,
                         ModRegistry.RARE_FISHES_ENTITY_TYPE_TAG);
-        this.add(ModRegistry.COMMON_FISHES_ENTITY_TYPE_TAG)
+        this.tag(ModRegistry.COMMON_FISHES_ENTITY_TYPE_TAG)
                 .add(EntityType.COD,
                         EntityType.SALMON,
                         ModEntityTypes.ANCHOVY.value(),
@@ -44,7 +44,7 @@ public class ModEntityTypeTagProvider extends AbstractTagProvider<EntityType<?>>
                         "aquaculture:brown_shrooma",
                         "aquaculture:red_shrooma",
                         "aquaculture:perch");
-        this.add(ModRegistry.UNCOMMON_FISHES_ENTITY_TYPE_TAG)
+        this.tag(ModRegistry.UNCOMMON_FISHES_ENTITY_TYPE_TAG)
                 .add(EntityType.PUFFERFISH,
                         EntityType.TROPICAL_FISH,
                         ModEntityTypes.ANGELFISH.value(),
@@ -70,7 +70,7 @@ public class ModEntityTypeTagProvider extends AbstractTagProvider<EntityType<?>>
                         "aquaculture:catfish",
                         "aquaculture:minnow",
                         "aquaculture:jellyfish");
-        this.add(ModRegistry.RARE_FISHES_ENTITY_TYPE_TAG)
+        this.tag(ModRegistry.RARE_FISHES_ENTITY_TYPE_TAG)
                 .add(ModEntityTypes.ANGLERFISH.value(),
                         ModEntityTypes.ELECTRIC_RAY.value(),
                         ModEntityTypes.LUNGFISH.value(),

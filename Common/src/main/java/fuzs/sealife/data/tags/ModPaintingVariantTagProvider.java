@@ -16,7 +16,7 @@ public class ModPaintingVariantTagProvider extends AbstractTagProvider<PaintingV
 
     @Override
     public void addTags(HolderLookup.Provider registries) {
-        this.add(PaintingVariantTags.PLACEABLE)
+        this.tag(PaintingVariantTags.PLACEABLE)
                 .add(ModPaintingVariants.ALBATROSS,
                         ModPaintingVariants.BOATS,
                         ModPaintingVariants.LIGHTHOUSE,

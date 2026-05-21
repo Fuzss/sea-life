@@ -14,7 +14,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.component.ItemContainerContents;
@@ -93,13 +92,14 @@ public class FishTrapBlockEntity extends BlockEntity implements ListBackedContai
     @Override
     protected void loadAdditional(CompoundTag valueInput, HolderLookup.Provider registries) {
         super.loadAdditional(valueInput, registries);
+        this.items.clear();
         ContainerSerializationHelper.loadAllItems(valueInput, this.items, registries);
     }
 
     @Override
     protected void saveAdditional(CompoundTag valueOutput, HolderLookup.Provider registries) {
         super.saveAdditional(valueOutput, registries);
-        ContainerHelper.saveAllItems(valueOutput, this.items, true, registries);
+        ContainerSerializationHelper.saveAllItems(valueOutput, this.items, registries);
     }
 
     @Override

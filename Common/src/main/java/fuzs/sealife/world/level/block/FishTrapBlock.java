@@ -29,6 +29,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -71,6 +72,11 @@ public class FishTrapBlock extends BaseEntityBlock implements SimpleWaterloggedB
     @Override
     protected MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
+    }
+
+    @Override
+    protected RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
     }
 
     @Nullable
@@ -147,13 +153,11 @@ public class FishTrapBlock extends BaseEntityBlock implements SimpleWaterloggedB
                     level.playSound(null, pos, SoundEvents.ITEM_FRAME_ADD_ITEM, SoundSource.BLOCKS, 1.0F, 1.0F);
                 }
 
-                return ItemInteractionResult.SUCCESS;
-            } else {
-                return super.useItemOn(itemStack, state, level, pos, player, hand, hitResult);
+                return ItemInteractionResult.sidedSuccess(level.isClientSide());
             }
-        } else {
-            return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION;
         }
+
+        return super.useItemOn(itemStack, state, level, pos, player, hand, hitResult);
     }
 
     @Override
@@ -174,13 +178,11 @@ public class FishTrapBlock extends BaseEntityBlock implements SimpleWaterloggedB
                     }
                 }
 
-                return InteractionResult.SUCCESS;
-            } else {
-                return super.useWithoutItem(state, level, pos, player, hitResult);
+                return InteractionResult.sidedSuccess(level.isClientSide());
             }
-        } else {
-            return InteractionResult.PASS;
         }
+
+        return super.useWithoutItem(state, level, pos, player, hitResult);
     }
 
     @Override

@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "sealife:fish_bones"
+    {
+      "item": "sealife:fish_bones"
+    }
   ],
   "result": {
     "count": 7,

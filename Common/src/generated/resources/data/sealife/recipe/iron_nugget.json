@@ -2,7 +2,9 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "sealife:empty_can"
+    {
+      "item": "sealife:empty_can"
+    }
   ],
   "result": {
     "count": 5,

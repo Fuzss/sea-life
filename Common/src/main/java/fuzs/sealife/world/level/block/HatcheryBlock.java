@@ -2,6 +2,7 @@ package fuzs.sealife.world.level.block;
 
 import com.mojang.serialization.MapCodec;
 import fuzs.puzzleslib.api.block.v1.entity.TickingEntityBlock;
+import fuzs.puzzleslib.api.util.v1.ShapesHelper;
 import fuzs.sealife.init.ModBlocks;
 import fuzs.sealife.init.ModRegistry;
 import fuzs.sealife.world.level.block.entity.HatcheryBlockEntity;
@@ -25,6 +26,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -51,8 +53,8 @@ public class HatcheryBlock extends BaseEntityBlock implements SimpleWaterloggedB
     public static final int UNCOMMON_CYCLES = 5;
     public static final int RARE_CYCLES = 7;
     public static final MapCodec<HatcheryBlock> CODEC = simpleCodec(HatcheryBlock::new);
-    protected static final VoxelShape SHAPE_INSIDE = Block.column(14.0, 1.0, 16.0);
-    protected static final VoxelShape SHAPE = Shapes.join(Block.column(16.0, 0.0, 15.0),
+    protected static final VoxelShape SHAPE_INSIDE = ShapesHelper.column(14.0, 1.0, 16.0);
+    protected static final VoxelShape SHAPE = Shapes.join(ShapesHelper.column(16.0, 0.0, 15.0),
             SHAPE_INSIDE,
             BooleanOp.ONLY_FIRST);
     protected static final VoxelShape COLLISION_SHAPE = Shapes.join(Shapes.block(), SHAPE_INSIDE, BooleanOp.ONLY_FIRST);
@@ -78,6 +80,11 @@ public class HatcheryBlock extends BaseEntityBlock implements SimpleWaterloggedB
     @Override
     protected MapCodec<? extends BaseEntityBlock> codec() {
         return CODEC;
+    }
+
+    @Override
+    protected RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
     }
 
     @Nullable
@@ -160,8 +167,9 @@ public class HatcheryBlock extends BaseEntityBlock implements SimpleWaterloggedB
                             CriteriaTriggers.FILLED_BUCKET.trigger((ServerPlayer) player, optional.get());
                             player.playSound(SoundEvents.BUCKET_FILL_FISH, 1.0F, 1.0F);
                         }
+
                         player.setItemInHand(interactionHand, resultItemStack);
-                        return ItemInteractionResult.SUCCESS;
+                        return ItemInteractionResult.sidedSuccess(level.isClientSide());
                     }
                 }
             } else if (itemInHand.getItem() instanceof MobBucketItem item) {
@@ -181,18 +189,18 @@ public class HatcheryBlock extends BaseEntityBlock implements SimpleWaterloggedB
                                     fluidState.getType(),
                                     fluidState.getType().getTickDelay(level));
                         }
+
                         CriteriaTriggers.FILLED_BUCKET.trigger((ServerPlayer) player, resultItemStack);
                         player.playSound(SoundEvents.BUCKET_FILL_FISH, 1.0F, 1.0F);
                         blockEntity.addFish(item.type, 1);
                     }
+
                     player.setItemInHand(interactionHand, resultItemStack);
-                    return ItemInteractionResult.SUCCESS;
+                    return ItemInteractionResult.sidedSuccess(level.isClientSide());
                 } else {
                     return ItemInteractionResult.CONSUME;
                 }
             }
-        } else {
-            return ItemInteractionResult.SKIP_DEFAULT_BLOCK_INTERACTION;
         }
 
         return super.useItemOn(itemInHand, blockState, level, blockPos, player, interactionHand, hitResult);

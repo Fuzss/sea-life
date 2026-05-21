@@ -2,11 +2,21 @@
   "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "ingredients": [
-    "#c:foods/raw_fish",
-    "minecraft:carrot",
-    "minecraft:baked_potato",
-    "minecraft:beetroot",
-    "minecraft:bowl"
+    {
+      "tag": "c:foods/raw_fish"
+    },
+    {
+      "item": "minecraft:carrot"
+    },
+    {
+      "item": "minecraft:baked_potato"
+    },
+    {
+      "item": "minecraft:beetroot"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
   ],
   "result": {
     "count": 1,

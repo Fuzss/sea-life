@@ -18,7 +18,7 @@ public class ModItemTagProvider extends AbstractTagProvider<Item> {
 
     @Override
     public void addTags(HolderLookup.Provider registries) {
-        this.add(ModRegistry.FISHES_ITEM_TAG)
+        this.tag(ModRegistry.FISHES_ITEM_TAG)
                 .add(ModItems.ANCHOVY.value(),
                         ModItems.ANGELFISH.value(),
                         ModItems.ANGLERFISH.value(),
@@ -51,18 +51,18 @@ public class ModItemTagProvider extends AbstractTagProvider<Item> {
                         ModItems.TROUT.value(),
                         ModItems.TUNA.value(),
                         ModItems.WALLEYE.value());
-        this.add(ItemTags.FISHES).addTag(ModRegistry.FISHES_ITEM_TAG);
-        this.add(ItemTags.WOLF_FOOD)
+        this.tag(ItemTags.FISHES).addTag(ModRegistry.FISHES_ITEM_TAG);
+        this.tag(ItemTags.WOLF_FOOD)
                 .add(ModItems.FISH_FINGERS.value(), ModItems.SASHIMI.value(), ModItems.FISH_STEW.value())
                 .addTag(ModRegistry.FISHES_ITEM_TAG);
-        this.add(ItemTags.OCELOT_FOOD).addTag(ModRegistry.FISHES_ITEM_TAG);
-        this.add(ItemTags.CAT_FOOD).addTag(ModRegistry.FISHES_ITEM_TAG);
-        this.add(ModRegistry.RAW_FISH_FOODS_ITEM_TAG).addTag(ModRegistry.FISHES_ITEM_TAG);
-        this.add(ItemTags.PIGLIN_LOVED).add(ModItems.GOLDFISH.value());
-        this.add(ModRegistry.FISHING_BAIT_ITEM_TAG)
+        this.tag(ItemTags.OCELOT_FOOD).addTag(ModRegistry.FISHES_ITEM_TAG);
+        this.tag(ItemTags.CAT_FOOD).addTag(ModRegistry.FISHES_ITEM_TAG);
+        this.tag(ModRegistry.RAW_FISH_FOODS_ITEM_TAG).addTag(ModRegistry.FISHES_ITEM_TAG);
+        this.tag(ItemTags.PIGLIN_LOVED).add(ModItems.GOLDFISH.value());
+        this.tag(ModRegistry.FISHING_BAIT_ITEM_TAG)
                 .add(Items.ROTTEN_FLESH)
                 .addOptionalTag(ModRegistry.RAW_MEAT_FOODS_ITEM_TAG);
-        this.add("c:foods/soup")
+        this.tag("c:foods/soup")
                 .add(ModItems.FISH_FINGERS.value(), ModItems.SASHIMI.value(), ModItems.FISH_STEW.value());
     }
 }
