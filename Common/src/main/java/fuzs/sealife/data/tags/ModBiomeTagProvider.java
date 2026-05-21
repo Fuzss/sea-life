@@ -48,7 +48,7 @@ public class ModBiomeTagProvider extends AbstractTagProvider<Biome> {
                 .add(Biomes.WARM_OCEAN, Biomes.LUKEWARM_OCEAN, Biomes.DEEP_LUKEWARM_OCEAN);
 
         // BOWFIN - Freshwater fish found in swamps and slow-moving rivers
-        this.tag(ModRegistry.SPAWNS_BOWFIN_BIOME_TAG).add(Biomes.RIVER).addTag(ModRegistry.IS_SWAMP_BIOME_TAG);
+        this.tag(ModRegistry.SPAWNS_BOWFIN_BIOME_TAG).addKey(Biomes.RIVER).addTag(ModRegistry.IS_SWAMP_BIOME_TAG);
 
         // BUTTERFLYFISH - Tropical reef fish in warm oceans
         this.tag(ModRegistry.SPAWNS_BUTTERFLYFISH_BIOME_TAG)
@@ -56,13 +56,13 @@ public class ModBiomeTagProvider extends AbstractTagProvider<Biome> {
 
         // CARP - Freshwater fish, adaptable to many freshwater habitats
         this.tag(ModRegistry.SPAWNS_CARP_BIOME_TAG)
-                .add(Biomes.RIVER)
+                .addKey(Biomes.RIVER)
                 .addTag(ModRegistry.IS_SWAMP_BIOME_TAG)
                 .addTag(ModRegistry.IS_PLAINS_BIOME_TAG)
                 .addTag(BiomeTags.IS_FOREST);
 
         // CATFISH - Freshwater bottom-dwellers in various water bodies
-        this.tag(ModRegistry.SPAWNS_CATFISH_BIOME_TAG).add(Biomes.RIVER).addTag(ModRegistry.IS_SWAMP_BIOME_TAG);
+        this.tag(ModRegistry.SPAWNS_CATFISH_BIOME_TAG).addKey(Biomes.RIVER).addTag(ModRegistry.IS_SWAMP_BIOME_TAG);
 
         // CHUB - Freshwater fish found in rivers and streams
         this.tag(ModRegistry.SPAWNS_CHUB_BIOME_TAG).add(Biomes.RIVER, Biomes.MEADOW).addTag(BiomeTags.IS_FOREST);
@@ -173,9 +173,8 @@ public class ModBiomeTagProvider extends AbstractTagProvider<Biome> {
 
         // TROUT - Freshwater fish, cold-water streams and lakes
         this.tag(ModRegistry.SPAWNS_TROUT_BIOME_TAG)
-                .add(Biomes.GROVE)
-                .addTag(BiomeTags.IS_TAIGA)
-                .addTag(BiomeTags.IS_RIVER);
+                .addKey(Biomes.GROVE)
+                .addTag(BiomeTags.IS_TAIGA, BiomeTags.IS_RIVER);
 
         // TUNA - Large open-ocean predators
         this.tag(ModRegistry.SPAWNS_TUNA_BIOME_TAG)
