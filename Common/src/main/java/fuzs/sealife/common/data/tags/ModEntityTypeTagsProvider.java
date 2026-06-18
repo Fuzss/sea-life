@@ -8,10 +8,11 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.EntityTypeIds;
 
-public class ModEntityTypeTagProvider extends AbstractTagProvider<EntityType<?>> {
+public class ModEntityTypeTagsProvider extends AbstractTagProvider<EntityType<?>> {
 
-    public ModEntityTypeTagProvider(DataProviderContext context) {
+    public ModEntityTypeTagsProvider(DataProviderContext context) {
         super(Registries.ENTITY_TYPE, context);
     }
 
@@ -26,18 +27,17 @@ public class ModEntityTypeTagProvider extends AbstractTagProvider<EntityType<?>>
                         ModRegistry.UNCOMMON_FISHES_ENTITY_TYPE_TAG,
                         ModRegistry.RARE_FISHES_ENTITY_TYPE_TAG);
         this.tag(ModRegistry.COMMON_FISHES_ENTITY_TYPE_TAG)
-                .add(EntityType.COD,
-                        EntityType.SALMON,
-                        ModEntityTypes.ANCHOVY.value(),
-                        ModEntityTypes.BASS.value(),
-                        ModEntityTypes.CARP.value(),
-                        ModEntityTypes.CHUB.value(),
-                        ModEntityTypes.GOLDFISH.value(),
-                        ModEntityTypes.NEON_TETRA.value(),
-                        ModEntityTypes.PERCH.value(),
-                        ModEntityTypes.SARDINE.value(),
-                        ModEntityTypes.TROUT.value(),
-                        ModEntityTypes.WALLEYE.value())
+                .add(EntityTypeIds.COD, EntityTypeIds.SALMON)
+                .add(ModEntityTypes.ANCHOVY,
+                        ModEntityTypes.BASS,
+                        ModEntityTypes.CARP,
+                        ModEntityTypes.CHUB,
+                        ModEntityTypes.GOLDFISH,
+                        ModEntityTypes.NEON_TETRA,
+                        ModEntityTypes.PERCH,
+                        ModEntityTypes.SARDINE,
+                        ModEntityTypes.TROUT,
+                        ModEntityTypes.WALLEYE)
                 .addOptional("aquaculture:atlantic_herring",
                         "aquaculture:synodontis",
                         "aquaculture:bluegill",
@@ -45,22 +45,21 @@ public class ModEntityTypeTagProvider extends AbstractTagProvider<EntityType<?>>
                         "aquaculture:red_shrooma",
                         "aquaculture:perch");
         this.tag(ModRegistry.UNCOMMON_FISHES_ENTITY_TYPE_TAG)
-                .add(EntityType.PUFFERFISH,
-                        EntityType.TROPICAL_FISH,
-                        ModEntityTypes.ANGELFISH.value(),
-                        ModEntityTypes.BLUE_TANG.value(),
-                        ModEntityTypes.BOWFIN.value(),
-                        ModEntityTypes.BUTTERFLYFISH.value(),
-                        ModEntityTypes.CATFISH.value(),
-                        ModEntityTypes.DAMSELFISH.value(),
-                        ModEntityTypes.KOI.value(),
-                        ModEntityTypes.LAMPREY.value(),
-                        ModEntityTypes.NORTHERN_PIKE.value(),
-                        ModEntityTypes.PICKEREL.value(),
-                        ModEntityTypes.PUPFISH.value(),
-                        ModEntityTypes.SIAMESE_FIGHTING_FISH.value(),
-                        ModEntityTypes.WHITEMARGIN_STARGAZER.value(),
-                        ModEntityTypes.TUNA.value())
+                .add(EntityTypeIds.PUFFERFISH, EntityTypeIds.TROPICAL_FISH)
+                .add(ModEntityTypes.ANGELFISH,
+                        ModEntityTypes.BLUE_TANG,
+                        ModEntityTypes.BOWFIN,
+                        ModEntityTypes.BUTTERFLYFISH,
+                        ModEntityTypes.CATFISH,
+                        ModEntityTypes.DAMSELFISH,
+                        ModEntityTypes.KOI,
+                        ModEntityTypes.LAMPREY,
+                        ModEntityTypes.NORTHERN_PIKE,
+                        ModEntityTypes.PICKEREL,
+                        ModEntityTypes.PUPFISH,
+                        ModEntityTypes.SIAMESE_FIGHTING_FISH,
+                        ModEntityTypes.WHITEMARGIN_STARGAZER,
+                        ModEntityTypes.TUNA)
                 .addOptional("aquaculture:blackfish",
                         "aquaculture:pollock",
                         "aquaculture:boulti",
@@ -71,13 +70,13 @@ public class ModEntityTypeTagProvider extends AbstractTagProvider<EntityType<?>>
                         "aquaculture:minnow",
                         "aquaculture:jellyfish");
         this.tag(ModRegistry.RARE_FISHES_ENTITY_TYPE_TAG)
-                .add(ModEntityTypes.ANGLERFISH.value(),
-                        ModEntityTypes.ELECTRIC_RAY.value(),
-                        ModEntityTypes.LUNGFISH.value(),
-                        ModEntityTypes.MANTA_RAY.value(),
-                        ModEntityTypes.PIRANHA.value(),
-                        ModEntityTypes.SILVER_STRIPE_BLAASOP.value(),
-                        ModEntityTypes.STINGRAY.value())
+                .add(ModEntityTypes.ANGLERFISH,
+                        ModEntityTypes.ELECTRIC_RAY,
+                        ModEntityTypes.LUNGFISH,
+                        ModEntityTypes.MANTA_RAY,
+                        ModEntityTypes.PIRANHA,
+                        ModEntityTypes.SILVER_STRIPE_BLAASOP,
+                        ModEntityTypes.STINGRAY)
                 .addOptional("aquaculture:atlantic_cod",
                         "aquaculture:pacific_halibut",
                         "aquaculture:atlantic_halibut",

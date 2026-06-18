@@ -23,11 +23,11 @@ public class SeaLifeNeoForge {
                 ModEntityTypeLootProvider::new,
                 ModFishingLootProvider::new,
                 ModTreasureItemLootProvider::new,
-                ModBiomeTagProvider::new,
-                ModBlockTagProvider::new,
-                ModEntityTypeTagProvider::new,
-                ModItemTagProvider::new,
-                ModPaintingVariantTagProvider::new,
+                ModBiomeTagsProvider::new,
+                ModBlockTagsProvider::new,
+                ModEntityTypeTagsProvider::new,
+                ModItemTagsProvider::new,
+                ModPaintingVariantTagsProvider::new,
                 ModRecipeProvider::new);
     }
 }

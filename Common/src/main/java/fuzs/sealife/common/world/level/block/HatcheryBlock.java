@@ -5,7 +5,7 @@ import fuzs.puzzleslib.common.api.block.v1.entity.TickingEntityBlock;
 import fuzs.sealife.common.init.ModBlocks;
 import fuzs.sealife.common.init.ModRegistry;
 import fuzs.sealife.common.world.level.block.entity.HatcheryBlockEntity;
-import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.advancements.triggers.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;

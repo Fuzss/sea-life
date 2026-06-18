@@ -8,16 +8,16 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.PaintingVariantTags;
 import net.minecraft.world.entity.decoration.painting.PaintingVariant;
 
-public class ModPaintingVariantTagProvider extends AbstractTagProvider<PaintingVariant> {
+public class ModPaintingVariantTagsProvider extends AbstractTagProvider<PaintingVariant> {
 
-    public ModPaintingVariantTagProvider(DataProviderContext context) {
+    public ModPaintingVariantTagsProvider(DataProviderContext context) {
         super(Registries.PAINTING_VARIANT, context);
     }
 
     @Override
     public void addTags(HolderLookup.Provider registries) {
         this.tag(PaintingVariantTags.PLACEABLE)
-                .addKey(ModPaintingVariants.ALBATROSS,
+                .add(ModPaintingVariants.ALBATROSS,
                         ModPaintingVariants.BOATS,
                         ModPaintingVariants.LIGHTHOUSE,
                         ModPaintingVariants.SUNSET,

@@ -2,6 +2,8 @@ package fuzs.sealife.common.data.loot;
 
 import fuzs.puzzleslib.common.api.data.v2.AbstractLootProvider;
 import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
+import fuzs.sealife.common.init.ModEntityTypes;
+import fuzs.sealife.common.init.ModItems;
 import net.minecraft.core.Holder;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
@@ -12,8 +14,6 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.SmeltItemFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
-import fuzs.sealife.common.init.ModEntityTypes;
-import fuzs.sealife.common.init.ModItems;
 
 public class ModEntityTypeLootProvider extends AbstractLootProvider.EntityTypes {
 
@@ -29,7 +29,7 @@ public class ModEntityTypeLootProvider extends AbstractLootProvider.EntityTypes 
                 ModItems.ANGLERFISH,
                 Items.GLOWSTONE_DUST.builtInRegistryHolder());
         this.addFishLootTable(ModEntityTypes.BASS, ModItems.BASS);
-        this.addFishLootTable(ModEntityTypes.BLUE_TANG, ModItems.BLUE_TANG, Items.BLUE_DYE.builtInRegistryHolder());
+        this.addFishLootTable(ModEntityTypes.BLUE_TANG, ModItems.BLUE_TANG, Items.DYE.blue().builtInRegistryHolder());
         this.addFishLootTable(ModEntityTypes.BOWFIN, ModItems.BOWFIN);
         this.addFishLootTable(ModEntityTypes.BUTTERFLYFISH, ModItems.BUTTERFLYFISH);
         this.addFishLootTable(ModEntityTypes.CARP, ModItems.CARP);
@@ -39,9 +39,7 @@ public class ModEntityTypeLootProvider extends AbstractLootProvider.EntityTypes 
         this.addFishLootTable(ModEntityTypes.ELECTRIC_RAY,
                 ModItems.ELECTRIC_RAY,
                 Items.REDSTONE.builtInRegistryHolder());
-        this.addFishLootTable(ModEntityTypes.GOLDFISH,
-                ModItems.GOLDFISH,
-                Items.GOLD_NUGGET.builtInRegistryHolder());
+        this.addFishLootTable(ModEntityTypes.GOLDFISH, ModItems.GOLDFISH, Items.GOLD_NUGGET.builtInRegistryHolder());
         this.addFishLootTable(ModEntityTypes.KOI, ModItems.KOI);
         this.addFishLootTable(ModEntityTypes.LAMPREY, ModItems.LAMPREY);
         this.addFishLootTable(ModEntityTypes.LUNGFISH, ModItems.LUNGFISH);

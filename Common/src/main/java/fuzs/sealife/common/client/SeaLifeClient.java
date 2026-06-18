@@ -1,7 +1,10 @@
 package fuzs.sealife.common.client;
 
 import fuzs.puzzleslib.common.api.client.core.v1.ClientModConstructor;
-import fuzs.puzzleslib.common.api.client.core.v1.context.*;
+import fuzs.puzzleslib.common.api.client.core.v1.context.BlockEntityRenderersContext;
+import fuzs.puzzleslib.common.api.client.core.v1.context.EntityRenderersContext;
+import fuzs.puzzleslib.common.api.client.core.v1.context.LayerDefinitionsContext;
+import fuzs.puzzleslib.common.api.client.core.v1.context.ParticleProvidersContext;
 import fuzs.sealife.common.client.model.*;
 import fuzs.sealife.common.client.model.geom.ModModelLayers;
 import fuzs.sealife.common.client.particle.CustomBubbleParticle;
@@ -126,10 +129,5 @@ public class SeaLifeClient implements ClientModConstructor {
     @Override
     public void onRegisterParticleProviders(ParticleProvidersContext context) {
         context.registerParticleProvider(ModRegistry.BUBBLE_PARTICLE_TYPE.value(), CustomBubbleParticle.Provider::new);
-    }
-
-    @Override
-    public void onRegisterRenderBuffers(RenderBuffersContext context) {
-        context.registerRenderBuffer(FishTrapRenderer.RENDER_TYPE);
     }
 }
