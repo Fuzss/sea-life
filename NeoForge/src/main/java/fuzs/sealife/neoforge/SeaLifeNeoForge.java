@@ -30,8 +30,7 @@ public class SeaLifeNeoForge {
                 .addLootProvider(ModBlockLootProvider::new, LootContextParamSets.BLOCK)
                 .addLootProvider(ModEntityLootProvider::new, LootContextParamSets.ENTITY)
                 .addLootProvider(ModFishingLootProvider::new, LootContextParamSets.FISHING)
-                .addLootProvider(ModTreasureItemLootProvider::new,
-                        ModRegistry.TREASURE_ITEM_LOOT_CONTEXT_PARAM_SET.value())
+                .addLootProvider(ModTreasureItemLootProvider::new, ModRegistry.TREASURE_ITEM_LOOT_CONTEXT_PARAM_SET)
                 .addRecipeProvider(ModRecipeProvider::new);
     }
 }

@@ -121,9 +121,9 @@ public class FishTrapBlock extends BaseEntityBlock implements SimpleWaterloggedB
                     LootTable lootTable = serverLevel.getServer()
                             .reloadableRegistries()
                             .getLootTable(ModLootTables.FISH_TRAP);
-                    List<ItemStack> list = lootTable.getRandomItems(lootParams);
-                    ItemStack itemStack = list.isEmpty() ? ItemStack.EMPTY : list.getFirst();
-                    blockEntity.setItem(0, itemStack);
+                    List<ItemStack> randomItems = lootTable.getRandomItems(lootParams);
+                    ItemStack item = randomItems.isEmpty() ? ItemStack.EMPTY : randomItems.getFirst();
+                    blockEntity.setItem(0, item);
                     serverLevel.setBlock(blockPos, blockState.setValue(STAGE, 0), Block.UPDATE_CLIENTS);
                 }
             }

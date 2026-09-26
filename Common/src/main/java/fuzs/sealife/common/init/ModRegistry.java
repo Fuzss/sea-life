@@ -18,6 +18,13 @@ public class ModRegistry {
     static final RegistryManager REGISTRIES = RegistryManager.from(SeaLife.MOD_ID);
     public static final Holder.Reference<SimpleParticleType> BUBBLE_PARTICLE_TYPE = REGISTRIES.registerParticleType(
             "bubble");
+    public static final Holder.Reference<ContextKeySet> TREASURE_ITEM_LOOT_CONTEXT_PARAM_SET = REGISTRIES.register(
+            Registries.CONTEXT_KEY_SET,
+            "treasure_item",
+            () -> new ContextKeySet.Builder().required(LootContextParams.ORIGIN)
+                    .required(LootContextParams.TOOL)
+                    .optional(LootContextParams.THIS_ENTITY)
+                    .build());
     public static final Holder.Reference<CreativeModeTab> CREATIVE_MODE_TAB = REGISTRIES.registerCreativeModeTab(
             ModItems.PUPFISH);
 
@@ -73,14 +80,6 @@ public class ModRegistry {
     public static final TagKey<Biome> SPAWNS_TROUT_BIOME_TAG = TAGS.registerBiomeTag("spawns_trout");
     public static final TagKey<Biome> SPAWNS_TUNA_BIOME_TAG = TAGS.registerBiomeTag("spawns_tuna");
     public static final TagKey<Biome> SPAWNS_WALLEYE_BIOME_TAG = TAGS.registerBiomeTag("spawns_walleye");
-
-    public static final Holder.Reference<ContextKeySet> TREASURE_ITEM_LOOT_CONTEXT_PARAM_SET = REGISTRIES.register(
-            Registries.CONTEXT_KEY_SET,
-            "treasure_item",
-            () -> new ContextKeySet.Builder().required(LootContextParams.ORIGIN)
-                    .required(LootContextParams.TOOL)
-                    .optional(LootContextParams.THIS_ENTITY)
-                    .build());
 
     public static void bootstrap() {
         ModBlocks.bootstrap();

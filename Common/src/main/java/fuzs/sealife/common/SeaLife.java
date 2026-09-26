@@ -1,6 +1,7 @@
 package fuzs.sealife.common;
 
 import fuzs.puzzleslib.common.api.biome.v2.BiomeLoadingPhase;
+import fuzs.puzzleslib.common.api.biome.v2.BiomeTransformer;
 import fuzs.puzzleslib.common.api.config.v3.ConfigHolder;
 import fuzs.puzzleslib.common.api.core.v1.ModConstructor;
 import fuzs.puzzleslib.common.api.core.v1.context.BiomeTransformationsContext;
@@ -13,6 +14,7 @@ import fuzs.sealife.common.init.ModEntityTypes;
 import fuzs.sealife.common.init.ModLootTables;
 import fuzs.sealife.common.init.ModRegistry;
 import net.minecraft.core.Holder;
+import net.minecraft.core.HolderGetter;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.util.valueproviders.UniformInt;
@@ -185,13 +187,15 @@ public class SeaLife implements ModConstructor {
     }
 
     static void addFishSpawn(BiomeTransformationsContext context, Holder.Reference<? extends EntityType<?>> holder, TagKey<Biome> tagKey, Supplier<CommonConfig.FishSpawnConfig> configSupplier) {
-        context.registerBiomeTransformation(BiomeLoadingPhase.ADD, (registries, biome) -> {
-            return biome.is(tagKey);
-        }, (registries, biome, transformation) -> {
-            CommonConfig.FishSpawnConfig config = configSupplier.get();
-            transformation.mobSpawns()
-                    .addSpawn(holder.value(), config.weight, UniformInt.of(config.minCount, config.maxCount));
-        });
+        context.registerBiomeTransformation(BiomeLoadingPhase.ADD,
+                (HolderGetter.Provider lookupProvider, Holder<Biome> biome) -> {
+                    return biome.is(tagKey);
+                },
+                (HolderGetter.Provider lookupProvider, Holder<Biome> biome, BiomeTransformer.Context transformation) -> {
+                    CommonConfig.FishSpawnConfig config = configSupplier.get();
+                    transformation.mobSpawns()
+                            .addSpawn(holder.value(), config.weight, UniformInt.of(config.minCount, config.maxCount));
+                });
     }
 
     public static Identifier id(String path) {
