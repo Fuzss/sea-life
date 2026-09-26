@@ -1,26 +1,26 @@
 package fuzs.sealife.common.data.loot;
 
-import fuzs.puzzleslib.common.api.data.v2.AbstractLootProvider;
-import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.data.v3.loot.AbstractLootSubProvider;
 import fuzs.sealife.common.init.ModLootTables;
-import fuzs.sealife.common.init.ModRegistry;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.world.level.storage.loot.BuiltInLootTables;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.NestedLootTable;
 
-public class ModTreasureItemLootProvider extends AbstractLootProvider.Simple {
+public class ModTreasureItemLootProvider extends AbstractLootSubProvider {
 
-    public ModTreasureItemLootProvider(DataProviderContext context) {
-        super(ModRegistry.TREASURE_ITEM_LOOT_CONTEXT_PARAM_SET, context);
+    public ModTreasureItemLootProvider(LootTableSubProvider.Context output) {
+        super(output);
     }
 
     @Override
-    public void addLootTables() {
-        this.skipValidation(ModLootTables.TREASURE_ITEM);
-        this.add(ModLootTables.TREASURE_ITEM,
+    public void generate() {
+        this.output.accept(ModLootTables.TREASURE_ITEM,
                 LootTable.lootTable()
                         .withPool(LootPool.lootPool()
-                                .add(NestedLootTable.lootTableReference(BuiltInLootTables.BURIED_TREASURE))));
+                                .add(NestedLootTable.lootTableReference(this.output.lookup(Registries.LOOT_TABLE)
+                                        .getOrThrow(BuiltInLootTables.BURIED_TREASURE)))));
     }
 }

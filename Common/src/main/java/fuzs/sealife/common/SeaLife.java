@@ -1,11 +1,9 @@
 package fuzs.sealife.common;
 
-import fuzs.puzzleslib.common.api.biome.v1.BiomeLoadingContext;
-import fuzs.puzzleslib.common.api.biome.v1.BiomeLoadingPhase;
-import fuzs.puzzleslib.common.api.biome.v1.BiomeModificationContext;
+import fuzs.puzzleslib.common.api.biome.v2.BiomeLoadingPhase;
 import fuzs.puzzleslib.common.api.config.v3.ConfigHolder;
 import fuzs.puzzleslib.common.api.core.v1.ModConstructor;
-import fuzs.puzzleslib.common.api.core.v1.context.BiomeModificationsContext;
+import fuzs.puzzleslib.common.api.core.v1.context.BiomeTransformationsContext;
 import fuzs.puzzleslib.common.api.core.v1.context.EntityAttributesContext;
 import fuzs.puzzleslib.common.api.core.v1.context.SpawnPlacementsContext;
 import fuzs.puzzleslib.common.api.event.v1.server.LootTableLoadCallback;
@@ -17,9 +15,9 @@ import fuzs.sealife.common.init.ModRegistry;
 import net.minecraft.core.Holder;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.biome.MobSpawnSettings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -55,7 +53,7 @@ public class SeaLife implements ModConstructor {
     }
 
     @Override
-    public void onRegisterBiomeModifications(BiomeModificationsContext context) {
+    public void onRegisterBiomeTransformations(BiomeTransformationsContext context) {
         addFishSpawn(context,
                 ModEntityTypes.ANCHOVY,
                 ModRegistry.SPAWNS_ANCHOVY_BIOME_TAG,
@@ -186,15 +184,13 @@ public class SeaLife implements ModConstructor {
                 () -> CONFIG.get(CommonConfig.class).walleye);
     }
 
-    static void addFishSpawn(BiomeModificationsContext context, Holder.Reference<? extends EntityType<?>> holder, TagKey<Biome> tagKey, Supplier<CommonConfig.FishSpawnConfig> configSupplier) {
-        context.registerBiomeModification(BiomeLoadingPhase.ADDITIONS, (BiomeLoadingContext biomeLoadingContext) -> {
-            return biomeLoadingContext.is(tagKey);
-        }, (BiomeModificationContext biomeModificationContext) -> {
+    static void addFishSpawn(BiomeTransformationsContext context, Holder.Reference<? extends EntityType<?>> holder, TagKey<Biome> tagKey, Supplier<CommonConfig.FishSpawnConfig> configSupplier) {
+        context.registerBiomeTransformation(BiomeLoadingPhase.ADD, (registries, biome) -> {
+            return biome.is(tagKey);
+        }, (registries, biome, transformation) -> {
             CommonConfig.FishSpawnConfig config = configSupplier.get();
-            biomeModificationContext.mobSpawnSettings()
-                    .addSpawn(holder.value().getCategory(),
-                            config.weight,
-                            new MobSpawnSettings.SpawnerData(holder.value(), config.minCount, config.maxCount));
+            transformation.mobSpawns()
+                    .addSpawn(holder.value(), config.weight, UniformInt.of(config.minCount, config.maxCount));
         });
     }
 

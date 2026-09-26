@@ -1,10 +1,10 @@
 package fuzs.sealife.common.data.loot;
 
-import fuzs.puzzleslib.common.api.data.v2.AbstractLootProvider;
-import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.data.v3.loot.AbstractEntityLootSubProvider;
 import fuzs.sealife.common.init.ModEntityTypes;
 import fuzs.sealife.common.init.ModItems;
 import net.minecraft.core.Holder;
+import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -13,16 +13,16 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.SmeltItemFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
-import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.providers.number.ints.ContextIntProviders;
 
-public class ModEntityTypeLootProvider extends AbstractLootProvider.EntityTypes {
+public class ModEntityLootProvider extends AbstractEntityLootSubProvider {
 
-    public ModEntityTypeLootProvider(DataProviderContext context) {
-        super(context);
+    public ModEntityLootProvider(LootTableSubProvider.Context output) {
+        super(output);
     }
 
     @Override
-    public void addLootTables() {
+    public void generate() {
         this.addFishLootTable(ModEntityTypes.ANCHOVY, ModItems.ANCHOVY);
         this.addFishLootTable(ModEntityTypes.ANGELFISH, ModItems.ANGELFISH);
         this.addFishLootTable(ModEntityTypes.ANGLERFISH,
@@ -69,11 +69,11 @@ public class ModEntityTypeLootProvider extends AbstractLootProvider.EntityTypes 
         this.add(entityType.value(),
                 LootTable.lootTable()
                         .withPool(LootPool.lootPool()
-                                .setRolls(ConstantValue.exactly(1.0F))
+                                .setRolls(ContextIntProviders.exactly(1))
                                 .add(LootItem.lootTableItem(fishItem.value())
                                         .apply(SmeltItemFunction.smelted().when(this.shouldSmeltLoot()))))
                         .withPool(LootPool.lootPool()
-                                .setRolls(ConstantValue.exactly(1.0F))
+                                .setRolls(ContextIntProviders.exactly(1))
                                 .add(LootItem.lootTableItem(bonusItem.value()))
                                 .when(LootItemRandomChanceCondition.randomChance(0.05F))));
     }

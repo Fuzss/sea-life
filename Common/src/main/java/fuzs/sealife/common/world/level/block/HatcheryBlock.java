@@ -1,6 +1,5 @@
 package fuzs.sealife.common.world.level.block;
 
-import com.mojang.serialization.MapCodec;
 import fuzs.puzzleslib.common.api.block.v1.entity.TickingEntityBlock;
 import fuzs.sealife.common.init.ModBlocks;
 import fuzs.sealife.common.init.ModRegistry;
@@ -51,7 +50,6 @@ public class HatcheryBlock extends BaseEntityBlock implements SimpleWaterloggedB
     public static final int COMMON_CYCLES = 3;
     public static final int UNCOMMON_CYCLES = 5;
     public static final int RARE_CYCLES = 7;
-    public static final MapCodec<HatcheryBlock> CODEC = simpleCodec(HatcheryBlock::new);
     protected static final VoxelShape SHAPE_INSIDE = Block.column(14.0, 1.0, 16.0);
     protected static final VoxelShape SHAPE = Shapes.join(Block.column(16.0, 0.0, 15.0),
             SHAPE_INSIDE,
@@ -74,11 +72,6 @@ public class HatcheryBlock extends BaseEntityBlock implements SimpleWaterloggedB
         return BuiltInRegistries.ITEM.listElements().filter((Holder.Reference<Item> holder) -> {
             return holder.value() instanceof MobBucketItem item && item.type == type;
         }).findAny();
-    }
-
-    @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
-        return CODEC;
     }
 
     @Nullable

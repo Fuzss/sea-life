@@ -3,7 +3,7 @@ package fuzs.sealife.common.init;
 import com.google.common.collect.ImmutableMap;
 import fuzs.puzzleslib.common.api.event.v1.server.LootTableLoadCallback;
 import net.minecraft.advancements.predicates.LocationPredicate;
-import net.minecraft.core.HolderLookup;
+import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
@@ -22,14 +22,14 @@ import java.util.Map;
 import java.util.function.BiConsumer;
 
 public class ModLootTables {
-    static final Map<Identifier, BiConsumer<LootPool.Builder, HolderLookup.Provider>> LOOT_TABLE_INJECTIONS;
+    static final Map<Identifier, BiConsumer<LootPool.Builder, HolderGetter.Provider>> LOOT_TABLE_INJECTIONS;
     public static final ResourceKey<LootTable> TREASURE_ITEM = ModRegistry.REGISTRIES.makeResourceKey(Registries.LOOT_TABLE,
             "gameplay/treasure_item");
     public static final ResourceKey<LootTable> FISH_TRAP = ModRegistry.REGISTRIES.makeResourceKey(Registries.LOOT_TABLE,
             "gameplay/fish_trap");
 
     static {
-        ImmutableMap.Builder<Identifier, BiConsumer<LootPool.Builder, HolderLookup.Provider>> builder = ImmutableMap.builder();
+        ImmutableMap.Builder<Identifier, BiConsumer<LootPool.Builder, HolderGetter.Provider>> builder = ImmutableMap.builder();
         builder.put(BuiltInLootTables.FISHING_FISH.identifier(), ModLootTables::addFishingFish);
         builder.put(BuiltInLootTables.FISHING_JUNK.identifier(), ModLootTables::addFishingJunk);
         builder.put(BuiltInLootTables.FISHING_TREASURE.identifier(), ModLootTables::addFishingTreasure);
@@ -40,7 +40,7 @@ public class ModLootTables {
         // NO-OP
     }
 
-    public static void onLootTableLoad(Identifier identifier, LootTable.Builder lootTable, HolderLookup.Provider registries) {
+    public static void onLootTableLoad(Identifier identifier, LootTable.Builder lootTable, HolderGetter.Provider registries) {
         if (LOOT_TABLE_INJECTIONS.containsKey(identifier)) {
             MutableBoolean mutableBoolean = new MutableBoolean();
             LootTableLoadCallback.forEachPool(lootTable, (LootPool.Builder lootPoolBuilder) -> {
@@ -52,7 +52,7 @@ public class ModLootTables {
         }
     }
 
-    public static void addFishingFish(LootPool.Builder lootPoolBuilder, HolderLookup.Provider registries) {
+    public static void addFishingFish(LootPool.Builder lootPoolBuilder, HolderGetter.Provider registries) {
         lootPoolBuilder.add(LootItem.lootTableItem(ModItems.ANCHOVY.value())
                         .setWeight(32)
                         .when(inOceanBiome(registries))
@@ -160,13 +160,13 @@ public class ModLootTables {
                         .when(inOceanBiome(registries)));
     }
 
-    public static void addFishingJunk(LootPool.Builder lootPoolBuilder, HolderLookup.Provider registries) {
+    public static void addFishingJunk(LootPool.Builder lootPoolBuilder, HolderGetter.Provider registries) {
         lootPoolBuilder.add(LootItem.lootTableItem(ModItems.FISH_BONES.value()).setWeight(17))
                 .add(LootItem.lootTableItem(ModItems.OLD_BOOT.value()).setWeight(14))
                 .add(LootItem.lootTableItem(ModItems.EMPTY_CAN.value()).setWeight(16));
     }
 
-    public static void addFishingTreasure(LootPool.Builder lootPoolBuilder, HolderLookup.Provider registries) {
+    public static void addFishingTreasure(LootPool.Builder lootPoolBuilder, HolderGetter.Provider registries) {
         lootPoolBuilder.add(LootItem.lootTableItem(Items.EMERALD).setWeight(5))
                 .add(LootItem.lootTableItem(ModItems.FISH_FOSSIL.value())
                         .setWeight(10)
@@ -178,37 +178,37 @@ public class ModLootTables {
                         .when(InvertedLootItemCondition.invert(inSnowyBiome(registries))));
     }
 
-    private static LootItemCondition.Builder inOceanBiome(HolderLookup.Provider registries) {
+    private static LootItemCondition.Builder inOceanBiome(HolderGetter.Provider registries) {
         return LocationCheck.checkLocation(LocationPredicate.Builder.location()
                 .setBiomes(registries.lookupOrThrow(Registries.BIOME).getOrThrow(BiomeTags.IS_OCEAN)));
     }
 
-    private static LootItemCondition.Builder inColdBiome(HolderLookup.Provider registries) {
+    private static LootItemCondition.Builder inColdBiome(HolderGetter.Provider registries) {
         return LocationCheck.checkLocation(LocationPredicate.Builder.location()
                 .setBiomes(registries.lookupOrThrow(Registries.BIOME).getOrThrow(ModRegistry.IS_COLD_BIOME_TAG)));
     }
 
-    private static LootItemCondition.Builder inHotBiome(HolderLookup.Provider registries) {
+    private static LootItemCondition.Builder inHotBiome(HolderGetter.Provider registries) {
         return LocationCheck.checkLocation(LocationPredicate.Builder.location()
                 .setBiomes(registries.lookupOrThrow(Registries.BIOME).getOrThrow(ModRegistry.IS_HOT_BIOME_TAG)));
     }
 
-    private static LootItemCondition.Builder inSnowyBiome(HolderLookup.Provider registries) {
+    private static LootItemCondition.Builder inSnowyBiome(HolderGetter.Provider registries) {
         return LocationCheck.checkLocation(LocationPredicate.Builder.location()
                 .setBiomes(registries.lookupOrThrow(Registries.BIOME).getOrThrow(ModRegistry.IS_SNOWY_BIOME_TAG)));
     }
 
-    private static LootItemCondition.Builder inRiverBiome(HolderLookup.Provider registries) {
+    private static LootItemCondition.Builder inRiverBiome(HolderGetter.Provider registries) {
         return LocationCheck.checkLocation(LocationPredicate.Builder.location()
                 .setBiomes(registries.lookupOrThrow(Registries.BIOME).getOrThrow(BiomeTags.IS_RIVER)));
     }
 
-    private static LootItemCondition.Builder inSwampyBiome(HolderLookup.Provider registries) {
+    private static LootItemCondition.Builder inSwampyBiome(HolderGetter.Provider registries) {
         return LocationCheck.checkLocation(LocationPredicate.Builder.location()
                 .setBiomes(registries.lookupOrThrow(Registries.BIOME).getOrThrow(ModRegistry.IS_WET_BIOME_TAG)));
     }
 
-    private static LootItemCondition.Builder inJungleBiome(HolderLookup.Provider registries) {
+    private static LootItemCondition.Builder inJungleBiome(HolderGetter.Provider registries) {
         return LocationCheck.checkLocation(LocationPredicate.Builder.location()
                 .setBiomes(registries.lookupOrThrow(Registries.BIOME).getOrThrow(BiomeTags.IS_JUNGLE)));
     }

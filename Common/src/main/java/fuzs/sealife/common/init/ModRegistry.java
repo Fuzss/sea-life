@@ -1,11 +1,9 @@
 package fuzs.sealife.common.init;
 
-import fuzs.puzzleslib.common.api.init.v3.registry.ContentRegistrationHelper;
 import fuzs.puzzleslib.common.api.init.v3.registry.RegistryManager;
 import fuzs.puzzleslib.common.api.init.v3.tags.TagFactory;
 import fuzs.sealife.common.SeaLife;
 import net.minecraft.core.Holder;
-import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.particles.SimpleParticleType;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
@@ -17,8 +15,6 @@ import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 
 public class ModRegistry {
-    public static final RegistrySetBuilder REGISTRY_SET_BUILDER = new RegistrySetBuilder().add(Registries.PAINTING_VARIANT,
-            ModPaintingVariants::bootstrap);
     static final RegistryManager REGISTRIES = RegistryManager.from(SeaLife.MOD_ID);
     public static final Holder.Reference<SimpleParticleType> BUBBLE_PARTICLE_TYPE = REGISTRIES.registerParticleType(
             "bubble");
@@ -78,11 +74,13 @@ public class ModRegistry {
     public static final TagKey<Biome> SPAWNS_TUNA_BIOME_TAG = TAGS.registerBiomeTag("spawns_tuna");
     public static final TagKey<Biome> SPAWNS_WALLEYE_BIOME_TAG = TAGS.registerBiomeTag("spawns_walleye");
 
-    public static final ContextKeySet TREASURE_ITEM_LOOT_CONTEXT_PARAM_SET = ContentRegistrationHelper.registerContextKeySet(
-            SeaLife.id("treasure_item"),
-            (ContextKeySet.Builder builder) -> builder.required(LootContextParams.ORIGIN)
+    public static final Holder.Reference<ContextKeySet> TREASURE_ITEM_LOOT_CONTEXT_PARAM_SET = REGISTRIES.register(
+            Registries.CONTEXT_KEY_SET,
+            "treasure_item",
+            () -> new ContextKeySet.Builder().required(LootContextParams.ORIGIN)
                     .required(LootContextParams.TOOL)
-                    .optional(LootContextParams.THIS_ENTITY));
+                    .optional(LootContextParams.THIS_ENTITY)
+                    .build());
 
     public static void bootstrap() {
         ModBlocks.bootstrap();

@@ -1,8 +1,8 @@
 package fuzs.sealife.common.data.client;
 
-import fuzs.puzzleslib.common.api.client.data.v2.AbstractModelProvider;
-import fuzs.puzzleslib.common.api.client.data.v2.models.ModelTemplateHelper;
-import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.client.data.v3.models.AbstractModelProvider;
+import fuzs.puzzleslib.common.api.client.data.v3.models.ModelTemplateHelper;
+import fuzs.puzzleslib.common.api.data.v3.core.DataProviderContext;
 import fuzs.sealife.common.SeaLife;
 import fuzs.sealife.common.init.ModBlocks;
 import fuzs.sealife.common.init.ModItems;

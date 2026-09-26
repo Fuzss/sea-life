@@ -1,26 +1,27 @@
 package fuzs.sealife.common.data;
 
-import fuzs.puzzleslib.common.api.data.v2.AbstractRecipeProvider;
-import fuzs.puzzleslib.common.api.data.v2.core.DataProviderContext;
+import fuzs.puzzleslib.common.api.data.v3.recipes.AbstractRecipeProvider;
 import fuzs.sealife.common.init.ModItems;
 import fuzs.sealife.common.init.ModRegistry;
+import net.minecraft.advancements.Advancement;
 import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeOutput;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import net.minecraft.data.worldgen.BootstrapContext;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Recipe;
 
 public class ModRecipeProvider extends AbstractRecipeProvider {
 
-    public ModRecipeProvider(DataProviderContext context) {
-        super(context);
+    public ModRecipeProvider(BootstrapContext<Recipe<?>> recipeOutput, BootstrapContext<Advancement> advancementOutput) {
+        super(recipeOutput, advancementOutput);
     }
 
     @Override
-    public void addRecipes(RecipeOutput recipeOutput) {
+    public void buildRecipes() {
         //Food
-        ShapelessRecipeBuilder.shapeless(this.items(), RecipeCategory.FOOD, ModItems.FISH_FINGERS.value())
+        ShapelessRecipeBuilder.shapeless(this.items, RecipeCategory.FOOD, ModItems.FISH_FINGERS.value())
                 .requires(ModRegistry.RAW_FISH_FOODS_ITEM_TAG)
                 .requires(Items.BREAD)
                 .requires(ModRegistry.RAW_FISH_FOODS_ITEM_TAG)
@@ -28,16 +29,16 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
                 .requires(Items.BOWL)
                 .unlockedBy(getHasName(ModRegistry.RAW_FISH_FOODS_ITEM_TAG),
                         this.has(ModRegistry.RAW_FISH_FOODS_ITEM_TAG))
-                .save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(this.items(), RecipeCategory.FOOD, ModItems.SASHIMI.value())
+                .save(this.output);
+        ShapelessRecipeBuilder.shapeless(this.items, RecipeCategory.FOOD, ModItems.SASHIMI.value())
                 .requires(ModRegistry.RAW_FISH_FOODS_ITEM_TAG)
                 .requires(ModRegistry.RAW_FISH_FOODS_ITEM_TAG)
                 .requires(ModRegistry.RAW_FISH_FOODS_ITEM_TAG)
                 .requires(Items.BOWL)
                 .unlockedBy(getHasName(ModRegistry.RAW_FISH_FOODS_ITEM_TAG),
                         this.has(ModRegistry.RAW_FISH_FOODS_ITEM_TAG))
-                .save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(this.items(), RecipeCategory.FOOD, ModItems.FISH_STEW.value())
+                .save(this.output);
+        ShapelessRecipeBuilder.shapeless(this.items, RecipeCategory.FOOD, ModItems.FISH_STEW.value())
                 .requires(ModRegistry.RAW_FISH_FOODS_ITEM_TAG)
                 .requires(Items.CARROT)
                 .requires(Items.BAKED_POTATO)
@@ -45,40 +46,40 @@ public class ModRecipeProvider extends AbstractRecipeProvider {
                 .requires(Items.BOWL)
                 .unlockedBy(getHasName(ModRegistry.RAW_FISH_FOODS_ITEM_TAG),
                         this.has(ModRegistry.RAW_FISH_FOODS_ITEM_TAG))
-                .save(recipeOutput);
+                .save(this.output);
         //Machines
-        ShapedRecipeBuilder.shaped(this.items(), RecipeCategory.DECORATIONS, ModItems.FISH_TRAP.value())
+        ShapedRecipeBuilder.shaped(this.items, RecipeCategory.DECORATIONS, ModItems.FISH_TRAP.value())
                 .define('W', ItemTags.LOGS)
                 .define('S', Items.STRING)
                 .pattern("WSW")
                 .pattern("S S")
                 .pattern("WSW")
                 .unlockedBy(getHasName(Items.STRING), this.has(Items.STRING))
-                .save(recipeOutput);
-        ShapedRecipeBuilder.shaped(this.items(), RecipeCategory.DECORATIONS, ModItems.HATCHERY.value())
+                .save(this.output);
+        ShapedRecipeBuilder.shaped(this.items, RecipeCategory.DECORATIONS, ModItems.HATCHERY.value())
                 .define('F', ItemTags.WOODEN_FENCES)
                 .define('S', ItemTags.WOODEN_SLABS)
                 .pattern("F F")
                 .pattern("F F")
                 .pattern("SSS")
                 .unlockedBy(getHasName(ItemTags.PLANKS), this.has(ItemTags.PLANKS))
-                .save(recipeOutput);
+                .save(this.output);
         //Recycler
-        ShapelessRecipeBuilder.shapeless(this.items(), RecipeCategory.MISC, Items.BONE_MEAL, 7)
+        ShapelessRecipeBuilder.shapeless(this.items, RecipeCategory.MISC, Items.BONE_MEAL, 7)
                 .requires(ModItems.FISH_BONES.value())
                 .unlockedBy(getHasName(ModItems.FISH_BONES.value()), this.has(ModItems.FISH_BONES.value()))
-                .save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(this.items(), RecipeCategory.MISC, Items.LEATHER, 3)
+                .save(this.output);
+        ShapelessRecipeBuilder.shapeless(this.items, RecipeCategory.MISC, Items.LEATHER, 3)
                 .requires(ModItems.OLD_BOOT.value())
                 .unlockedBy(getHasName(ModItems.OLD_BOOT.value()), this.has(ModItems.OLD_BOOT.value()))
-                .save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(this.items(), RecipeCategory.MISC, Items.IRON_NUGGET, 5)
+                .save(this.output);
+        ShapelessRecipeBuilder.shapeless(this.items, RecipeCategory.MISC, Items.IRON_NUGGET, 5)
                 .requires(ModItems.EMPTY_CAN.value())
                 .unlockedBy(getHasName(ModItems.EMPTY_CAN.value()), this.has(ModItems.EMPTY_CAN.value()))
-                .save(recipeOutput);
-        ShapelessRecipeBuilder.shapeless(this.items(), RecipeCategory.MISC, Items.COAL, 3)
+                .save(this.output);
+        ShapelessRecipeBuilder.shapeless(this.items, RecipeCategory.MISC, Items.COAL, 3)
                 .requires(ModItems.FISH_FOSSIL.value())
                 .unlockedBy(getHasName(ModItems.FISH_FOSSIL.value()), this.has(ModItems.FISH_FOSSIL.value()))
-                .save(recipeOutput);
+                .save(this.output);
     }
 }

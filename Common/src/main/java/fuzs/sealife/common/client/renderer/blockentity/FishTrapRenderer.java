@@ -1,6 +1,6 @@
 package fuzs.sealife.common.client.renderer.blockentity;
 
-import com.mojang.blaze3d.pipeline.RenderPipeline;
+import com.mojang.renderpearl.api.pipeline.RenderPipeline;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Axis;
@@ -86,7 +86,7 @@ public class FishTrapRenderer implements BlockEntityRenderer<FishTrapBlockEntity
     private void submitItem(FishTrapRenderState renderState, PoseStack poseStack, SubmitNodeCollector nodeCollector) {
         poseStack.pushPose();
         poseStack.translate(0.5F, 0.4F, 0.5F);
-        poseStack.mulPose(Axis.YP.rotationDegrees(renderState.spin));
+        poseStack.rotateDegrees(Axis.YP, renderState.spin);
         ItemEntityRenderer.renderMultipleFromCount(poseStack,
                 nodeCollector,
                 renderState.lightCoords,
@@ -103,13 +103,13 @@ public class FishTrapRenderer implements BlockEntityRenderer<FishTrapBlockEntity
         poseStack.pushPose();
         poseStack.translate(0.5F, 1.5F, 0.5F);
         poseStack.scale(0.75F, 0.75F, 0.75F);
-        poseStack.mulPose(cameraRenderState.orientation);
-        poseStack.mulPose(Axis.YP.rotationDegrees(180.0F));
+        poseStack.rotate(cameraRenderState.orientation);
+        poseStack.rotateDegrees(Axis.YP, 180.0F);
         poseStack.scale(0.75F, 0.75F, 0.01F);
         renderState.displayItem.submit(poseStack, nodeCollector, renderState.lightCoords, OverlayTexture.NO_OVERLAY, 0);
         poseStack.scale(1.5F, 1.5F, 1.5F);
         poseStack.translate(0.0F, -0.05F, 0.175F);
-        poseStack.mulPose(Axis.ZP.rotationDegrees(180.0F));
+        poseStack.rotateDegrees(Axis.ZP, 180.0F);
         nodeCollector.submitCustomGeometry(poseStack,
                 RENDER_TYPE,
                 (PoseStack.Pose pose, VertexConsumer vertexConsumer) -> {

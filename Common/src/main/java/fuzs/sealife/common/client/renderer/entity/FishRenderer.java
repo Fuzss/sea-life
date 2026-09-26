@@ -47,11 +47,11 @@ public class FishRenderer extends MobRenderer<AbstractFish, LivingEntityRenderSt
         }
 
         float yRot = flopAmount * 4.3F * Mth.sin(flopSpeed * 0.6F * renderState.ageInTicks);
-        poseStack.mulPose(Axis.YP.rotationDegrees(yRot));
+        poseStack.rotateDegrees(Axis.YP, yRot);
         poseStack.translate(0.0F, 0.0F, -0.4F);
         if (!renderState.isInWater) {
             poseStack.translate(0.2F, 0.1F, 0.0F);
-            poseStack.mulPose(Axis.ZP.rotationDegrees(90.0F));
+            poseStack.rotateDegrees(Axis.ZP, 90.0F);
         }
     }
 

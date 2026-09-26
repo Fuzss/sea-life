@@ -22,13 +22,13 @@ public class ModBlocks {
                     .instrument(NoteBlockInstrument.BASS)
                     .strength(0.6F)
                     .sound(SoundType.WOOD)
-                    .pushReaction(PushReaction.DESTROY)
+                    .pushReaction(PushReaction.POPPED)
                     .noOcclusion()
                     .randomTicks()
                     .isValidSpawn(Blocks::never)
                     .isRedstoneConductor(Blocks::never)
                     .isSuffocating(Blocks::never)
-                    .isViewBlocking(Blocks::never));
+                    .isViewBlocking((blockState, blockGetter, blockPos, aabb) -> false));
     public static final Holder.Reference<Block> HATCHERY = ModRegistry.REGISTRIES.registerBlock("hatchery",
             HatcheryBlock::new,
             () -> BlockBehaviour.Properties.of()

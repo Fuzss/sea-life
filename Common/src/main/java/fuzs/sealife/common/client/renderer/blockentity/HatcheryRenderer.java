@@ -59,10 +59,10 @@ public class HatcheryRenderer implements BlockEntityRenderer<HatcheryBlockEntity
                 boolean clockwise = renderState.isClockwise(i);
                 poseStack.translate(0.0D, (double) -0.25F + (0.1 + height * 0.075F), 0.0D);
                 float rotation = renderState.getRotation(i);
-                poseStack.mulPose(Axis.YP.rotationDegrees(rotation));
+                poseStack.rotateDegrees(Axis.YP, rotation);
                 poseStack.translate(0.0D, -0.7F + (maxBbDimension > 1 ? 0.1F : 0F), 0.0D);
-                poseStack.mulPose(Axis.XP.rotationDegrees(-90F));
-                poseStack.mulPose(Axis.YP.rotationDegrees(-90F));
+                poseStack.rotateDegrees(Axis.XP, -90F);
+                poseStack.rotateDegrees(Axis.YP, -90F);
                 float scale = 0.53125F;
                 poseStack.scale(scale, scale, scale);
                 if (maxBbDimension > 1.0D) {
@@ -72,7 +72,7 @@ public class HatcheryRenderer implements BlockEntityRenderer<HatcheryBlockEntity
                 }
 
                 poseStack.translate(1.35F, 0F, 1.35F);
-                poseStack.mulPose(Axis.XP.rotationDegrees(clockwise ? -65F : 65F));
+                poseStack.rotateDegrees(Axis.XP, clockwise ? -65F : 65F);
                 this.entityRenderer.submit(renderState.displayEntity,
                         cameraRenderState,
                         0.0,

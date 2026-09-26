@@ -1,6 +1,5 @@
 package fuzs.sealife.common.world.level.block;
 
-import com.mojang.serialization.MapCodec;
 import fuzs.puzzleslib.common.api.block.v1.entity.TickingEntityBlock;
 import fuzs.sealife.common.SeaLife;
 import fuzs.sealife.common.config.ServerConfig;
@@ -15,6 +14,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.stats.Stats;
 import net.minecraft.tags.FluidTags;
+import net.minecraft.util.Prediction;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -47,10 +47,11 @@ import net.minecraft.world.phys.Vec3;
 import org.jspecify.annotations.Nullable;
 
 import java.util.List;
+import java.util.stream.StreamSupport;
 
 public class FishTrapBlock extends BaseEntityBlock implements SimpleWaterloggedBlock, TickingEntityBlock<FishTrapBlockEntity> {
-    public static final MapCodec<FishTrapBlock> CODEC = simpleCodec(FishTrapBlock::new);
-    public static final List<BlockPos> WATER_OFFSETS = BlockPos.withinManhattanStream(BlockPos.ZERO, 1, 1, 1)
+    public static final List<BlockPos> WATER_OFFSETS = StreamSupport.stream(BlockPos.withinManhattan(BlockPos.ZERO, 1)
+                    .spliterator(), false)
             .filter((BlockPos blockPos) -> blockPos.distManhattan(BlockPos.ZERO) == 1)
             .map(BlockPos::immutable)
             .toList();
@@ -64,11 +65,6 @@ public class FishTrapBlock extends BaseEntityBlock implements SimpleWaterloggedB
                 .setValue(WATERLOGGED, Boolean.FALSE)
                 .setValue(STAGE, 0)
                 .setValue(ENABLED, Boolean.FALSE));
-    }
-
-    @Override
-    protected MapCodec<? extends BaseEntityBlock> codec() {
-        return CODEC;
     }
 
     @Nullable
@@ -162,7 +158,7 @@ public class FishTrapBlock extends BaseEntityBlock implements SimpleWaterloggedB
                     ItemStack itemStack = blockEntity.removeItem(0, 1);
                     level.playSound(null, pos, SoundEvents.ITEM_FRAME_REMOVE_ITEM, SoundSource.BLOCKS, 1.0F, 1.0F);
                     if (!player.getInventory().add(itemStack)) {
-                        player.drop(itemStack, false);
+                        player.drop(itemStack, false, Prediction.SERVER_ONLY);
                     }
 
                     level.gameEvent(player, GameEvent.BLOCK_CHANGE, pos);

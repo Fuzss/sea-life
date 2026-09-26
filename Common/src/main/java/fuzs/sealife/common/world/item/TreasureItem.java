@@ -38,7 +38,7 @@ public class TreasureItem extends Item {
                             player.position())
                     .withParameter(LootContextParams.TOOL, originalItemInHand)
                     .withOptionalParameter(LootContextParams.THIS_ENTITY, player)
-                    .create(ModRegistry.TREASURE_ITEM_LOOT_CONTEXT_PARAM_SET));
+                    .create(ModRegistry.TREASURE_ITEM_LOOT_CONTEXT_PARAM_SET.value()));
             for (ItemStack itemStack : items) {
                 GiveItemHelper.giveItem(itemStack, (ServerPlayer) player);
             }

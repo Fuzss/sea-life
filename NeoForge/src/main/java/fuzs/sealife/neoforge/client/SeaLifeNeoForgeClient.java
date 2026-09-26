@@ -1,7 +1,7 @@
 package fuzs.sealife.neoforge.client;
 
 import fuzs.puzzleslib.common.api.client.core.v1.ClientModConstructor;
-import fuzs.puzzleslib.neoforge.api.data.v2.core.DataProviderHelper;
+import fuzs.puzzleslib.neoforge.api.data.v3.core.DataProviderBuilder;
 import fuzs.sealife.common.SeaLife;
 import fuzs.sealife.common.client.SeaLifeClient;
 import fuzs.sealife.common.data.client.ModLanguageProvider;
@@ -15,9 +15,9 @@ public class SeaLifeNeoForgeClient {
 
     public SeaLifeNeoForgeClient() {
         ClientModConstructor.construct(SeaLife.MOD_ID, SeaLifeClient::new);
-        DataProviderHelper.registerDataProviders(SeaLife.MOD_ID,
-                ModLanguageProvider::new,
-                ModModelProvider::new,
-                ModParticleProvider::new);
+        DataProviderBuilder.of(SeaLife.MOD_ID)
+                .addProvider(ModLanguageProvider::new,
+                        ModModelProvider::new,
+                        ModParticleProvider::new);
     }
 }
