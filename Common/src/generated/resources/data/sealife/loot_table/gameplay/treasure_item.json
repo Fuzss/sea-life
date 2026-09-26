@@ -8,7 +8,7 @@
           "value": "minecraft:chests/buried_treasure"
         }
       ],
-      "rolls": 1.0
+      "rolls": 1
     }
   ],
   "random_sequence": "sealife:gameplay/treasure_item"

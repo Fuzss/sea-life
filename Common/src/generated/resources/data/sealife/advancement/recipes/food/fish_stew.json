@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "sealife:fish_stew"
+        "recipes": "sealife:fish_stew"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

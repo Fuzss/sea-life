@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "sealife:fish_trap"
+        "recipes": "sealife:fish_trap"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

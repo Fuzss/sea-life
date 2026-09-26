@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "sealife:fish_fingers"
+        "recipes": "sealife:fish_fingers"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

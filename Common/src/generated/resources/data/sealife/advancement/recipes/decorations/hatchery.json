@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "sealife:hatchery"
+        "recipes": "sealife:hatchery"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "sealife:sashimi"
+        "recipes": "sealife:sashimi"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
